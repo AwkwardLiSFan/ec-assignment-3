@@ -65,6 +65,7 @@ public class Test {
 		System.out.println("gameState.gameTick = " + gameState.gameTick);
 		gameState.advance(a);
 		System.out.println("Last action done " + gameState.getAvatarLastAction());
+		System.out.println("gameState.gameTick = " + gameState.gameTick);
 
 
 		// 3. This replays a game from an action file previously recorded

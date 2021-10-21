@@ -882,7 +882,7 @@ public abstract class Game {
 	public ForwardModel runGameAssignment3(Player[] players, int randomSeed) {
 		// Prepare some structures and references for this game.
 		prepareGame(players, randomSeed, -1);
-
+		gameTick++;
 		// Play until the game is ended
 		// while (!isEnded) {
 		// 	this.gameCycle(); // Execute a game cycle.
