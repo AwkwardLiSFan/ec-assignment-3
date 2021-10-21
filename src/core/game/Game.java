@@ -172,7 +172,7 @@ public abstract class Game {
 	/**
 	 * Game tick
 	 */
-	protected int gameTick;
+	public int gameTick;
 
 	/**
 	 * Handling when the window is closed
@@ -879,6 +879,22 @@ public abstract class Game {
 		return handleResult();
 	}
 
+	public ForwardModel runGameAssignment3(Player[] players, int randomSeed) {
+		// Prepare some structures and references for this game.
+		prepareGame(players, randomSeed, -1);
+
+		// Play until the game is ended
+		// while (!isEnded) {
+		// 	this.gameCycle(); // Execute a game cycle.
+		// }
+
+		// Update the forward model for the game state sent to the controller.
+		fwdModel.update(this);
+		return fwdModel;
+
+		//return handleResult();
+	}
+
 	/**
 	 * Plays the game, graphics enabled.
 	 *
@@ -1069,7 +1085,7 @@ public abstract class Game {
 	 * @param randomSeed
 	 *            sampleRandom seed for the whole game.
 	 */
-	private void prepareGame(Player[] players, int randomSeed, int humanID) {
+	public void prepareGame(Player[] players, int randomSeed, int humanID) {
 		// Start tick counter.
 		gameTick = -1;
 
