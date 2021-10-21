@@ -1,5 +1,6 @@
 package tracks.singlePlayer;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import core.logging.Logger;
@@ -38,7 +39,10 @@ public class Test {
 
 		//Game settings
 		boolean visuals = true;
+		//Set the seed to a single value as Chaser NPC's are random >_>
 		int seed = new Random().nextInt();
+		seed = -131244659;
+		System.out.println("This is the random seed, it's set due to randomness in Chaser NPC's " + seed);
 
 		// Game and level to play
 		int gameIdx = 46;
@@ -52,20 +56,37 @@ public class Test {
 						// where to record the actions
 						// executed. null if not to save.
 
-		// 1. This starts a game, in a level, played by a human.
-		// ArcadeMachine.playOneGame(game, level1, recordActionsFile, seed);
-
-		// 2. This plays a game in a level by the controller.
 		ForwardModel gameState = ArcadeMachine.gameInt(game, level1, visuals, sampleRHEAController, recordActionsFile, seed, 0);
-		System.out.println("something ~~~~~~");
-		
-		System.out.println("List of possible actions  " + gameState.getAvatarActions(false));
+		ForwardModel gameStateCopy = gameState;
+
+		// List of actions that you can do during the game
+		ArrayList<Types.ACTIONS> actionList = gameState.getAvatarActions(true);
+		int numberOfActions = actionList.size();
+
+		// Example of what an individual will look like
+		ArrayList<Types.ACTIONS> individual = new ArrayList<Types.ACTIONS>();
+
+		Random rand = new Random();
+		int individualLength = 30;
+		// Example of how to populate an individual
+		for (int i = 0; i < individualLength; i++){
+			int int_rand = rand.nextInt(numberOfActions);
+			individual.add(actionList.get(int_rand));
+		}
+
+		// Different methods you can use, see core/game/ForwardModel for full list of methods
+		System.out.println("List of possible actions  " + gameState.getAvatarActions(true));
 		System.out.println("Orientation " + gameState.getAvatarOrientation());
-		Types.ACTIONS a = gameState.getAvatarActions(false).get(2);
+		System.out.println("The individuals contents: " + individual);
+		Types.ACTIONS a = actionList.get(2);
 		System.out.println("gameState.gameTick = " + gameState.gameTick);
 		gameState.advance(a);
 		System.out.println("Last action done " + gameState.getAvatarLastAction());
 		System.out.println("gameState.gameTick = " + gameState.gameTick);
+		System.out.println("Is the game over? : " + gameState.isGameOver());
+		System.out.println("Game Score : " + gameState.getGameScore());
+		
+
 
 
 		// 3. This replays a game from an action file previously recorded
