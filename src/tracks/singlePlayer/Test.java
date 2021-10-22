@@ -65,20 +65,28 @@ public class Test {
 
 		// Example of what an individual will look like
 		ArrayList<Types.ACTIONS> individual = new ArrayList<Types.ACTIONS>();
+		ArrayList<Types.ACTIONS> individual2 = new ArrayList<Types.ACTIONS>();
 
 		Random rand = new Random();
-		int individualLength = 30;
+		int individualLength = 10;
 		// Example of how to populate an individual
 		for (int i = 0; i < individualLength; i++){
 			int int_rand = rand.nextInt(numberOfActions);
 			individual.add(actionList.get(int_rand));
 		}
 
+		//testing for crossover
+		for (int i = 0; i < individualLength; i++){
+			int int_rand = rand.nextInt(numberOfActions);
+			individual2.add(actionList.get(int_rand));
+		}
+
 		// Different methods you can use, see core/game/ForwardModel for full list of methods
 		System.out.println("List of possible actions  " + gameState.getAvatarActions(true));
 		System.out.println("Orientation " + gameState.getAvatarOrientation());
 		System.out.println("The individuals contents: " + individual);
-		Types.ACTIONS a = actionList.get(2);
+		System.out.println("The individuals 2 contents: " + individual2);
+		Types.ACTIONS a = individual.get(2);
 		System.out.println("gameState.gameTick = " + gameState.gameTick);
 		gameState.advance(a);
 		System.out.println("Last action done " + gameState.getAvatarLastAction());
@@ -86,7 +94,9 @@ public class Test {
 		System.out.println("Is the game over? : " + gameState.isGameOver());
 		System.out.println("Game Score : " + gameState.getGameScore());
 		
-
+		// test crossover
+		ArrayList<Types.ACTIONS> child = crossover(individual, individual2); 
+		System.out.println("Child is: " + child);
 
 
 		// 3. This replays a game from an action file previously recorded
@@ -123,4 +133,39 @@ public class Test {
 
 
     }
+
+	/**
+     * Performs 1-point crossover on two individuals of the same length and returns the crossover children
+     * 
+     * @param parent1
+     *            first individual of ACTIONS in the crossover
+     * @param parent2
+     *            second individual of ACTIONS in the crossover
+     */
+	public static ArrayList<Types.ACTIONS> crossover(ArrayList<Types.ACTIONS> parent1, ArrayList<Types.ACTIONS> parent2) {
+		ArrayList<Types.ACTIONS> child1 = new ArrayList<Types.ACTIONS>();
+		ArrayList<Types.ACTIONS> child2 = new ArrayList<Types.ACTIONS>();
+		int length = parent1.size();
+
+		// get crossover point
+		Random rand = new Random();
+		int crossoverPoint = rand.nextInt(length);
+		System.out.println("Crossover point is:" + crossoverPoint);
+		
+		// produce children using crossover point
+		for (int i = 0; i < crossoverPoint; i++) {
+			child1.add(parent1.get(i));
+			child2.add(parent2.get(i));
+		}
+
+		for (int j = crossoverPoint; j < length; j++) {
+			child1.add(parent2.get(j));
+			child2.add(parent1.get(j));
+		}
+		
+		//need to return child2 too
+		return child1;
+	}
+
+	
 }
