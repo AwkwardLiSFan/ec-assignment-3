@@ -215,7 +215,6 @@ public class Test {
 				child.set(i, actionList.get(int_rand));
 			}
 		}
-
 		return child;
 	}
 
