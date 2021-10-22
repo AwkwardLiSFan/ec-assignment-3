@@ -101,11 +101,15 @@ public class Test {
 		System.out.println("Child is: " + result.get(0));
 		System.out.println("Child is: " + result.get(1));
 
-		// test mutation
-		ArrayList<Types.ACTIONS> mutant = mutation(individual, actionList);
-
-		System.out.println("mutated ind: " + mutant);
-
+		// test mutation using 10% rate on the population (need to loop through the population)
+		double probability = rand.nextDouble();
+		
+		if (probability <= .1) {
+	
+			// perform mutation
+			ArrayList<Types.ACTIONS> mutant = mutation(individual, actionList);
+			System.out.println("mutated ind: " + mutant);
+		}
 
 		// 3. This replays a game from an action file previously recorded
 	//	 String readActionsFile = recordActionsFile;
@@ -188,32 +192,30 @@ public class Test {
      * 
      * @param individual
      *            an individual of ACTIONS in the mutation
+	 * @param actionList
+	 *            list of possible actions for an individual
      */
 	public static ArrayList<Types.ACTIONS> mutation(ArrayList<Types.ACTIONS> individual, ArrayList<Types.ACTIONS> actionList) {
 		ArrayList<Types.ACTIONS> child = new ArrayList<Types.ACTIONS>();
 		
 		child = individual;
 		int length = individual.size();
-
-		// set mutation rate
-		double rate = 1 / length;
+		int numberOfActions = actionList.size();
 		Random rand = new Random();
-		
-		// iterate through all actions in the individual
+
+		// set individual mutation rate
+		double ind_rate = 1 / length;
+
 		for (int i = 0; i < length; i++) {
-			double probability = rand.nextDouble();
 
-			// perform mutation if probability is less than mutation rate
-			if (probability < rate) {
-
-				// get a random action and mutate the child
-				int numberOfActions = actionList.size();
+			double prob = rand.nextDouble();
+			if (prob <= ind_rate) {
+				// get a random action and mutate child
 				int int_rand = rand.nextInt(numberOfActions);
-
 				child.set(i, actionList.get(int_rand));
-			}	
+			}
 		}
-		
+
 		return child;
 	}
 
