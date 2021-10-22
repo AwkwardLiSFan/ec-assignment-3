@@ -95,8 +95,10 @@ public class Test {
 		System.out.println("Game Score : " + gameState.getGameScore());
 		
 		// test crossover
-		ArrayList<Types.ACTIONS> child = crossover(individual, individual2); 
-		System.out.println("Child is: " + child);
+		ArrayList<ArrayList<Types.ACTIONS>> result = crossover(individual, individual2);
+
+		System.out.println("Child is: " + result.get(0));
+		System.out.println("Child is: " + result.get(1));
 
 
 		// 3. This replays a game from an action file previously recorded
@@ -142,10 +144,12 @@ public class Test {
      * @param parent2
      *            second individual of ACTIONS in the crossover
      */
-	public static ArrayList<Types.ACTIONS> crossover(ArrayList<Types.ACTIONS> parent1, ArrayList<Types.ACTIONS> parent2) {
+	public static ArrayList<ArrayList<Types.ACTIONS>> crossover(ArrayList<Types.ACTIONS> parent1, ArrayList<Types.ACTIONS> parent2) {
 		ArrayList<Types.ACTIONS> child1 = new ArrayList<Types.ACTIONS>();
 		ArrayList<Types.ACTIONS> child2 = new ArrayList<Types.ACTIONS>();
-		int length = parent1.size();
+
+		// Get the smallest individual
+		int length = Math.min(parent1.size(), parent2.size());
 
 		// get crossover point
 		Random rand = new Random();
@@ -157,14 +161,20 @@ public class Test {
 			child1.add(parent1.get(i));
 			child2.add(parent2.get(i));
 		}
-
-		for (int j = crossoverPoint; j < length; j++) {
+		// Populate child 1
+		for (int j = crossoverPoint; j < parent2.size(); j++) {
 			child1.add(parent2.get(j));
+		}
+		// Populate child 2
+		for (int j = crossoverPoint; j < parent1.size(); j++) {
 			child2.add(parent1.get(j));
 		}
 		
+		ArrayList<ArrayList<Types.ACTIONS>> result = new ArrayList<ArrayList<Types.ACTIONS>>();
+		result.add(child1);
+		result.add(child2);
 		//need to return child2 too
-		return child1;
+		return result;
 	}
 
 	public static ArrayList<Types.ACTIONS> mutation(ArrayList<Types.ACTIONS> parent1, ArrayList<Types.ACTIONS> parent2) {
