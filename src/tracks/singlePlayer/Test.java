@@ -167,5 +167,18 @@ public class Test {
 		return child1;
 	}
 
-	
+	public static ArrayList<Types.ACTIONS> mutation(ArrayList<Types.ACTIONS> parent1, ArrayList<Types.ACTIONS> parent2) {
+		ArrayList<Types.ACTIONS> child = new ArrayList<Types.ACTIONS>();
+		double rate = 1 / parent1.size();
+
+		Random rand = new Random();
+		double probability = rand.nextDouble();
+
+		if (probability ) {
+
+		}
+		return child;
+	}
+
+
 }
