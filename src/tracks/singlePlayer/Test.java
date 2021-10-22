@@ -2,6 +2,7 @@ package tracks.singlePlayer;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Collections;
 
 import core.logging.Logger;
 import tools.Utils;
@@ -100,6 +101,11 @@ public class Test {
 		System.out.println("Child is: " + result.get(0));
 		System.out.println("Child is: " + result.get(1));
 
+		// test mutation
+		ArrayList<Types.ACTIONS> mutant = mutation(individual, actionList);
+
+		System.out.println("mutated ind: " + mutant);
+
 
 		// 3. This replays a game from an action file previously recorded
 	//	 String readActionsFile = recordActionsFile;
@@ -173,20 +179,41 @@ public class Test {
 		ArrayList<ArrayList<Types.ACTIONS>> result = new ArrayList<ArrayList<Types.ACTIONS>>();
 		result.add(child1);
 		result.add(child2);
-		//need to return child2 too
 		return result;
 	}
 
-	public static ArrayList<Types.ACTIONS> mutation(ArrayList<Types.ACTIONS> parent1, ArrayList<Types.ACTIONS> parent2) {
+
+	/**
+     * Performs mutation on an individual and returns the mutated child
+     * 
+     * @param individual
+     *            an individual of ACTIONS in the mutation
+     */
+	public static ArrayList<Types.ACTIONS> mutation(ArrayList<Types.ACTIONS> individual, ArrayList<Types.ACTIONS> actionList) {
 		ArrayList<Types.ACTIONS> child = new ArrayList<Types.ACTIONS>();
-		double rate = 1 / parent1.size();
+		
+		child = individual;
+		int length = individual.size();
 
+		// set mutation rate
+		double rate = 1 / length;
 		Random rand = new Random();
-		double probability = rand.nextDouble();
+		
+		// iterate through all actions in the individual
+		for (int i = 0; i < length; i++) {
+			double probability = rand.nextDouble();
 
-		if (probability ) {
+			// perform mutation if probability is less than mutation rate
+			if (probability < rate) {
 
+				// get a random action and mutate the child
+				int numberOfActions = actionList.size();
+				int int_rand = rand.nextInt(numberOfActions);
+
+				child.set(i, actionList.get(int_rand));
+			}	
 		}
+		
 		return child;
 	}
 
