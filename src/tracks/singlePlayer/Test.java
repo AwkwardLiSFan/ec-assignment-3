@@ -101,7 +101,7 @@ public class Test {
 		System.out.println("Child is: " + result.get(0));
 		System.out.println("Child is: " + result.get(1));
 
-		// test mutation using 10% rate on the population (need to loop through the population)
+		// test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
 		double probability = rand.nextDouble();
 		
 		if (probability <= .1) {
