@@ -1,8 +1,9 @@
 package tracks.singlePlayer;
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
+import java.util.Comparator;
 
 import core.logging.Logger;
 import tools.Utils;
@@ -90,17 +91,28 @@ public class Test {
 		// Create a fresh copy of the game state
 		gameStateCopy = gameState;
 		// itterate through the game
-		int lastMove = population.get(0).moveSet.size();
-		for(int i = 0; i < population.get(0).moveSet.size(); i++){
+		int lastMove = population.get(1).moveSet.size();
+		for(int i = 0; i < population.get(1).moveSet.size(); i++){
 			// Make the next move in the individual
-			gameStateCopy.advance(population.get(0).moveSet.get(i));
+			gameStateCopy.advance(population.get(1).moveSet.get(i));
 			//if the game is over then exit the loop
 			if(gameStateCopy.isGameOver()){
 				System.out.println("Game finished Early at move " + i);
 				lastMove = i;
+				population.get(1).score = (float)gameStateCopy.getScore();
 				break;
 			}
 		}
+		for(int i = 0; i < populationSize; i++){
+			System.out.print(population.get(i).score + " ");
+		}
+		population.get(50).score = 5;
+		Collections.sort(population);
+		System.out.println();
+		for(int i = 0; i < populationSize; i++){
+			System.out.print(population.get(i).score + " ");
+		}
+
 		population.get(0).score = (float)gameStateCopy.getScore();
 		System.out.println("Length of moveSet prior to cutoff = " + population.get(0).moveSet.size());
 		// Cut off the rest of the moves after finishing the game 
@@ -224,15 +236,12 @@ public class Test {
 
 		return child;
 	}
-
-
 }
 
 
-
-class Individual {
+class Individual implements Comparable<Individual>{
 	public ArrayList<Types.ACTIONS> moveSet;
-	float score;
+	public double score;
 
 	public Individual(){
 		this.score = -1;
@@ -245,7 +254,15 @@ class Individual {
 		this.moveSet = moves;
 		this.score = score;
 	}
+	public int compareTo(Individual compareInd){
+		int compareScore=(int)((Individual)compareInd).score;
+		return (int)(compareScore-this.score);
+	}
+	
 }
+
+
+
 
 
 
