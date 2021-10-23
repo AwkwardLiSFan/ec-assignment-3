@@ -21,39 +21,13 @@ import ontology.Types;
 public class Test {
 
     public static void main(String[] args) {
-
-		// Available tracks:
-        String sampleRHEAController = "tracks.singlePlayer.advanced.sampleRHEA.Agent";
-
-		//Load available games
-		String spGamesCollection =  "examples/all_games_sp.csv";
-		String[][] games = Utils.readGames(spGamesCollection);
-		//The games that we have to test with
 		int[] gameIndex = {8, 10, 18, 45};
-
-		//Game settings
-		boolean visuals = true;
-		//Set the seed to a single value as Chaser NPC's are random >_>
-		int seed = new Random().nextInt();
-		seed = -131244659;
-		System.out.println("This is the random seed, it's set due to randomness in Chaser NPC's " + seed);
-
-		// Game and level to play
-		int gameIdx = 46;
-		int levelIdx = 0; // level names from 0 to 4 (game_lvlN.txt).
-		String gameName = games[gameIdx][1];
-		String game = games[gameIdx][0];
-		String level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
-
-		String recordActionsFile = null;// "actions_" + games[gameIdx] + "_lvl"
-						// + levelIdx + "_" + seed + ".txt";
-						// where to record the actions
-						// executed. null if not to save.
-
-		// Game initialisation
-		ForwardModel gameState = ArcadeMachine.gameInt(game, level1, visuals, sampleRHEAController, recordActionsFile, seed, 0);
+		int gameLevel = 0;
+		
 		// Creating a copy of the game state
+		ForwardModel gameState = init(gameIndex[0], gameLevel);
 		ForwardModel gameStateCopy = gameState;
+		
 
 		// List of actions that you can do during the game
 		ArrayList<Types.ACTIONS> actionList = gameState.getAvatarActions(true);
@@ -90,6 +64,7 @@ public class Test {
 		// Playing out an individual and retrieving relevant results
 		// Create a fresh copy of the game state
 		gameStateCopy = gameState;
+
 		// itterate through the game
 		int lastMove = population.get(1).moveSet.size();
 		for(int i = 0; i < population.get(1).moveSet.size(); i++){
@@ -242,6 +217,40 @@ public class Test {
 		}
 		return child;
 	}
+
+	public static ForwardModel init(int gameIndex, int level){
+		// Available tracks:
+		String sampleRHEAController = "tracks.singlePlayer.advanced.sampleRHEA.Agent";
+	
+		//Load available games
+		String spGamesCollection =  "examples/all_games_sp.csv";
+		String[][] games = Utils.readGames(spGamesCollection);
+		//The games that we have to test with
+		
+	
+		//Game settings
+		boolean visuals = true;
+		//Set the seed to a single value as Chaser NPC's are random >_>
+		int seed = new Random().nextInt();
+		seed = -131244659;
+		System.out.println("This is the random seed, it's set due to randomness in Chaser NPC's " + seed);
+	
+		// Game and level to play
+		int gameIdx = gameIndex;
+		int levelIdx = level; // level names from 0 to 4 (game_lvlN.txt).
+		String gameName = games[gameIdx][1];
+		String game = games[gameIdx][0];
+		String level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
+	
+		String recordActionsFile = null;// "actions_" + games[gameIdx] + "_lvl"
+						// + levelIdx + "_" + seed + ".txt";
+						// where to record the actions
+						// executed. null if not to save.
+	
+		// Game initialisation
+		ForwardModel gameState = ArcadeMachine.gameInt(game, level1, visuals, sampleRHEAController, recordActionsFile, seed, 0);
+		return gameState;
+	}
 }
 
 
@@ -307,3 +316,4 @@ class Individual implements Comparable<Individual>{
 //			}
 //			ArcadeMachine.runGames(game, levels, M, sampleRHEAController, saveActions? actionFiles:null);
 //		}
+
