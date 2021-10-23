@@ -31,54 +31,36 @@ public class Test {
 		
 
 		// List of actions that you can do during the game
-		ArrayList<Types.ACTIONS> actionList = gameState.getAvatarActions(true);
+		ArrayList<Types.ACTIONS> actionList = gameStateCopy.getAvatarActions(true);
 		int numberOfActions = actionList.size();
 
 		// Example of what an individual will look like
 		Individual i1 = new Individual();
 		i1.score = -5;
 		System.out.println("Score of the First individual class object = " + i1.score);
+		//
 
 		Random rand = new Random();
 		// Initial length of individuals
-		int individualLength = 10;
+		int individualLength = 1000;
 
 		// Creating a population of individuals
 		ArrayList<Individual> population = new ArrayList<Individual>();
 		// Size of the population of 100
-		int populationSize = 100;
-		for (int pop = 0; pop < populationSize; pop++){
-			// Create a new moveset
-			ArrayList<Types.ACTIONS> moveset = new ArrayList<Types.ACTIONS>();
-			// Populating the moveset with random moves
-			for (int i = 0; i < individualLength; i++){
-				int int_rand = rand.nextInt(numberOfActions);
-				moveset.add(actionList.get(int_rand));
-			}
-			// Create a new individual with a moveset
-			Individual ind = new Individual(moveset);
-
-			// Add the individual created to the population
-			population.add(ind);
-		}
+		int populationSize = 20;
+		// Initialize the population
+		initializePopulation(populationSize, individualLength, actionList, population);
 
 		// Playing out an individual and retrieving relevant results
 		// Create a fresh copy of the game state
-		gameStateCopy = gameState;
-
-		// itterate through the game
-		int lastMove = population.get(1).moveSet.size();
-		for(int i = 0; i < population.get(1).moveSet.size(); i++){
-			// Make the next move in the individual
-			gameStateCopy.advance(population.get(1).moveSet.get(i));
-			//if the game is over then exit the loop
-			if(gameStateCopy.isGameOver()){
-				System.out.println("Game finished Early at move " + i);
-				lastMove = i;
-				population.get(1).score = (float)gameStateCopy.getScore();
-				break;
-			}
+		
+		// Loop through the population and play the game with each one
+		for(int i = 0; i < population.size(); i++){
+			gameStateCopy = gameState;
+			// Play the game with the selected individual
+			population.set(i, playGame(population.get(i), gameStateCopy));
 		}
+		
 		for(int i = 0; i < populationSize; i++){
 			System.out.print(population.get(i).score + " ");
 		}
@@ -90,12 +72,9 @@ public class Test {
 			System.out.print(population.get(i).score + " ");
 		}
 
-		population.get(0).score = (float)gameStateCopy.getScore();
+		
 		System.out.println("Length of moveSet prior to cutoff = " + population.get(0).moveSet.size());
-		// Cut off the rest of the moves after finishing the game 
-		if (lastMove < population.get(0).moveSet.size()){
-			population.get(0).moveSet.subList(lastMove, population.get(0).moveSet.size()).clear();
-		}
+		
 		System.out.println("Length of moveSet = " + population.get(0).moveSet.size());
 		System.out.println("Score: " + population.get(0).score);
 		System.out.println("Winner: " + gameStateCopy.getGameWinner());
@@ -120,22 +99,22 @@ public class Test {
 		// System.out.println("Game Score : " + gameState.getGameScore());
 		
 		// test crossover
-		System.out.println("Individual 1: " + population.get(0).moveSet);
-		System.out.println("Individual 2: " + population.get(1).moveSet);
+		// System.out.println("Individual 1: " + population.get(0).moveSet);
+		// System.out.println("Individual 2: " + population.get(1).moveSet);
 
-		ArrayList<Individual> result = crossover(population.get(0), population.get(1));
+		// ArrayList<Individual> result = crossover(population.get(0), population.get(1));
 
-		System.out.println("Child is: " + result.get(0).moveSet);
-		System.out.println("Child is: " + result.get(1).moveSet);
+		// System.out.println("Child is: " + result.get(0).moveSet);
+		// System.out.println("Child is: " + result.get(1).moveSet);
 
-		// test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
-		double probability = rand.nextDouble();
-		if (probability <= .1) {
+		// // test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
+		// double probability = rand.nextDouble();
+		// if (probability <= .8) {
 	
-			// perform mutation
-			Individual mutant = mutation(population.get(0), actionList);
-			System.out.println("mutated ind: " + mutant.moveSet);
-		}
+		// 	// perform mutation
+		// 	Individual mutant = mutation(population.get(0), actionList);
+		// 	System.out.println("mutated ind: " + mutant.moveSet);
+		// }
 
 
 
@@ -261,6 +240,47 @@ public class Test {
 		ForwardModel gameState = ArcadeMachine.gameInt(game, level1, visuals, sampleRHEAController, recordActionsFile, seed, 0);
 		return gameState;
 	}
+
+	public static void initializePopulation(int populationSize, int individualLength, ArrayList<Types.ACTIONS> actionList, ArrayList<Individual> population){
+		int numberOfActions = actionList.size();
+		Random rand = new Random();
+		for (int pop = 0; pop < populationSize; pop++){
+			// Create a new moveset
+			ArrayList<Types.ACTIONS> moveset = new ArrayList<Types.ACTIONS>();
+			// Populating the moveset with random moves
+			for (int i = 0; i < individualLength; i++){
+				int int_rand = rand.nextInt(numberOfActions);
+				moveset.add(actionList.get(int_rand));
+			}
+			// Create a new individual with a moveset
+			Individual ind = new Individual(moveset);
+
+			// Add the individual created to the population
+			population.add(ind);
+		}
+	}
+
+	public static Individual playGame(Individual ind, ForwardModel gameStateCopy){
+		// itterate through the game
+		int lastMove = ind.moveSet.size();
+		for(int i = 0; i < ind.moveSet.size(); i++){
+			// Make the next move in the individual
+			gameStateCopy.advance(ind.moveSet.get(i));
+			//if the game is over then exit the loop
+			if(gameStateCopy.isGameOver()){
+				System.out.println("Game finished Early at move " + i);
+				lastMove = i;
+				ind.score = (float)gameStateCopy.getScore();
+				break;
+			}
+		}
+		// Cut off the rest of the moves after finishing the game 
+		if (lastMove < ind.moveSet.size()){
+			ind.moveSet.subList(lastMove, ind.moveSet.size()).clear();
+		}
+		return ind;
+	}
+	
 }
 
 
