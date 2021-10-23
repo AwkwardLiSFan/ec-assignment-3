@@ -27,7 +27,7 @@ public class Test {
 		
 		// Creating a copy of the game state
 		ForwardModel gameState = init(gameIndex[0], gameLevel);
-		ForwardModel gameStateCopy = gameState;
+		ForwardModel gameStateCopy = gameState.copy();
 		
 
 		// List of actions that you can do during the game
@@ -53,10 +53,10 @@ public class Test {
 
 		// Playing out an individual and retrieving relevant results
 		// Create a fresh copy of the game state
-		
+
 		// Loop through the population and play the game with each one
 		for(int i = 0; i < population.size(); i++){
-			gameStateCopy = gameState;
+			gameStateCopy = gameState.copy();
 			// Play the game with the selected individual
 			population.set(i, playGame(population.get(i), gameStateCopy));
 		}
@@ -64,7 +64,7 @@ public class Test {
 		for(int i = 0; i < populationSize; i++){
 			System.out.print(population.get(i).score + " ");
 		}
-		population.get(50).score = 5;
+		population.get(19).score = 5;
 		population.get(3).score = 10;
 		Collections.sort(population);
 		System.out.println();
