@@ -65,11 +65,11 @@ public class Test {
 
 		Random rand = new Random();
 		// Initial length of individuals
-		int individualLength = 10000;
+		int individualLength = 10;
 
 		// Creating a population of individuals
 		ArrayList<Individual> population = new ArrayList<Individual>();
-		// Size of the population
+		// Size of the population of 100
 		int populationSize = 100;
 		for (int pop = 0; pop < populationSize; pop++){
 			// Create a new moveset
@@ -112,7 +112,6 @@ public class Test {
 		System.out.println("Winner: " + gameStateCopy.getGameWinner());
 		System.out.println("Game Tick: " + gameStateCopy.gameTick);
 
-		// //testing for crossover
 		// for (int i = 0; i < individualLength; i++){
 		// 	int int_rand = rand.nextInt(numberOfActions);
 		// 	individual2.add(actionList.get(int_rand));
@@ -131,21 +130,23 @@ public class Test {
 		// System.out.println("Is the game over? : " + gameState.isGameOver());
 		// System.out.println("Game Score : " + gameState.getGameScore());
 		
-		// // test crossover
-		// ArrayList<ArrayList<Types.ACTIONS>> result = crossover(individual, individual2);
+		// test crossover
+		System.out.println("Individual 1: " + population.get(0).moveSet);
+		System.out.println("Individual 2: " + population.get(1).moveSet);
 
-		// System.out.println("Child is: " + result.get(0));
-		// System.out.println("Child is: " + result.get(1));
+		ArrayList<Individual> result = crossover(population.get(0), population.get(1));
 
-		// // test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
-		// double probability = rand.nextDouble();
-		
-		// if (probability <= .1) {
+		System.out.println("Child is: " + result.get(0).moveSet);
+		System.out.println("Child is: " + result.get(1).moveSet);
+
+		// test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
+		double probability = rand.nextDouble();
+		if (probability <= .8) {
 	
-		// 	// perform mutation
-		// 	ArrayList<Types.ACTIONS> mutant = mutation(individual, actionList);
-		// 	System.out.println("mutated ind: " + mutant);
-		// }
+			// perform mutation
+			Individual mutant = mutation(population.get(0), actionList);
+			System.out.println("mutated ind: " + mutant.moveSet);
+		}
 
 
 
@@ -156,39 +157,45 @@ public class Test {
      * Performs 1-point crossover on two individuals of the same length and returns the crossover children
      * 
      * @param parent1
-     *            first individual of ACTIONS in the crossover
+     *            first individual in the crossover
      * @param parent2
-     *            second individual of ACTIONS in the crossover
+     *            second individual in the crossover
      */
-	public static ArrayList<ArrayList<Types.ACTIONS>> crossover(ArrayList<Types.ACTIONS> parent1, ArrayList<Types.ACTIONS> parent2) {
-		ArrayList<Types.ACTIONS> child1 = new ArrayList<Types.ACTIONS>();
-		ArrayList<Types.ACTIONS> child2 = new ArrayList<Types.ACTIONS>();
+	public static ArrayList<Individual> crossover(Individual parent1, Individual parent2) {
+		ArrayList<Types.ACTIONS> moves1 = new ArrayList<Types.ACTIONS>();
+		ArrayList<Types.ACTIONS> moves2 = new ArrayList<Types.ACTIONS>();
 
 		// Get the smallest individual
-		int length = Math.min(parent1.size(), parent2.size());
+		int length = Math.min(parent1.moveSet.size(), parent2.moveSet.size());
 
 		// get crossover point
 		Random rand = new Random();
 		int crossoverPoint = rand.nextInt(length);
 		System.out.println("Crossover point is:" + crossoverPoint);
 		
-		// produce children using crossover point
+		// produce children moves using crossover point
 		for (int i = 0; i < crossoverPoint; i++) {
-			child1.add(parent1.get(i));
-			child2.add(parent2.get(i));
+			moves1.add(parent1.moveSet.get(i));
+			moves2.add(parent2.moveSet.get(i));
 		}
+
+		//initialise children
+		Individual child1 = new Individual(moves1);
+		Individual child2 = new Individual(moves2);
+
 		// Populate child 1
-		for (int j = crossoverPoint; j < parent2.size(); j++) {
-			child1.add(parent2.get(j));
+		for (int j = crossoverPoint; j < parent2.moveSet.size(); j++) {
+			child1.moveSet.add(parent2.moveSet.get(j));
 		}
 		// Populate child 2
-		for (int j = crossoverPoint; j < parent1.size(); j++) {
-			child2.add(parent1.get(j));
+		for (int j = crossoverPoint; j < parent1.moveSet.size(); j++) {
+			child2.moveSet.add(parent1.moveSet.get(j));
 		}
 		
-		ArrayList<ArrayList<Types.ACTIONS>> result = new ArrayList<ArrayList<Types.ACTIONS>>();
+		ArrayList<Individual> result = new ArrayList<Individual>();
 		result.add(child1);
 		result.add(child2);
+
 		return result;
 	}
 
@@ -197,15 +204,15 @@ public class Test {
      * Performs mutation on an individual and returns the mutated child
      * 
      * @param individual
-     *            an individual of ACTIONS in the mutation
+     *            an individual in the mutation
 	 * @param actionList
 	 *            list of possible actions for an individual
      */
-	public static ArrayList<Types.ACTIONS> mutation(ArrayList<Types.ACTIONS> individual, ArrayList<Types.ACTIONS> actionList) {
-		ArrayList<Types.ACTIONS> child = new ArrayList<Types.ACTIONS>();
+	public static Individual mutation(Individual individual, ArrayList<Types.ACTIONS> actionList) {
+		Individual child = new Individual();
 		
 		child = individual;
-		int length = individual.size();
+		int length = child.moveSet.size();
 		int numberOfActions = actionList.size();
 		Random rand = new Random();
 
@@ -218,12 +225,11 @@ public class Test {
 			if (prob <= ind_rate) {
 				// get a random action and mutate child
 				int int_rand = rand.nextInt(numberOfActions);
-				child.set(i, actionList.get(int_rand));
+				child.moveSet.set(i, actionList.get(int_rand));
 			}
 		}
 		return child;
 	}
-
 
 }
 
