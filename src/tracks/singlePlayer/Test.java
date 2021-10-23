@@ -22,15 +22,7 @@ public class Test {
     public static void main(String[] args) {
 
 		// Available tracks:
-		String sampleRandomController = "tracks.singlePlayer.simple.sampleRandom.Agent";
-		String doNothingController = "tracks.singlePlayer.simple.doNothing.Agent";
-		String sampleOneStepController = "tracks.singlePlayer.simple.sampleonesteplookahead.Agent";
-		String sampleFlatMCTSController = "tracks.singlePlayer.simple.greedyTreeSearch.Agent";
-
-		String sampleMCTSController = "tracks.singlePlayer.advanced.sampleMCTS.Agent";
-        String sampleRSController = "tracks.singlePlayer.advanced.sampleRS.Agent";
         String sampleRHEAController = "tracks.singlePlayer.advanced.sampleRHEA.Agent";
-		String sampleOLETSController = "tracks.singlePlayer.advanced.olets.Agent";
 
 		//Load available games
 		String spGamesCollection =  "examples/all_games_sp.csv";
@@ -67,99 +59,95 @@ public class Test {
 		int numberOfActions = actionList.size();
 
 		// Example of what an individual will look like
-		ArrayList<Types.ACTIONS> individual = new ArrayList<Types.ACTIONS>();
-		ArrayList<Types.ACTIONS> individual2 = new ArrayList<Types.ACTIONS>();
+		Individual i1 = new Individual();
+		i1.score = -5;
+		System.out.println("Score of the First individual class object = " + i1.score);
 
 		Random rand = new Random();
-		int individualLength = 10;
-		// Example of how to populate an individual
-		for (int i = 0; i < individualLength; i++){
-			int int_rand = rand.nextInt(numberOfActions);
-			individual.add(actionList.get(int_rand));
-		}
+		// Initial length of individuals
+		int individualLength = 10000;
 
-		// Creating a population of individuals (2D list of actions)
-		ArrayList<ArrayList<Types.ACTIONS>> population = new ArrayList<ArrayList<Types.ACTIONS>>();
+		// Creating a population of individuals
+		ArrayList<Individual> population = new ArrayList<Individual>();
 		// Size of the population
 		int populationSize = 100;
 		for (int pop = 0; pop < populationSize; pop++){
-			// Create a new individual
-			ArrayList<Types.ACTIONS> ind = new ArrayList<Types.ACTIONS>();
-			// Populating the individual with random moves
+			// Create a new moveset
+			ArrayList<Types.ACTIONS> moveset = new ArrayList<Types.ACTIONS>();
+			// Populating the moveset with random moves
 			for (int i = 0; i < individualLength; i++){
 				int int_rand = rand.nextInt(numberOfActions);
-				ind.add(actionList.get(int_rand));
+				moveset.add(actionList.get(int_rand));
 			}
+			// Create a new individual with a moveset
+			Individual ind = new Individual(moveset);
+
 			// Add the individual created to the population
 			population.add(ind);
 		}
 
-		//testing for crossover
-		for (int i = 0; i < individualLength; i++){
-			int int_rand = rand.nextInt(numberOfActions);
-			individual2.add(actionList.get(int_rand));
+		// Playing out an individual and retrieving relevant results
+		// Create a fresh copy of the game state
+		gameStateCopy = gameState;
+		// itterate through the game
+		int lastMove = population.get(0).moveSet.size();
+		for(int i = 0; i < population.get(0).moveSet.size(); i++){
+			// Make the next move in the individual
+			gameStateCopy.advance(population.get(0).moveSet.get(i));
+			//if the game is over then exit the loop
+			if(gameStateCopy.isGameOver()){
+				System.out.println("Game finished Early at move " + i);
+				lastMove = i;
+				break;
+			}
 		}
+		population.get(0).score = (float)gameStateCopy.getScore();
+		System.out.println("Length of moveSet prior to cutoff = " + population.get(0).moveSet.size());
+		// Cut off the rest of the moves after finishing the game 
+		if (lastMove < population.get(0).moveSet.size()){
+			population.get(0).moveSet.subList(lastMove, population.get(0).moveSet.size()).clear();
+		}
+		System.out.println("Length of moveSet = " + population.get(0).moveSet.size());
+		System.out.println("Score: " + population.get(0).score);
+		System.out.println("Winner: " + gameStateCopy.getGameWinner());
+		System.out.println("Game Tick: " + gameStateCopy.gameTick);
 
-		// Different methods you can use, see core/game/ForwardModel for full list of methods
-		System.out.println("List of possible actions  " + gameState.getAvatarActions(true));
-		System.out.println("Orientation " + gameState.getAvatarOrientation());
-		System.out.println("The individuals contents: " + individual);
-		System.out.println("The individuals 2 contents: " + individual2);
-		Types.ACTIONS a = individual.get(2);
-		System.out.println("gameState.gameTick = " + gameState.gameTick);
-		gameState.advance(a);
-		System.out.println("Last action done " + gameState.getAvatarLastAction());
-		System.out.println("gameState.gameTick = " + gameState.gameTick);
-		System.out.println("Is the game over? : " + gameState.isGameOver());
-		System.out.println("Game Score : " + gameState.getGameScore());
+		// //testing for crossover
+		// for (int i = 0; i < individualLength; i++){
+		// 	int int_rand = rand.nextInt(numberOfActions);
+		// 	individual2.add(actionList.get(int_rand));
+		// }
+
+		// // Different methods you can use, see core/game/ForwardModel for full list of methods
+		// System.out.println("List of possible actions  " + gameState.getAvatarActions(true));
+		// System.out.println("Orientation " + gameState.getAvatarOrientation());
+		// System.out.println("The individuals contents: " + individual);
+		// System.out.println("The individuals 2 contents: " + individual2);
+		// Types.ACTIONS a = individual.get(2);
+		// System.out.println("gameState.gameTick = " + gameState.gameTick);
+		// gameState.advance(a);
+		// System.out.println("Last action done " + gameState.getAvatarLastAction());
+		// System.out.println("gameState.gameTick = " + gameState.gameTick);
+		// System.out.println("Is the game over? : " + gameState.isGameOver());
+		// System.out.println("Game Score : " + gameState.getGameScore());
 		
-		// test crossover
-		ArrayList<ArrayList<Types.ACTIONS>> result = crossover(individual, individual2);
+		// // test crossover
+		// ArrayList<ArrayList<Types.ACTIONS>> result = crossover(individual, individual2);
 
-		System.out.println("Child is: " + result.get(0));
-		System.out.println("Child is: " + result.get(1));
+		// System.out.println("Child is: " + result.get(0));
+		// System.out.println("Child is: " + result.get(1));
 
-		// test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
-		double probability = rand.nextDouble();
+		// // test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
+		// double probability = rand.nextDouble();
 		
-		if (probability <= .1) {
+		// if (probability <= .1) {
 	
-			// perform mutation
-			ArrayList<Types.ACTIONS> mutant = mutation(individual, actionList);
-			System.out.println("mutated ind: " + mutant);
-		}
+		// 	// perform mutation
+		// 	ArrayList<Types.ACTIONS> mutant = mutation(individual, actionList);
+		// 	System.out.println("mutated ind: " + mutant);
+		// }
 
-		// 3. This replays a game from an action file previously recorded
-	//	 String readActionsFile = recordActionsFile;
-	//	 ArcadeMachine.replayGame(game, level1, visuals, readActionsFile);
 
-		// 4. This plays a single game, in N levels, M times :
-//		String level2 = new String(game).replace(gameName, gameName + "_lvl" + 1);
-//		int M = 10;
-//		for(int i=0; i<games.length; i++){
-//			game = games[i][0];
-//			gameName = games[i][1];
-//			level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
-//			ArcadeMachine.runGames(game, new String[]{level1}, M, sampleMCTSController, null);
-//		}
-
-		//5. This plays N games, in the first L levels, M times each. Actions to file optional (set saveActions to true).
-//		int N = games.length, L = 2, M = 1;
-//		boolean saveActions = false;
-//		String[] levels = new String[L];
-//		String[] actionFiles = new String[L*M];
-//		for(int i = 0; i < N; ++i)
-//		{
-//			int actionIdx = 0;
-//			game = games[i][0];
-//			gameName = games[i][1];
-//			for(int j = 0; j < L; ++j){
-//				levels[j] = game.replace(gameName, gameName + "_lvl" + j);
-//				if(saveActions) for(int k = 0; k < M; ++k)
-//				actionFiles[actionIdx++] = "actions_game_" + i + "_level_" + j + "_" + k + ".txt";
-//			}
-//			ArcadeMachine.runGames(game, levels, M, sampleRHEAController, saveActions? actionFiles:null);
-//		}
 
 
     }
@@ -239,3 +227,60 @@ public class Test {
 
 
 }
+
+
+
+class Individual {
+	public ArrayList<Types.ACTIONS> moveSet;
+	float score;
+
+	public Individual(){
+		this.score = -1;
+	}
+	public Individual(ArrayList<Types.ACTIONS> moves){
+		this.moveSet = moves;
+		this.score = -1;
+	}
+	public Individual(ArrayList<Types.ACTIONS> moves, float score){
+		this.moveSet = moves;
+		this.score = score;
+	}
+}
+
+
+
+
+
+
+
+		// 3. This replays a game from an action file previously recorded
+	//	 String readActionsFile = recordActionsFile;
+	//	 ArcadeMachine.replayGame(game, level1, visuals, readActionsFile);
+
+		// 4. This plays a single game, in N levels, M times :
+//		String level2 = new String(game).replace(gameName, gameName + "_lvl" + 1);
+//		int M = 10;
+//		for(int i=0; i<games.length; i++){
+//			game = games[i][0];
+//			gameName = games[i][1];
+//			level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
+//			ArcadeMachine.runGames(game, new String[]{level1}, M, sampleMCTSController, null);
+//		}
+
+		//5. This plays N games, in the first L levels, M times each. Actions to file optional (set saveActions to true).
+//		int N = games.length, L = 2, M = 1;
+//		boolean saveActions = false;
+//		String[] levels = new String[L];
+//		String[] actionFiles = new String[L*M];
+//		for(int i = 0; i < N; ++i)
+//		{
+//			int actionIdx = 0;
+//			game = games[i][0];
+//			gameName = games[i][1];
+//			for(int j = 0; j < L; ++j){
+//				levels[j] = game.replace(gameName, gameName + "_lvl" + j);
+//				if(saveActions) for(int k = 0; k < M; ++k)
+//				actionFiles[actionIdx++] = "actions_game_" + i + "_level_" + j + "_" + k + ".txt";
+//			}
+//			ArcadeMachine.runGames(game, levels, M, sampleRHEAController, saveActions? actionFiles:null);
+//		}
