@@ -57,7 +57,9 @@ public class Test {
 						// where to record the actions
 						// executed. null if not to save.
 
+		// Game initialisation
 		ForwardModel gameState = ArcadeMachine.gameInt(game, level1, visuals, sampleRHEAController, recordActionsFile, seed, 0);
+		// Creating a copy of the game state
 		ForwardModel gameStateCopy = gameState;
 
 		// List of actions that you can do during the game
@@ -74,6 +76,22 @@ public class Test {
 		for (int i = 0; i < individualLength; i++){
 			int int_rand = rand.nextInt(numberOfActions);
 			individual.add(actionList.get(int_rand));
+		}
+
+		// Creating a population of individuals (2D list of actions)
+		ArrayList<ArrayList<Types.ACTIONS>> population = new ArrayList<ArrayList<Types.ACTIONS>>();
+		// Size of the population
+		int populationSize = 100;
+		for (int pop = 0; pop < populationSize; pop++){
+			// Create a new individual
+			ArrayList<Types.ACTIONS> ind = new ArrayList<Types.ACTIONS>();
+			// Populating the individual with random moves
+			for (int i = 0; i < individualLength; i++){
+				int int_rand = rand.nextInt(numberOfActions);
+				ind.add(actionList.get(int_rand));
+			}
+			// Add the individual created to the population
+			population.add(ind);
 		}
 
 		//testing for crossover
