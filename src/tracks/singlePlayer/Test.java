@@ -28,6 +28,7 @@ public class Test {
 		// Creating a copy of the game state
 		ForwardModel gameState = init(gameIndex[0], gameLevel);
 		ForwardModel gameStateCopy = gameState.copy();
+		System.out.println("check: " + gameStateCopy.getScore());
 		
 
 		// List of actions that you can do during the game
@@ -36,7 +37,7 @@ public class Test {
 
 		// Example of what an individual will look like
 		Individual i1 = new Individual();
-		i1.score = -5;
+		//i1.score = -5;
 		System.out.println("Score of the First individual class object = " + i1.score);
 		//
 
@@ -50,15 +51,16 @@ public class Test {
 		int populationSize = 20;
 		// Initialize the population
 		initializePopulation(populationSize, individualLength, actionList, population);
-
+		
 		// Playing out an individual and retrieving relevant results
 		// Create a fresh copy of the game state
-
+		
 		// Loop through the population and play the game with each one
 		for(int i = 0; i < population.size(); i++){
 			gameStateCopy = gameState.copy();
 			// Play the game with the selected individual
 			population.set(i, playGame(population.get(i), gameStateCopy));
+			
 		}
 		
 		for(int i = 0; i < populationSize; i++){
@@ -268,12 +270,14 @@ public class Test {
 			gameStateCopy.advance(ind.moveSet.get(i));
 			//if the game is over then exit the loop
 			if(gameStateCopy.isGameOver()){
+				
 				System.out.println("Game finished Early at move " + i);
 				lastMove = i;
-				ind.score = (float)gameStateCopy.getScore();
+				ind.score = gameStateCopy.getScore();
 				break;
 			}
 		}
+		
 		// Cut off the rest of the moves after finishing the game 
 		if (lastMove < ind.moveSet.size()){
 			ind.moveSet.subList(lastMove, ind.moveSet.size()).clear();
