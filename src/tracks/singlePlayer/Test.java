@@ -1,5 +1,6 @@
 package tracks.singlePlayer;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
@@ -82,6 +83,7 @@ public class Test {
 			System.out.print(population.get(i).score + " ");
 		}
 		population.get(50).score = 5;
+		population.get(3).score = 10;
 		Collections.sort(population);
 		System.out.println();
 		for(int i = 0; i < populationSize; i++){
@@ -128,7 +130,7 @@ public class Test {
 
 		// test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
 		double probability = rand.nextDouble();
-		if (probability <= .8) {
+		if (probability <= .1) {
 	
 			// perform mutation
 			Individual mutant = mutation(population.get(0), actionList);
@@ -216,6 +218,14 @@ public class Test {
 			}
 		}
 		return child;
+	}
+
+	// returns the best individual within the current population
+	public static Individual elitism(ArrayList<Individual> population) {
+		// sort the population from highest score to lowest
+		Collections.sort(population); 
+
+		return population.get(0);
 	}
 
 	public static ForwardModel init(int gameIndex, int level){
