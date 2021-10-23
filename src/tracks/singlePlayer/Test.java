@@ -15,12 +15,14 @@ import core.game.Game;
 import core.game.ForwardModel;
 import ontology.Types;
 
+
+
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 04/10/13 Time: 16:29 This is a
  * Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
 public class Test {
-
+	public static int generationsRan = 0;
     public static void main(String[] args) {
 		int[] gameIndex = {8, 10, 18, 45};
 		int gameLevel = 0;
@@ -54,70 +56,69 @@ public class Test {
 		// Playing out an individual and retrieving relevant results
 		// Create a fresh copy of the game state
 
-		// Loop through the population and play the game with each one
-		for(int i = 0; i < population.size(); i++){
-			gameStateCopy = gameState.copy();
-			// Play the game with the selected individual
-			population.set(i, playGame(population.get(i), gameStateCopy));
-		}
 		
-		for(int i = 0; i < populationSize; i++){
-			System.out.print(population.get(i).score + " ");
-		}
-		population.get(19).score = 5;
-		population.get(3).score = 10;
+		
+		// Sorting the population ArrayList
 		Collections.sort(population);
-		System.out.println();
-		for(int i = 0; i < populationSize; i++){
-			System.out.print(population.get(i).score + " ");
-		}
 
-		
 		System.out.println("Length of moveSet prior to cutoff = " + population.get(0).moveSet.size());
-		
 		System.out.println("Length of moveSet = " + population.get(0).moveSet.size());
 		System.out.println("Score: " + population.get(0).score);
 		System.out.println("Winner: " + gameStateCopy.getGameWinner());
 		System.out.println("Game Tick: " + gameStateCopy.gameTick);
 
-		// for (int i = 0; i < individualLength; i++){
-		// 	int int_rand = rand.nextInt(numberOfActions);
-		// 	individual2.add(actionList.get(int_rand));
-		// }
-
 		// // Different methods you can use, see core/game/ForwardModel for full list of methods
-		// System.out.println("List of possible actions  " + gameState.getAvatarActions(true));
-		// System.out.println("Orientation " + gameState.getAvatarOrientation());
-		// System.out.println("The individuals contents: " + individual);
-		// System.out.println("The individuals 2 contents: " + individual2);
-		// Types.ACTIONS a = individual.get(2);
-		// System.out.println("gameState.gameTick = " + gameState.gameTick);
-		// gameState.advance(a);
-		// System.out.println("Last action done " + gameState.getAvatarLastAction());
-		// System.out.println("gameState.gameTick = " + gameState.gameTick);
-		// System.out.println("Is the game over? : " + gameState.isGameOver());
-		// System.out.println("Game Score : " + gameState.getGameScore());
-		
+
 		// test crossover
-		// System.out.println("Individual 1: " + population.get(0).moveSet);
-		// System.out.println("Individual 2: " + population.get(1).moveSet);
+		System.out.println("Individual 1: " + population.get(0).moveSet);
+		System.out.println("Individual 2: " + population.get(1).moveSet);
 
-		// ArrayList<Individual> result = crossover(population.get(0), population.get(1));
+		ArrayList<Individual> result = crossover(population.get(0), population.get(1));
 
-		// System.out.println("Child is: " + result.get(0).moveSet);
-		// System.out.println("Child is: " + result.get(1).moveSet);
+		System.out.println("Child is: " + result.get(0).moveSet);
+		System.out.println("Child is: " + result.get(1).moveSet);
 
 		// // test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
-		// double probability = rand.nextDouble();
-		// if (probability <= .8) {
+		double probability = rand.nextDouble();
+		if (probability <= .1) {
 	
-		// 	// perform mutation
-		// 	Individual mutant = mutation(population.get(0), actionList);
-		// 	System.out.println("mutated ind: " + mutant.moveSet);
-		// }
+			// perform mutation
+			Individual mutant = mutation(population.get(0), actionList);
+			System.out.println("mutated ind: " + mutant.moveSet);
+		}
+		
+		int generationLimit = 1000000;
+		for (int gen = 0; gen < generationLimit; gen++){
+			
+			// Loop through the population and play the game with each one
+			for(int i = 0; i < population.size(); i++){
+				gameStateCopy = gameState.copy();
+				// Play the game with the selected individual
+				population.set(i, playGame(population.get(i), gameStateCopy));
+				if(generationsRan < 200000){
+					break;
+				}
+			}
+			// Sorting the population ArrayList
+			Collections.sort(population);
 
+			// Elitism to get best Individual
+			//
 
+			// Select the top 50 individuals
+			//population.subList(50, population.size()).clear();
+			// Randomly crossover those until we have 99 individuals
+			// Mutate those 99 individuals
+			for(int x = 0; x < population.size(); x++){
+				population.set(x, mutation(population.get(x), actionList));
+			}
+			// combine the 99 individuals with the elitist individual
 
+			if(generationsRan < 200000){
+				break;
+			}
+		}
+		System.out.println("The best one sequence: "); //+ bestIndividual);
 
     }
 
@@ -266,11 +267,11 @@ public class Test {
 		for(int i = 0; i < ind.moveSet.size(); i++){
 			// Make the next move in the individual
 			gameStateCopy.advance(ind.moveSet.get(i));
+			generationsRan++;
 			//if the game is over then exit the loop
 			if(gameStateCopy.isGameOver()){
 				System.out.println("Game finished Early at move " + i);
 				lastMove = i;
-				ind.score = (float)gameStateCopy.getScore();
 				break;
 			}
 		}
@@ -278,6 +279,8 @@ public class Test {
 		if (lastMove < ind.moveSet.size()){
 			ind.moveSet.subList(lastMove, ind.moveSet.size()).clear();
 		}
+		// Get the final score
+		ind.score = (float)gameStateCopy.getScore();
 		return ind;
 	}
 	
