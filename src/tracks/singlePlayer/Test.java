@@ -56,18 +56,6 @@ public class Test {
 		
 		// Playing out an individual and retrieving relevant results
 		// Create a fresh copy of the game state
-<<<<<<< HEAD
-		
-		// Loop through the population and play the game with each one
-		for(int i = 0; i < population.size(); i++){
-			gameStateCopy = gameState.copy();
-			// Play the game with the selected individual
-			population.set(i, playGame(population.get(i), gameStateCopy));
-			
-		}
-=======
-
->>>>>>> 2d6c5b715cf4638c77d1f2c5b476fc874a2a9780
 		
 		
 		// Sorting the population ArrayList
@@ -285,10 +273,6 @@ public class Test {
 				
 				System.out.println("Game finished Early at move " + i);
 				lastMove = i;
-<<<<<<< HEAD
-				ind.score = gameStateCopy.getScore();
-=======
->>>>>>> 2d6c5b715cf4638c77d1f2c5b476fc874a2a9780
 				break;
 			}
 		}
