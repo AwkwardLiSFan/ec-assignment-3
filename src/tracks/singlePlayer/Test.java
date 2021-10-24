@@ -22,13 +22,13 @@ import ontology.Types;
  * Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
 public class Test {
-	public static int generationsRan = 0;
+	public static int advancesRan = 0;
     public static void main(String[] args) {
 		int[] gameIndex = {8, 10, 18, 45};
 		int gameLevel = 0;
 		
 		// Creating a copy of the game state
-		ForwardModel gameState = init(gameIndex[0], gameLevel);
+		ForwardModel gameState = init(gameIndex[1], gameLevel);
 		ForwardModel gameStateCopy = gameState.copy();
 		System.out.println("check: " + gameStateCopy.getScore());
 		
@@ -45,12 +45,12 @@ public class Test {
 
 		Random rand = new Random();
 		// Initial length of individuals
-		int individualLength = 1000;
+		int individualLength = 10000;
 
 		// Creating a population of individuals
 		ArrayList<Individual> population = new ArrayList<Individual>();
 		// Size of the population of 100
-		int populationSize = 20;
+		int populationSize = 300;
 		// Initialize the population
 		initializePopulation(populationSize, individualLength, actionList, population);
 		
@@ -58,44 +58,53 @@ public class Test {
 		// Create a fresh copy of the game state
 		
 		
-		// Sorting the population ArrayList
-		Collections.sort(population);
+		// // Sorting the population ArrayList
+		// Collections.sort(population);
 
-		System.out.println("Length of moveSet prior to cutoff = " + population.get(0).moveSet.size());
-		System.out.println("Length of moveSet = " + population.get(0).moveSet.size());
-		System.out.println("Score: " + population.get(0).score);
-		System.out.println("Winner: " + gameStateCopy.getGameWinner());
-		System.out.println("Game Tick: " + gameStateCopy.gameTick);
+		// System.out.println("Length of moveSet prior to cutoff = " + population.get(0).moveSet.size());
+		// System.out.println("Length of moveSet = " + population.get(0).moveSet.size());
+		// System.out.println("Score: " + population.get(0).score);
+		// System.out.println("Winner: " + gameStateCopy.getGameWinner());
+		// System.out.println("Game Tick: " + gameStateCopy.gameTick);
 
-		// // Different methods you can use, see core/game/ForwardModel for full list of methods
+		// // // Different methods you can use, see core/game/ForwardModel for full list of methods
 
-		// test crossover
-		System.out.println("Individual 1: " + population.get(0).moveSet);
-		System.out.println("Individual 2: " + population.get(1).moveSet);
+		// // test crossover
+		// System.out.println("Individual 1: " + population.get(0).moveSet);
+		// System.out.println("Individual 2: " + population.get(1).moveSet);
 
-		ArrayList<Individual> result = crossover(population.get(0), population.get(1));
+		// ArrayList<Individual> result = crossover(population.get(0), population.get(1));
 
-		System.out.println("Child is: " + result.get(0).moveSet);
-		System.out.println("Child is: " + result.get(1).moveSet);
+		// System.out.println("Child is: " + result.get(0).moveSet);
+		// System.out.println("Child is: " + result.get(1).moveSet);
 
-		// // test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
-		double probability = rand.nextDouble();
-		if (probability <= .1) {
+		// // // test mutation using 10% rate on the population (once we implement a population, we need to loop through it)
+		// double probability = rand.nextDouble();
+		// if (probability <= .1) {
 	
-			// perform mutation
-			Individual mutant = mutation(population.get(0), actionList);
-			System.out.println("mutated ind: " + mutant.moveSet);
-		}
+		// 	// perform mutation
+		// 	Individual mutant = mutation(population.get(0), actionList);
+		// 	System.out.println("mutated ind: " + mutant.moveSet);
+		// }
 		
-		int generationLimit = 1000000;
+		int generationLimit = 10000;
+		Individual bestInd = new Individual();
+		Individual previousBestInd = new Individual();
+		int advanceRunLimit = 5000000;
+		// Break points during which we return the results
+		int[] breakPoints = {200000, 1000000, 5000000, 100000000};
+		int currentBreakPoint = 0;
+
+		ArrayList<Double> resultArray = new ArrayList<Double>();
+		// Start of the EA
 		for (int gen = 0; gen < generationLimit; gen++){
-			
+			previousBestInd = bestInd;
 			// Loop through the population and play the game with each one
 			for(int i = 0; i < population.size(); i++){
 				gameStateCopy = gameState.copy();
 				// Play the game with the selected individual
 				population.set(i, playGame(population.get(i), gameStateCopy));
-				if(generationsRan < 200000){
+				if(advancesRan > advanceRunLimit){
 					break;
 				}
 			}
@@ -103,22 +112,55 @@ public class Test {
 			Collections.sort(population);
 
 			// Elitism to get best Individual
-			//
+			bestInd = elitism(population);
 
-			// Select the top 50 individuals
-			//population.subList(50, population.size()).clear();
-			// Randomly crossover those until we have 99 individuals
-			// Mutate those 99 individuals
-			for(int x = 0; x < population.size(); x++){
-				population.set(x, mutation(population.get(x), actionList));
-			}
-			// combine the 99 individuals with the elitist individual
-
-			if(generationsRan < 200000){
+			if(advancesRan > advanceRunLimit){
+				System.out.println("Completed 5 million advances: (actual number: " + advancesRan + ")");
+				// Saving the scores after each breakpoint
+				if(advancesRan > breakPoints[currentBreakPoint]){
+					resultArray.add(previousBestInd.score);
+				}
 				break;
 			}
+
+			// Select the top 50 individuals
+			System.out.println("Length before population: " + population.size());
+			population.subList(population.size()/4, population.size()).clear();
+			System.out.println("Length after population: " + population.size());
+
+			// Randomly crossover those until we have populationSize individuals
+			ArrayList<Individual> newPopulation = new ArrayList<Individual>();
+			while(newPopulation.size() < populationSize){
+				int p1, p2;
+				p1 = rand.nextInt(population.size());
+				p2 = rand.nextInt(population.size());
+				newPopulation.addAll(crossover(population.get(p1), population.get(p2)));
+			}
+			// if we've added too many individuals then remove 1
+			while(newPopulation.size() > populationSize){
+				// remove the last element in the ArrayList of Individuals
+				newPopulation.remove(newPopulation.size()-1);
+			}
+			// Add the Elitist Individual to the newPopulation
+			newPopulation.set(0, bestInd);
+
+			// Mutate the new population excluding the elite
+			for(int x = 1; x < population.size(); x++){
+				population.set(x, mutation(population.get(x), actionList));
+			}
+			// Update the population with the new population
+			population = newPopulation;
+
+			// Saving the scores after each breakpoint
+			if(advancesRan > breakPoints[currentBreakPoint]){
+				resultArray.add(previousBestInd.score);
+				currentBreakPoint++;
+			}
 		}
-		System.out.println("The best one sequence: "); //+ bestIndividual);
+		System.out.println("The best one sequence: " + bestInd.moveSet);
+		System.out.println("The best score: " + bestInd.score);
+		System.out.println("Scores at 200,000; 1,000,000; 5,000,000: " + resultArray);
+		
 
     }
 
@@ -140,7 +182,7 @@ public class Test {
 		// get crossover point
 		Random rand = new Random();
 		int crossoverPoint = rand.nextInt(length);
-		System.out.println("Crossover point is:" + crossoverPoint);
+		//System.out.println("Crossover point is:" + crossoverPoint);
 		
 		// produce children moves using crossover point
 		for (int i = 0; i < crossoverPoint; i++) {
@@ -267,7 +309,7 @@ public class Test {
 		for(int i = 0; i < ind.moveSet.size(); i++){
 			// Make the next move in the individual
 			gameStateCopy.advance(ind.moveSet.get(i));
-			generationsRan++;
+			advancesRan++;
 			//if the game is over then exit the loop
 			if(gameStateCopy.isGameOver()){
 				
