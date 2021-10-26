@@ -28,7 +28,7 @@ public class Test {
 		int gameLevel = 0;
 		
 		// Creating a copy of the game state
-		ForwardModel gameState = init(gameIndex[1], gameLevel);
+		ForwardModel gameState = init(gameIndex[3], gameLevel);
 		gameState.setNewSeed(-131244659);
 		ForwardModel gameStateCopy = gameState.copy();
 		gameStateCopy.setNewSeed(-131244659);
