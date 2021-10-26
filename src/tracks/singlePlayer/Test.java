@@ -24,6 +24,7 @@ import ontology.Types;
 public class Test {
 	public static int advancesRan = 0;
     public static void main(String[] args) {
+		// games we are playing: Bomber{8}, Boulder Chase{10}, Chase{18}, Garbage Collector{45}
 		int[] gameIndex = {8, 10, 18, 45};
 		int gameLevel = 0;
 		
@@ -48,7 +49,7 @@ public class Test {
 		// Initialize the population
 		initializePopulation(populationSize, individualLength, actionList, population);
 		
-		int generationLimit = 40000;
+		int generationLimit = 1000000;
 		Individual bestInd = new Individual();
 		//Individual previousBestInd = new Individual();
 		int advanceRunLimit = 5000000;
@@ -60,24 +61,21 @@ public class Test {
 		// Start of the EA
 		for (int gen = 0; gen < generationLimit; gen++){
 			Individual previousBestInd = new Individual(population.get(0));
-			System.out.println("The individual before playGame. population.get(0) : " + population.get(0).score);
 			// Loop through the population and play the game with each one
 			for(int i = 0; i < population.size(); i++){
 				gameStateCopy = gameState.copy();
 				gameStateCopy.setNewSeed(-131244659);
 				// Play the game with the selected individual
-				//System.out.println("The individual before playGame. population.get("+i+") : " + population.get(i).score);
 				population.set(i, playGame(population.get(i), gameStateCopy));
-				//System.out.println("The individual before playGame. population.get("+i+") : " + population.get(i).score);
 				if(advancesRan > advanceRunLimit){
 					break;
 				}
 			}
-			System.out.println("The individual after playGame. population.get(0) : " + population.get(0).score);
 			System.out.println("Number of advance calls so far: " + advancesRan);
 			
 			// Saving the scores after each breakpoint
 			if(advancesRan > breakPoints[currentBreakPoint]){
+				System.out.println("Saving for breakpoint[" + breakPoints[currentBreakPoint] + "]    with score: " + previousBestInd.score);
 				resultArray.add(previousBestInd.score);
 				currentBreakPoint++;
 			}
