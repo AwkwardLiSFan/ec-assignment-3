@@ -26,10 +26,10 @@ public class Test {
     public static void main(String[] args) {
 		// games we are playing: Bomber{8}, Boulder Chase{10}, Chase{18}, Garbage Collector{45}
 		int[] gameIndex = {8, 10, 18, 45};
-		int gameLevel = 2;
+		int gameLevel = 0;
 		
 		// Creating a copy of the game state
-		ForwardModel gameState = init(gameIndex[1], gameLevel);
+		ForwardModel gameState = init(gameIndex[3], gameLevel);
 		gameState.setNewSeed(-131244659);
 		ForwardModel gameStateCopy = gameState.copy();
 		gameStateCopy.setNewSeed(-131244659);
@@ -49,7 +49,7 @@ public class Test {
 		// Initialize the population
 		initializePopulation(populationSize, individualLength, actionList, population);
 		
-		int generationLimit = 40;
+		int generationLimit = 1000000;
 		Individual bestInd = new Individual();
 		Individual previousBestInd = new Individual();
 		int advanceRunLimit = 5000000;
