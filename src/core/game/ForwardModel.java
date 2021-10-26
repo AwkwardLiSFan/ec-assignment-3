@@ -449,7 +449,7 @@ public class ForwardModel extends Game
      */
     private void init()
     {
-        this.randomObs = new Random();
+        this.randomObs = new Random(-131244659);
         this.gameTick = 0;
         this.isEnded = false;
     }
@@ -532,7 +532,7 @@ public class ForwardModel extends Game
      */
     public void setNewSeed(int seed)
     {
-        randomObs = new Random(seed);
+        randomObs = new Random(-131244659);
     }
 
 
