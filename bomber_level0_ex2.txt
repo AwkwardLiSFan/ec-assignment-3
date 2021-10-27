@@ -1,0 +1,2416 @@
+Iteration cycle: 0 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 4165
+The best ind : 3.0
+Number of advance calls so far: 8996
+The best ind : 3.0
+Number of advance calls so far: 19905
+The best ind : 3.0
+Number of advance calls so far: 34423
+The best ind : 3.0
+Number of advance calls so far: 46633
+The best ind : 4.0
+Number of advance calls so far: 59299
+The best ind : 4.0
+Number of advance calls so far: 71735
+The best ind : 4.0
+Number of advance calls so far: 85865
+The best ind : 4.0
+Number of advance calls so far: 104748
+The best ind : 4.0
+Number of advance calls so far: 127986
+The best ind : 4.0
+Number of advance calls so far: 156643
+The best ind : 4.0
+Number of advance calls so far: 187563
+The best ind : 4.0
+Number of advance calls so far: 221566
+Saving for breakpoint[200000]    with score: 4.0
+The best ind : 5.0
+Number of advance calls so far: 258681
+The best ind : 5.0
+Number of advance calls so far: 297256
+The best ind : 5.0
+Number of advance calls so far: 338823
+The best ind : 5.0
+Number of advance calls so far: 381372
+The best ind : 5.0
+Number of advance calls so far: 424380
+The best ind : 5.0
+Number of advance calls so far: 467665
+The best ind : 5.0
+Number of advance calls so far: 511871
+The best ind : 5.0
+Number of advance calls so far: 559100
+The best ind : 5.0
+Number of advance calls so far: 605742
+The best ind : 5.0
+Number of advance calls so far: 652615
+The best ind : 5.0
+Number of advance calls so far: 699781
+The best ind : 5.0
+Number of advance calls so far: 748278
+The best ind : 5.0
+Number of advance calls so far: 798147
+The best ind : 5.0
+Number of advance calls so far: 850591
+The best ind : 5.0
+Number of advance calls so far: 901958
+The best ind : 5.0
+Number of advance calls so far: 952414
+The best ind : 5.0
+Number of advance calls so far: 1001669
+Saving for breakpoint[1000000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 1054805
+The best ind : 5.0
+Number of advance calls so far: 1109409
+The best ind : 5.0
+Number of advance calls so far: 1167200
+The best ind : 5.0
+Number of advance calls so far: 1227028
+The best ind : 5.0
+Number of advance calls so far: 1284569
+The best ind : 5.0
+Number of advance calls so far: 1344254
+The best ind : 5.0
+Number of advance calls so far: 1404100
+The best ind : 5.0
+Number of advance calls so far: 1469165
+The best ind : 5.0
+Number of advance calls so far: 1535348
+The best ind : 5.0
+Number of advance calls so far: 1602556
+The best ind : 5.0
+Number of advance calls so far: 1673756
+The best ind : 5.0
+Number of advance calls so far: 1742390
+The best ind : 5.0
+Number of advance calls so far: 1808024
+The best ind : 5.0
+Number of advance calls so far: 1873909
+The best ind : 5.0
+Number of advance calls so far: 1944761
+The best ind : 5.0
+Number of advance calls so far: 2018232
+The best ind : 5.0
+Number of advance calls so far: 2093581
+The best ind : 5.0
+Number of advance calls so far: 2169966
+The best ind : 5.0
+Number of advance calls so far: 2241700
+The best ind : 5.0
+Number of advance calls so far: 2313629
+The best ind : 5.0
+Number of advance calls so far: 2379486
+The best ind : 5.0
+Number of advance calls so far: 2449811
+The best ind : 5.0
+Number of advance calls so far: 2520305
+The best ind : 5.0
+Number of advance calls so far: 2590497
+The best ind : 5.0
+Number of advance calls so far: 2662228
+The best ind : 5.0
+Number of advance calls so far: 2737436
+The best ind : 5.0
+Number of advance calls so far: 2811584
+The best ind : 5.0
+Number of advance calls so far: 2889994
+The best ind : 5.0
+Number of advance calls so far: 2971890
+The best ind : 5.0
+Number of advance calls so far: 3055397
+The best ind : 5.0
+Number of advance calls so far: 3136733
+The best ind : 5.0
+Number of advance calls so far: 3211360
+The best ind : 5.0
+Number of advance calls so far: 3281366
+The best ind : 5.0
+Number of advance calls so far: 3352124
+The best ind : 5.0
+Number of advance calls so far: 3421408
+The best ind : 5.0
+Number of advance calls so far: 3487234
+The best ind : 5.0
+Number of advance calls so far: 3559143
+The best ind : 5.0
+Number of advance calls so far: 3623821
+The best ind : 5.0
+Number of advance calls so far: 3686610
+The best ind : 5.0
+Number of advance calls so far: 3750620
+The best ind : 5.0
+Number of advance calls so far: 3814162
+The best ind : 5.0
+Number of advance calls so far: 3878409
+The best ind : 5.0
+Number of advance calls so far: 3939718
+The best ind : 5.0
+Number of advance calls so far: 4001829
+The best ind : 5.0
+Number of advance calls so far: 4064598
+The best ind : 5.0
+Number of advance calls so far: 4127899
+The best ind : 5.0
+Number of advance calls so far: 4192443
+The best ind : 5.0
+Number of advance calls so far: 4259523
+The best ind : 5.0
+Number of advance calls so far: 4330880
+The best ind : 5.0
+Number of advance calls so far: 4408826
+The best ind : 5.0
+Number of advance calls so far: 4491756
+The best ind : 5.0
+Number of advance calls so far: 4576399
+The best ind : 5.0
+Number of advance calls so far: 4663855
+The best ind : 5.0
+Number of advance calls so far: 4745160
+The best ind : 5.0
+Number of advance calls so far: 4828973
+The best ind : 5.0
+Number of advance calls so far: 4906285
+The best ind : 5.0
+Number of advance calls so far: 4981307
+The best ind : 5.0
+Number of advance calls so far: 5000039
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000039)
+The best one sequence: [ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_UP]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [4.0, 5.0, 5.0]
+Iteration cycle: 1 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 6345
+The best ind : 4.0
+Number of advance calls so far: 14694
+The best ind : 5.0
+Number of advance calls so far: 30399
+The best ind : 5.0
+Number of advance calls so far: 66056
+The best ind : 5.0
+Number of advance calls so far: 111131
+The best ind : 5.0
+Number of advance calls so far: 158569
+The best ind : 5.0
+Number of advance calls so far: 209017
+Saving for breakpoint[200000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 259897
+The best ind : 5.0
+Number of advance calls so far: 310534
+The best ind : 5.0
+Number of advance calls so far: 361193
+The best ind : 5.0
+Number of advance calls so far: 413424
+The best ind : 5.0
+Number of advance calls so far: 467013
+The best ind : 5.0
+Number of advance calls so far: 522976
+The best ind : 5.0
+Number of advance calls so far: 578666
+The best ind : 5.0
+Number of advance calls so far: 636447
+The best ind : 5.0
+Number of advance calls so far: 694975
+The best ind : 5.0
+Number of advance calls so far: 751619
+The best ind : 5.0
+Number of advance calls so far: 813306
+The best ind : 5.0
+Number of advance calls so far: 878669
+The best ind : 5.0
+Number of advance calls so far: 942221
+The best ind : 5.0
+Number of advance calls so far: 1012061
+Saving for breakpoint[1000000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 1085276
+The best ind : 5.0
+Number of advance calls so far: 1160074
+The best ind : 5.0
+Number of advance calls so far: 1236241
+The best ind : 5.0
+Number of advance calls so far: 1312414
+The best ind : 5.0
+Number of advance calls so far: 1392200
+The best ind : 5.0
+Number of advance calls so far: 1474772
+The best ind : 5.0
+Number of advance calls so far: 1557728
+The best ind : 5.0
+Number of advance calls so far: 1638996
+The best ind : 5.0
+Number of advance calls so far: 1715469
+The best ind : 5.0
+Number of advance calls so far: 1793751
+The best ind : 5.0
+Number of advance calls so far: 1872032
+The best ind : 5.0
+Number of advance calls so far: 1953146
+The best ind : 5.0
+Number of advance calls so far: 2037737
+The best ind : 5.0
+Number of advance calls so far: 2124288
+The best ind : 5.0
+Number of advance calls so far: 2211611
+The best ind : 5.0
+Number of advance calls so far: 2293179
+The best ind : 5.0
+Number of advance calls so far: 2375395
+The best ind : 5.0
+Number of advance calls so far: 2455595
+The best ind : 5.0
+Number of advance calls so far: 2534828
+The best ind : 5.0
+Number of advance calls so far: 2617569
+The best ind : 5.0
+Number of advance calls so far: 2699292
+The best ind : 5.0
+Number of advance calls so far: 2779941
+The best ind : 5.0
+Number of advance calls so far: 2856411
+The best ind : 5.0
+Number of advance calls so far: 2937047
+The best ind : 5.0
+Number of advance calls so far: 3020780
+The best ind : 5.0
+Number of advance calls so far: 3104730
+The best ind : 5.0
+Number of advance calls so far: 3184613
+The best ind : 5.0
+Number of advance calls so far: 3261156
+The best ind : 5.0
+Number of advance calls so far: 3339930
+The best ind : 5.0
+Number of advance calls so far: 3416191
+The best ind : 5.0
+Number of advance calls so far: 3490448
+The best ind : 5.0
+Number of advance calls so far: 3560249
+The best ind : 5.0
+Number of advance calls so far: 3627219
+The best ind : 5.0
+Number of advance calls so far: 3692041
+The best ind : 5.0
+Number of advance calls so far: 3759723
+The best ind : 5.0
+Number of advance calls so far: 3823162
+The best ind : 5.0
+Number of advance calls so far: 3886515
+The best ind : 5.0
+Number of advance calls so far: 3950709
+The best ind : 5.0
+Number of advance calls so far: 4019622
+The best ind : 5.0
+Number of advance calls so far: 4088919
+The best ind : 5.0
+Number of advance calls so far: 4159207
+The best ind : 5.0
+Number of advance calls so far: 4237090
+The best ind : 5.0
+Number of advance calls so far: 4317139
+The best ind : 5.0
+Number of advance calls so far: 4390193
+The best ind : 5.0
+Number of advance calls so far: 4462686
+The best ind : 5.0
+Number of advance calls so far: 4534003
+The best ind : 5.0
+Number of advance calls so far: 4600468
+The best ind : 5.0
+Number of advance calls so far: 4662354
+The best ind : 5.0
+Number of advance calls so far: 4723193
+The best ind : 5.0
+Number of advance calls so far: 4786158
+The best ind : 5.0
+Number of advance calls so far: 4848508
+The best ind : 5.0
+Number of advance calls so far: 4908963
+The best ind : 5.0
+Number of advance calls so far: 4971269
+The best ind : 5.0
+Number of advance calls so far: 5000284
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000284)
+The best one sequence: [ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_UP]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [5.0, 5.0, 5.0]
+Iteration cycle: 2 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 4440
+The best ind : 3.0
+Number of advance calls so far: 9112
+The best ind : 4.0
+Number of advance calls so far: 17144
+The best ind : 4.0
+Number of advance calls so far: 27169
+The best ind : 4.0
+Number of advance calls so far: 40397
+The best ind : 4.0
+Number of advance calls so far: 56526
+The best ind : 4.0
+Number of advance calls so far: 74692
+The best ind : 4.0
+Number of advance calls so far: 95217
+The best ind : 5.0
+Number of advance calls so far: 116209
+The best ind : 5.0
+Number of advance calls so far: 135776
+The best ind : 5.0
+Number of advance calls so far: 155784
+The best ind : 5.0
+Number of advance calls so far: 177284
+The best ind : 5.0
+Number of advance calls so far: 201969
+Saving for breakpoint[200000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 225959
+The best ind : 5.0
+Number of advance calls so far: 251319
+The best ind : 5.0
+Number of advance calls so far: 281196
+The best ind : 5.0
+Number of advance calls so far: 314824
+The best ind : 5.0
+Number of advance calls so far: 349040
+The best ind : 5.0
+Number of advance calls so far: 382047
+The best ind : 5.0
+Number of advance calls so far: 412343
+The best ind : 5.0
+Number of advance calls so far: 443760
+The best ind : 5.0
+Number of advance calls so far: 477733
+The best ind : 5.0
+Number of advance calls so far: 511841
+The best ind : 5.0
+Number of advance calls so far: 543072
+The best ind : 5.0
+Number of advance calls so far: 577357
+The best ind : 5.0
+Number of advance calls so far: 613483
+The best ind : 5.0
+Number of advance calls so far: 647803
+The best ind : 5.0
+Number of advance calls so far: 682578
+The best ind : 5.0
+Number of advance calls so far: 719196
+The best ind : 5.0
+Number of advance calls so far: 756680
+The best ind : 5.0
+Number of advance calls so far: 791357
+The best ind : 5.0
+Number of advance calls so far: 826935
+The best ind : 5.0
+Number of advance calls so far: 867059
+The best ind : 5.0
+Number of advance calls so far: 908970
+The best ind : 5.0
+Number of advance calls so far: 948231
+The best ind : 5.0
+Number of advance calls so far: 987123
+The best ind : 5.0
+Number of advance calls so far: 1019293
+Saving for breakpoint[1000000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 1053885
+The best ind : 5.0
+Number of advance calls so far: 1088671
+The best ind : 5.0
+Number of advance calls so far: 1120701
+The best ind : 5.0
+Number of advance calls so far: 1154958
+The best ind : 5.0
+Number of advance calls so far: 1188291
+The best ind : 5.0
+Number of advance calls so far: 1226090
+The best ind : 5.0
+Number of advance calls so far: 1265889
+The best ind : 5.0
+Number of advance calls so far: 1306190
+The best ind : 5.0
+Number of advance calls so far: 1350271
+The best ind : 5.0
+Number of advance calls so far: 1395746
+The best ind : 5.0
+Number of advance calls so far: 1439969
+The best ind : 5.0
+Number of advance calls so far: 1478656
+The best ind : 5.0
+Number of advance calls so far: 1518736
+The best ind : 5.0
+Number of advance calls so far: 1556480
+The best ind : 5.0
+Number of advance calls so far: 1596812
+The best ind : 5.0
+Number of advance calls so far: 1637475
+The best ind : 5.0
+Number of advance calls so far: 1678138
+The best ind : 5.0
+Number of advance calls so far: 1716446
+The best ind : 5.0
+Number of advance calls so far: 1757190
+The best ind : 5.0
+Number of advance calls so far: 1794595
+The best ind : 5.0
+Number of advance calls so far: 1833379
+The best ind : 5.0
+Number of advance calls so far: 1870793
+The best ind : 5.0
+Number of advance calls so far: 1907717
+The best ind : 5.0
+Number of advance calls so far: 1941461
+The best ind : 5.0
+Number of advance calls so far: 1974683
+The best ind : 5.0
+Number of advance calls so far: 2013318
+The best ind : 5.0
+Number of advance calls so far: 2052493
+The best ind : 5.0
+Number of advance calls so far: 2092945
+The best ind : 5.0
+Number of advance calls so far: 2130950
+The best ind : 5.0
+Number of advance calls so far: 2169105
+The best ind : 5.0
+Number of advance calls so far: 2207675
+The best ind : 5.0
+Number of advance calls so far: 2243777
+The best ind : 5.0
+Number of advance calls so far: 2280549
+The best ind : 5.0
+Number of advance calls so far: 2320984
+The best ind : 5.0
+Number of advance calls so far: 2365777
+The best ind : 5.0
+Number of advance calls so far: 2410323
+The best ind : 5.0
+Number of advance calls so far: 2452127
+The best ind : 5.0
+Number of advance calls so far: 2490495
+The best ind : 5.0
+Number of advance calls so far: 2529968
+The best ind : 5.0
+Number of advance calls so far: 2569517
+The best ind : 5.0
+Number of advance calls so far: 2605472
+The best ind : 5.0
+Number of advance calls so far: 2641200
+The best ind : 5.0
+Number of advance calls so far: 2679430
+The best ind : 5.0
+Number of advance calls so far: 2718410
+The best ind : 5.0
+Number of advance calls so far: 2755354
+The best ind : 5.0
+Number of advance calls so far: 2799701
+The best ind : 5.0
+Number of advance calls so far: 2843085
+The best ind : 5.0
+Number of advance calls so far: 2883231
+The best ind : 5.0
+Number of advance calls so far: 2926114
+The best ind : 5.0
+Number of advance calls so far: 2967581
+The best ind : 5.0
+Number of advance calls so far: 3016172
+The best ind : 5.0
+Number of advance calls so far: 3064628
+The best ind : 5.0
+Number of advance calls so far: 3112283
+The best ind : 5.0
+Number of advance calls so far: 3156221
+The best ind : 5.0
+Number of advance calls so far: 3202391
+The best ind : 5.0
+Number of advance calls so far: 3246649
+The best ind : 5.0
+Number of advance calls so far: 3293896
+The best ind : 5.0
+Number of advance calls so far: 3336863
+The best ind : 5.0
+Number of advance calls so far: 3371540
+The best ind : 5.0
+Number of advance calls so far: 3409710
+The best ind : 5.0
+Number of advance calls so far: 3449051
+The best ind : 5.0
+Number of advance calls so far: 3488361
+The best ind : 5.0
+Number of advance calls so far: 3527516
+The best ind : 5.0
+Number of advance calls so far: 3569699
+The best ind : 5.0
+Number of advance calls so far: 3609213
+The best ind : 5.0
+Number of advance calls so far: 3649845
+The best ind : 5.0
+Number of advance calls so far: 3686939
+The best ind : 5.0
+Number of advance calls so far: 3726321
+The best ind : 5.0
+Number of advance calls so far: 3762509
+The best ind : 5.0
+Number of advance calls so far: 3800102
+The best ind : 5.0
+Number of advance calls so far: 3840456
+The best ind : 5.0
+Number of advance calls so far: 3873120
+The best ind : 5.0
+Number of advance calls so far: 3905935
+The best ind : 5.0
+Number of advance calls so far: 3940348
+The best ind : 5.0
+Number of advance calls so far: 3974085
+The best ind : 5.0
+Number of advance calls so far: 4010192
+The best ind : 5.0
+Number of advance calls so far: 4044048
+The best ind : 5.0
+Number of advance calls so far: 4075457
+The best ind : 5.0
+Number of advance calls so far: 4108624
+The best ind : 5.0
+Number of advance calls so far: 4137820
+The best ind : 5.0
+Number of advance calls so far: 4166987
+The best ind : 5.0
+Number of advance calls so far: 4197697
+The best ind : 5.0
+Number of advance calls so far: 4227236
+The best ind : 5.0
+Number of advance calls so far: 4257296
+The best ind : 5.0
+Number of advance calls so far: 4287613
+The best ind : 5.0
+Number of advance calls so far: 4318471
+The best ind : 5.0
+Number of advance calls so far: 4349875
+The best ind : 5.0
+Number of advance calls so far: 4382324
+The best ind : 5.0
+Number of advance calls so far: 4420141
+The best ind : 5.0
+Number of advance calls so far: 4462019
+The best ind : 5.0
+Number of advance calls so far: 4505619
+The best ind : 5.0
+Number of advance calls so far: 4550460
+The best ind : 5.0
+Number of advance calls so far: 4594586
+The best ind : 5.0
+Number of advance calls so far: 4639447
+The best ind : 5.0
+Number of advance calls so far: 4688651
+The best ind : 5.0
+Number of advance calls so far: 4737206
+The best ind : 5.0
+Number of advance calls so far: 4782617
+The best ind : 5.0
+Number of advance calls so far: 4827107
+The best ind : 5.0
+Number of advance calls so far: 4867015
+The best ind : 5.0
+Number of advance calls so far: 4907899
+The best ind : 5.0
+Number of advance calls so far: 4946954
+The best ind : 5.0
+Number of advance calls so far: 4984156
+The best ind : 5.0
+Number of advance calls so far: 5000047
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000047)
+The best one sequence: [ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_UP]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [5.0, 5.0, 5.0]
+Iteration cycle: 3 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 5151
+The best ind : 3.0
+Number of advance calls so far: 11799
+The best ind : 3.0
+Number of advance calls so far: 19936
+The best ind : 4.0
+Number of advance calls so far: 30834
+The best ind : 4.0
+Number of advance calls so far: 42779
+The best ind : 4.0
+Number of advance calls so far: 57820
+The best ind : 4.0
+Number of advance calls so far: 77464
+The best ind : 5.0
+Number of advance calls so far: 98493
+The best ind : 5.0
+Number of advance calls so far: 121853
+The best ind : 5.0
+Number of advance calls so far: 147464
+The best ind : 5.0
+Number of advance calls so far: 174762
+The best ind : 5.0
+Number of advance calls so far: 205374
+Saving for breakpoint[200000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 238419
+The best ind : 5.0
+Number of advance calls so far: 275036
+The best ind : 5.0
+Number of advance calls so far: 313254
+The best ind : 5.0
+Number of advance calls so far: 350501
+The best ind : 5.0
+Number of advance calls so far: 388417
+The best ind : 5.0
+Number of advance calls so far: 426984
+The best ind : 5.0
+Number of advance calls so far: 465276
+The best ind : 5.0
+Number of advance calls so far: 504545
+The best ind : 5.0
+Number of advance calls so far: 542863
+The best ind : 5.0
+Number of advance calls so far: 578531
+The best ind : 5.0
+Number of advance calls so far: 615052
+The best ind : 5.0
+Number of advance calls so far: 651780
+The best ind : 5.0
+Number of advance calls so far: 690474
+The best ind : 5.0
+Number of advance calls so far: 726866
+The best ind : 5.0
+Number of advance calls so far: 764787
+The best ind : 5.0
+Number of advance calls so far: 797633
+The best ind : 5.0
+Number of advance calls so far: 829986
+The best ind : 5.0
+Number of advance calls so far: 863818
+The best ind : 5.0
+Number of advance calls so far: 897775
+The best ind : 5.0
+Number of advance calls so far: 933072
+The best ind : 5.0
+Number of advance calls so far: 970355
+The best ind : 5.0
+Number of advance calls so far: 1009697
+Saving for breakpoint[1000000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 1053459
+The best ind : 5.0
+Number of advance calls so far: 1095967
+The best ind : 5.0
+Number of advance calls so far: 1142946
+The best ind : 5.0
+Number of advance calls so far: 1190942
+The best ind : 5.0
+Number of advance calls so far: 1239069
+The best ind : 5.0
+Number of advance calls so far: 1289051
+The best ind : 5.0
+Number of advance calls so far: 1342261
+The best ind : 5.0
+Number of advance calls so far: 1399374
+The best ind : 5.0
+Number of advance calls so far: 1450597
+The best ind : 5.0
+Number of advance calls so far: 1495911
+The best ind : 5.0
+Number of advance calls so far: 1541470
+The best ind : 5.0
+Number of advance calls so far: 1586946
+The best ind : 5.0
+Number of advance calls so far: 1637745
+The best ind : 5.0
+Number of advance calls so far: 1692078
+The best ind : 5.0
+Number of advance calls so far: 1748410
+The best ind : 5.0
+Number of advance calls so far: 1801219
+The best ind : 5.0
+Number of advance calls so far: 1851023
+The best ind : 5.0
+Number of advance calls so far: 1905334
+The best ind : 5.0
+Number of advance calls so far: 1955514
+The best ind : 5.0
+Number of advance calls so far: 2009671
+The best ind : 5.0
+Number of advance calls so far: 2065442
+The best ind : 5.0
+Number of advance calls so far: 2120929
+The best ind : 5.0
+Number of advance calls so far: 2175213
+The best ind : 5.0
+Number of advance calls so far: 2220709
+The best ind : 5.0
+Number of advance calls so far: 2269396
+The best ind : 5.0
+Number of advance calls so far: 2325297
+The best ind : 5.0
+Number of advance calls so far: 2378956
+The best ind : 5.0
+Number of advance calls so far: 2430351
+The best ind : 5.0
+Number of advance calls so far: 2479222
+The best ind : 5.0
+Number of advance calls so far: 2532140
+The best ind : 5.0
+Number of advance calls so far: 2581389
+The best ind : 5.0
+Number of advance calls so far: 2628119
+The best ind : 5.0
+Number of advance calls so far: 2674485
+The best ind : 5.0
+Number of advance calls so far: 2718123
+The best ind : 5.0
+Number of advance calls so far: 2765027
+The best ind : 5.0
+Number of advance calls so far: 2808683
+The best ind : 5.0
+Number of advance calls so far: 2851790
+The best ind : 5.0
+Number of advance calls so far: 2903823
+The best ind : 5.0
+Number of advance calls so far: 2956772
+The best ind : 5.0
+Number of advance calls so far: 3012053
+The best ind : 5.0
+Number of advance calls so far: 3068420
+The best ind : 5.0
+Number of advance calls so far: 3126663
+The best ind : 5.0
+Number of advance calls so far: 3185451
+The best ind : 5.0
+Number of advance calls so far: 3242252
+The best ind : 5.0
+Number of advance calls so far: 3300187
+The best ind : 5.0
+Number of advance calls so far: 3352111
+The best ind : 5.0
+Number of advance calls so far: 3407010
+The best ind : 5.0
+Number of advance calls so far: 3465366
+The best ind : 5.0
+Number of advance calls so far: 3520757
+The best ind : 5.0
+Number of advance calls so far: 3580157
+The best ind : 5.0
+Number of advance calls so far: 3649776
+The best ind : 5.0
+Number of advance calls so far: 3718489
+The best ind : 5.0
+Number of advance calls so far: 3781065
+The best ind : 5.0
+Number of advance calls so far: 3833691
+The best ind : 5.0
+Number of advance calls so far: 3887879
+The best ind : 5.0
+Number of advance calls so far: 3940989
+The best ind : 5.0
+Number of advance calls so far: 3994239
+The best ind : 5.0
+Number of advance calls so far: 4047523
+The best ind : 5.0
+Number of advance calls so far: 4095648
+The best ind : 5.0
+Number of advance calls so far: 4139717
+The best ind : 5.0
+Number of advance calls so far: 4185180
+The best ind : 5.0
+Number of advance calls so far: 4229101
+The best ind : 5.0
+Number of advance calls so far: 4271958
+The best ind : 5.0
+Number of advance calls so far: 4315345
+The best ind : 5.0
+Number of advance calls so far: 4356306
+The best ind : 5.0
+Number of advance calls so far: 4399333
+The best ind : 5.0
+Number of advance calls so far: 4443201
+The best ind : 5.0
+Number of advance calls so far: 4489883
+The best ind : 5.0
+Number of advance calls so far: 4537333
+The best ind : 5.0
+Number of advance calls so far: 4580420
+The best ind : 5.0
+Number of advance calls so far: 4623854
+The best ind : 5.0
+Number of advance calls so far: 4671490
+The best ind : 5.0
+Number of advance calls so far: 4718938
+The best ind : 5.0
+Number of advance calls so far: 4769350
+The best ind : 5.0
+Number of advance calls so far: 4814627
+The best ind : 5.0
+Number of advance calls so far: 4861199
+The best ind : 5.0
+Number of advance calls so far: 4907586
+The best ind : 5.0
+Number of advance calls so far: 4952788
+The best ind : 5.0
+Number of advance calls so far: 4997099
+The best ind : 5.0
+Number of advance calls so far: 5000222
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000222)
+The best one sequence: [ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_UP]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [5.0, 5.0, 5.0]
+Iteration cycle: 4 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 5090
+The best ind : 3.0
+Number of advance calls so far: 9853
+The best ind : 3.0
+Number of advance calls so far: 16257
+The best ind : 3.0
+Number of advance calls so far: 24397
+The best ind : 3.0
+Number of advance calls so far: 34791
+The best ind : 3.0
+Number of advance calls so far: 48440
+The best ind : 3.0
+Number of advance calls so far: 64897
+The best ind : 3.0
+Number of advance calls so far: 82989
+The best ind : 3.0
+Number of advance calls so far: 103319
+The best ind : 3.0
+Number of advance calls so far: 125167
+The best ind : 3.0
+Number of advance calls so far: 144589
+The best ind : 3.0
+Number of advance calls so far: 164324
+The best ind : 3.0
+Number of advance calls so far: 188747
+The best ind : 3.0
+Number of advance calls so far: 212634
+Saving for breakpoint[200000]    with score: 3.0
+The best ind : 3.0
+Number of advance calls so far: 237401
+The best ind : 3.0
+Number of advance calls so far: 263195
+The best ind : 3.0
+Number of advance calls so far: 289359
+The best ind : 3.0
+Number of advance calls so far: 315033
+The best ind : 3.0
+Number of advance calls so far: 340762
+The best ind : 3.0
+Number of advance calls so far: 369778
+The best ind : 3.0
+Number of advance calls so far: 396480
+The best ind : 3.0
+Number of advance calls so far: 423365
+The best ind : 3.0
+Number of advance calls so far: 443108
+The best ind : 3.0
+Number of advance calls so far: 461908
+The best ind : 3.0
+Number of advance calls so far: 483215
+The best ind : 3.0
+Number of advance calls so far: 506015
+The best ind : 3.0
+Number of advance calls so far: 527542
+The best ind : 3.0
+Number of advance calls so far: 552252
+The best ind : 3.0
+Number of advance calls so far: 579690
+The best ind : 3.0
+Number of advance calls so far: 606290
+The best ind : 3.0
+Number of advance calls so far: 632452
+The best ind : 3.0
+Number of advance calls so far: 656559
+The best ind : 3.0
+Number of advance calls so far: 676915
+The best ind : 3.0
+Number of advance calls so far: 701777
+The best ind : 3.0
+Number of advance calls so far: 728251
+The best ind : 3.0
+Number of advance calls so far: 758404
+The best ind : 3.0
+Number of advance calls so far: 791262
+The best ind : 3.0
+Number of advance calls so far: 828309
+The best ind : 3.0
+Number of advance calls so far: 862017
+The best ind : 3.0
+Number of advance calls so far: 893606
+The best ind : 3.0
+Number of advance calls so far: 925919
+The best ind : 3.0
+Number of advance calls so far: 958104
+The best ind : 3.0
+Number of advance calls so far: 988338
+The best ind : 3.0
+Number of advance calls so far: 1019886
+Saving for breakpoint[1000000]    with score: 3.0
+The best ind : 3.0
+Number of advance calls so far: 1052534
+The best ind : 3.0
+Number of advance calls so far: 1083292
+The best ind : 3.0
+Number of advance calls so far: 1115597
+The best ind : 3.0
+Number of advance calls so far: 1142119
+The best ind : 3.0
+Number of advance calls so far: 1169970
+The best ind : 3.0
+Number of advance calls so far: 1191181
+The best ind : 3.0
+Number of advance calls so far: 1212929
+The best ind : 3.0
+Number of advance calls so far: 1236114
+The best ind : 3.0
+Number of advance calls so far: 1257679
+The best ind : 3.0
+Number of advance calls so far: 1279005
+The best ind : 3.0
+Number of advance calls so far: 1298608
+The best ind : 3.0
+Number of advance calls so far: 1319982
+The best ind : 3.0
+Number of advance calls so far: 1341389
+The best ind : 4.0
+Number of advance calls so far: 1363950
+The best ind : 4.0
+Number of advance calls so far: 1390062
+The best ind : 4.0
+Number of advance calls so far: 1418376
+The best ind : 4.0
+Number of advance calls so far: 1463004
+The best ind : 4.0
+Number of advance calls so far: 1508095
+The best ind : 4.0
+Number of advance calls so far: 1553814
+The best ind : 4.0
+Number of advance calls so far: 1601158
+The best ind : 4.0
+Number of advance calls so far: 1649544
+The best ind : 4.0
+Number of advance calls so far: 1700188
+The best ind : 4.0
+Number of advance calls so far: 1752000
+The best ind : 4.0
+Number of advance calls so far: 1804828
+The best ind : 4.0
+Number of advance calls so far: 1859290
+The best ind : 4.0
+Number of advance calls so far: 1913901
+The best ind : 4.0
+Number of advance calls so far: 1970323
+The best ind : 4.0
+Number of advance calls so far: 2029140
+The best ind : 4.0
+Number of advance calls so far: 2088430
+The best ind : 4.0
+Number of advance calls so far: 2148663
+The best ind : 4.0
+Number of advance calls so far: 2205774
+The best ind : 4.0
+Number of advance calls so far: 2265516
+The best ind : 4.0
+Number of advance calls so far: 2328138
+The best ind : 4.0
+Number of advance calls so far: 2391864
+The best ind : 4.0
+Number of advance calls so far: 2453241
+The best ind : 4.0
+Number of advance calls so far: 2517552
+The best ind : 4.0
+Number of advance calls so far: 2583071
+The best ind : 4.0
+Number of advance calls so far: 2644484
+The best ind : 4.0
+Number of advance calls so far: 2709924
+The best ind : 4.0
+Number of advance calls so far: 2774174
+The best ind : 4.0
+Number of advance calls so far: 2837459
+The best ind : 4.0
+Number of advance calls so far: 2900776
+The best ind : 4.0
+Number of advance calls so far: 2963763
+The best ind : 4.0
+Number of advance calls so far: 3028378
+The best ind : 4.0
+Number of advance calls so far: 3090454
+The best ind : 4.0
+Number of advance calls so far: 3154386
+The best ind : 4.0
+Number of advance calls so far: 3223051
+The best ind : 4.0
+Number of advance calls so far: 3296118
+The best ind : 4.0
+Number of advance calls so far: 3370110
+The best ind : 4.0
+Number of advance calls so far: 3444131
+The best ind : 4.0
+Number of advance calls so far: 3510630
+The best ind : 4.0
+Number of advance calls so far: 3583629
+The best ind : 4.0
+Number of advance calls so far: 3653442
+The best ind : 5.0
+Number of advance calls so far: 3723926
+The best ind : 5.0
+Number of advance calls so far: 3795906
+The best ind : 5.0
+Number of advance calls so far: 3871314
+The best ind : 5.0
+Number of advance calls so far: 3966194
+The best ind : 5.0
+Number of advance calls so far: 4064200
+The best ind : 5.0
+Number of advance calls so far: 4163298
+The best ind : 5.0
+Number of advance calls so far: 4262680
+The best ind : 5.0
+Number of advance calls so far: 4362299
+The best ind : 5.0
+Number of advance calls so far: 4461875
+The best ind : 5.0
+Number of advance calls so far: 4561128
+The best ind : 5.0
+Number of advance calls so far: 4660894
+The best ind : 5.0
+Number of advance calls so far: 4760411
+The best ind : 5.0
+Number of advance calls so far: 4859687
+The best ind : 5.0
+Number of advance calls so far: 4958510
+The best ind : 5.0
+Number of advance calls so far: 5000342
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000342)
+The best one sequence: [ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_NIL]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [3.0, 3.0, 5.0]
+Iteration cycle: 5 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 4752
+The best ind : 3.0
+Number of advance calls so far: 11178
+The best ind : 3.0
+Number of advance calls so far: 18989
+The best ind : 5.0
+Number of advance calls so far: 30467
+The best ind : 5.0
+Number of advance calls so far: 43486
+The best ind : 5.0
+Number of advance calls so far: 57214
+The best ind : 5.0
+Number of advance calls so far: 69628
+The best ind : 5.0
+Number of advance calls so far: 84220
+The best ind : 5.0
+Number of advance calls so far: 100707
+The best ind : 5.0
+Number of advance calls so far: 119452
+The best ind : 5.0
+Number of advance calls so far: 141065
+The best ind : 5.0
+Number of advance calls so far: 164024
+The best ind : 5.0
+Number of advance calls so far: 187280
+The best ind : 5.0
+Number of advance calls so far: 212218
+Saving for breakpoint[200000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 235962
+The best ind : 5.0
+Number of advance calls so far: 258526
+The best ind : 5.0
+Number of advance calls so far: 281094
+The best ind : 5.0
+Number of advance calls so far: 304873
+The best ind : 5.0
+Number of advance calls so far: 328654
+The best ind : 5.0
+Number of advance calls so far: 353205
+The best ind : 5.0
+Number of advance calls so far: 378708
+The best ind : 5.0
+Number of advance calls so far: 401870
+The best ind : 5.0
+Number of advance calls so far: 426392
+The best ind : 5.0
+Number of advance calls so far: 451959
+The best ind : 5.0
+Number of advance calls so far: 477285
+The best ind : 5.0
+Number of advance calls so far: 502922
+The best ind : 5.0
+Number of advance calls so far: 530848
+The best ind : 5.0
+Number of advance calls so far: 562179
+The best ind : 5.0
+Number of advance calls so far: 593632
+The best ind : 5.0
+Number of advance calls so far: 624568
+The best ind : 5.0
+Number of advance calls so far: 659813
+The best ind : 5.0
+Number of advance calls so far: 691966
+The best ind : 5.0
+Number of advance calls so far: 723221
+The best ind : 5.0
+Number of advance calls so far: 756606
+The best ind : 5.0
+Number of advance calls so far: 791124
+The best ind : 5.0
+Number of advance calls so far: 825861
+The best ind : 5.0
+Number of advance calls so far: 856866
+The best ind : 5.0
+Number of advance calls so far: 889506
+The best ind : 5.0
+Number of advance calls so far: 927566
+The best ind : 5.0
+Number of advance calls so far: 957023
+The best ind : 5.0
+Number of advance calls so far: 986356
+The best ind : 5.0
+Number of advance calls so far: 1016706
+Saving for breakpoint[1000000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 1048841
+The best ind : 5.0
+Number of advance calls so far: 1079863
+The best ind : 5.0
+Number of advance calls so far: 1111485
+The best ind : 5.0
+Number of advance calls so far: 1139852
+The best ind : 5.0
+Number of advance calls so far: 1169367
+The best ind : 5.0
+Number of advance calls so far: 1197641
+The best ind : 5.0
+Number of advance calls so far: 1225360
+The best ind : 5.0
+Number of advance calls so far: 1256595
+The best ind : 5.0
+Number of advance calls so far: 1285136
+The best ind : 5.0
+Number of advance calls so far: 1315334
+The best ind : 5.0
+Number of advance calls so far: 1344050
+The best ind : 5.0
+Number of advance calls so far: 1374308
+The best ind : 5.0
+Number of advance calls so far: 1400973
+The best ind : 5.0
+Number of advance calls so far: 1432752
+The best ind : 5.0
+Number of advance calls so far: 1465641
+The best ind : 5.0
+Number of advance calls so far: 1496081
+The best ind : 5.0
+Number of advance calls so far: 1527466
+The best ind : 5.0
+Number of advance calls so far: 1558155
+The best ind : 5.0
+Number of advance calls so far: 1589220
+The best ind : 5.0
+Number of advance calls so far: 1621901
+The best ind : 5.0
+Number of advance calls so far: 1654092
+The best ind : 5.0
+Number of advance calls so far: 1685461
+The best ind : 5.0
+Number of advance calls so far: 1716727
+The best ind : 5.0
+Number of advance calls so far: 1748322
+The best ind : 5.0
+Number of advance calls so far: 1779327
+The best ind : 5.0
+Number of advance calls so far: 1812081
+The best ind : 5.0
+Number of advance calls so far: 1843773
+The best ind : 5.0
+Number of advance calls so far: 1877918
+The best ind : 5.0
+Number of advance calls so far: 1907610
+The best ind : 5.0
+Number of advance calls so far: 1938250
+The best ind : 5.0
+Number of advance calls so far: 1970778
+The best ind : 5.0
+Number of advance calls so far: 2004962
+The best ind : 5.0
+Number of advance calls so far: 2037910
+The best ind : 5.0
+Number of advance calls so far: 2071205
+The best ind : 5.0
+Number of advance calls so far: 2105270
+The best ind : 5.0
+Number of advance calls so far: 2135748
+The best ind : 5.0
+Number of advance calls so far: 2168781
+The best ind : 5.0
+Number of advance calls so far: 2201942
+The best ind : 5.0
+Number of advance calls so far: 2235533
+The best ind : 5.0
+Number of advance calls so far: 2268279
+The best ind : 5.0
+Number of advance calls so far: 2304673
+The best ind : 5.0
+Number of advance calls so far: 2338850
+The best ind : 5.0
+Number of advance calls so far: 2374227
+The best ind : 5.0
+Number of advance calls so far: 2407011
+The best ind : 5.0
+Number of advance calls so far: 2441953
+The best ind : 5.0
+Number of advance calls so far: 2475519
+The best ind : 5.0
+Number of advance calls so far: 2507601
+The best ind : 5.0
+Number of advance calls so far: 2542966
+The best ind : 5.0
+Number of advance calls so far: 2584373
+The best ind : 5.0
+Number of advance calls so far: 2624370
+The best ind : 5.0
+Number of advance calls so far: 2664060
+The best ind : 5.0
+Number of advance calls so far: 2701055
+The best ind : 5.0
+Number of advance calls so far: 2740375
+The best ind : 5.0
+Number of advance calls so far: 2780337
+The best ind : 5.0
+Number of advance calls so far: 2821712
+The best ind : 5.0
+Number of advance calls so far: 2860108
+The best ind : 5.0
+Number of advance calls so far: 2895976
+The best ind : 5.0
+Number of advance calls so far: 2932922
+The best ind : 5.0
+Number of advance calls so far: 2970790
+The best ind : 5.0
+Number of advance calls so far: 3009653
+The best ind : 5.0
+Number of advance calls so far: 3048041
+The best ind : 5.0
+Number of advance calls so far: 3088619
+The best ind : 5.0
+Number of advance calls so far: 3130591
+The best ind : 5.0
+Number of advance calls so far: 3177727
+The best ind : 5.0
+Number of advance calls so far: 3223352
+The best ind : 5.0
+Number of advance calls so far: 3266869
+The best ind : 5.0
+Number of advance calls so far: 3313548
+The best ind : 5.0
+Number of advance calls so far: 3362114
+The best ind : 5.0
+Number of advance calls so far: 3406073
+The best ind : 5.0
+Number of advance calls so far: 3454102
+The best ind : 5.0
+Number of advance calls so far: 3505959
+The best ind : 5.0
+Number of advance calls so far: 3552442
+The best ind : 5.0
+Number of advance calls so far: 3608667
+The best ind : 5.0
+Number of advance calls so far: 3660244
+The best ind : 5.0
+Number of advance calls so far: 3710403
+The best ind : 5.0
+Number of advance calls so far: 3755187
+The best ind : 5.0
+Number of advance calls so far: 3798002
+The best ind : 5.0
+Number of advance calls so far: 3841200
+The best ind : 5.0
+Number of advance calls so far: 3878873
+The best ind : 5.0
+Number of advance calls so far: 3916588
+The best ind : 5.0
+Number of advance calls so far: 3951937
+The best ind : 5.0
+Number of advance calls so far: 3983003
+The best ind : 5.0
+Number of advance calls so far: 4015818
+The best ind : 5.0
+Number of advance calls so far: 4046738
+The best ind : 5.0
+Number of advance calls so far: 4079686
+The best ind : 5.0
+Number of advance calls so far: 4111944
+The best ind : 5.0
+Number of advance calls so far: 4146043
+The best ind : 5.0
+Number of advance calls so far: 4183433
+The best ind : 5.0
+Number of advance calls so far: 4220843
+The best ind : 5.0
+Number of advance calls so far: 4256906
+The best ind : 5.0
+Number of advance calls so far: 4290498
+The best ind : 5.0
+Number of advance calls so far: 4323719
+The best ind : 5.0
+Number of advance calls so far: 4357524
+The best ind : 5.0
+Number of advance calls so far: 4391262
+The best ind : 5.0
+Number of advance calls so far: 4422800
+The best ind : 5.0
+Number of advance calls so far: 4456980
+The best ind : 5.0
+Number of advance calls so far: 4492056
+The best ind : 5.0
+Number of advance calls so far: 4528523
+The best ind : 5.0
+Number of advance calls so far: 4561812
+The best ind : 5.0
+Number of advance calls so far: 4596464
+The best ind : 5.0
+Number of advance calls so far: 4630954
+The best ind : 5.0
+Number of advance calls so far: 4666642
+The best ind : 5.0
+Number of advance calls so far: 4698718
+The best ind : 5.0
+Number of advance calls so far: 4730319
+The best ind : 5.0
+Number of advance calls so far: 4763443
+The best ind : 5.0
+Number of advance calls so far: 4793942
+The best ind : 5.0
+Number of advance calls so far: 4829993
+The best ind : 5.0
+Number of advance calls so far: 4868622
+The best ind : 5.0
+Number of advance calls so far: 4909290
+The best ind : 5.0
+Number of advance calls so far: 4948443
+The best ind : 5.0
+Number of advance calls so far: 4984277
+The best ind : 5.0
+Number of advance calls so far: 5000213
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000213)
+The best one sequence: [ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_UP]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [5.0, 5.0, 5.0]
+Iteration cycle: 6 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 5152
+The best ind : 3.0
+Number of advance calls so far: 11509
+The best ind : 3.0
+Number of advance calls so far: 21165
+The best ind : 3.0
+Number of advance calls so far: 32540
+The best ind : 3.0
+Number of advance calls so far: 45562
+The best ind : 3.0
+Number of advance calls so far: 59848
+The best ind : 3.0
+Number of advance calls so far: 75556
+The best ind : 4.0
+Number of advance calls so far: 91685
+The best ind : 4.0
+Number of advance calls so far: 108491
+The best ind : 4.0
+Number of advance calls so far: 127966
+The best ind : 4.0
+Number of advance calls so far: 149860
+The best ind : 4.0
+Number of advance calls so far: 174828
+The best ind : 4.0
+Number of advance calls so far: 205214
+Saving for breakpoint[200000]    with score: 4.0
+The best ind : 4.0
+Number of advance calls so far: 238853
+The best ind : 4.0
+Number of advance calls so far: 274540
+The best ind : 4.0
+Number of advance calls so far: 313396
+The best ind : 4.0
+Number of advance calls so far: 355465
+The best ind : 4.0
+Number of advance calls so far: 398884
+The best ind : 4.0
+Number of advance calls so far: 443638
+The best ind : 4.0
+Number of advance calls so far: 490418
+The best ind : 4.0
+Number of advance calls so far: 537321
+The best ind : 4.0
+Number of advance calls so far: 588357
+The best ind : 4.0
+Number of advance calls so far: 638611
+The best ind : 4.0
+Number of advance calls so far: 685710
+The best ind : 4.0
+Number of advance calls so far: 732949
+The best ind : 4.0
+Number of advance calls so far: 782827
+The best ind : 4.0
+Number of advance calls so far: 832260
+The best ind : 4.0
+Number of advance calls so far: 886336
+The best ind : 4.0
+Number of advance calls so far: 938013
+The best ind : 4.0
+Number of advance calls so far: 986386
+The best ind : 4.0
+Number of advance calls so far: 1035183
+Saving for breakpoint[1000000]    with score: 4.0
+The best ind : 4.0
+Number of advance calls so far: 1082405
+The best ind : 4.0
+Number of advance calls so far: 1129326
+The best ind : 4.0
+Number of advance calls so far: 1176106
+The best ind : 4.0
+Number of advance calls so far: 1221825
+The best ind : 4.0
+Number of advance calls so far: 1270163
+The best ind : 4.0
+Number of advance calls so far: 1318545
+The best ind : 4.0
+Number of advance calls so far: 1367494
+The best ind : 4.0
+Number of advance calls so far: 1418442
+The best ind : 4.0
+Number of advance calls so far: 1468911
+The best ind : 4.0
+Number of advance calls so far: 1520310
+The best ind : 4.0
+Number of advance calls so far: 1572726
+The best ind : 4.0
+Number of advance calls so far: 1623294
+The best ind : 4.0
+Number of advance calls so far: 1672797
+The best ind : 4.0
+Number of advance calls so far: 1726167
+The best ind : 4.0
+Number of advance calls so far: 1781356
+The best ind : 4.0
+Number of advance calls so far: 1833432
+The best ind : 4.0
+Number of advance calls so far: 1884393
+The best ind : 4.0
+Number of advance calls so far: 1938452
+The best ind : 4.0
+Number of advance calls so far: 1992034
+The best ind : 4.0
+Number of advance calls so far: 2045226
+The best ind : 4.0
+Number of advance calls so far: 2098381
+The best ind : 4.0
+Number of advance calls so far: 2149711
+The best ind : 4.0
+Number of advance calls so far: 2199458
+The best ind : 4.0
+Number of advance calls so far: 2253778
+The best ind : 4.0
+Number of advance calls so far: 2312279
+The best ind : 4.0
+Number of advance calls so far: 2372284
+The best ind : 4.0
+Number of advance calls so far: 2429108
+The best ind : 4.0
+Number of advance calls so far: 2481168
+The best ind : 4.0
+Number of advance calls so far: 2532593
+The best ind : 4.0
+Number of advance calls so far: 2578849
+The best ind : 4.0
+Number of advance calls so far: 2622942
+The best ind : 4.0
+Number of advance calls so far: 2670682
+The best ind : 4.0
+Number of advance calls so far: 2717852
+The best ind : 4.0
+Number of advance calls so far: 2768288
+The best ind : 4.0
+Number of advance calls so far: 2820303
+The best ind : 4.0
+Number of advance calls so far: 2872350
+The best ind : 4.0
+Number of advance calls so far: 2925134
+The best ind : 4.0
+Number of advance calls so far: 2976758
+The best ind : 4.0
+Number of advance calls so far: 3029233
+The best ind : 4.0
+Number of advance calls so far: 3084689
+The best ind : 4.0
+Number of advance calls so far: 3146427
+The best ind : 4.0
+Number of advance calls so far: 3208870
+The best ind : 4.0
+Number of advance calls so far: 3271176
+The best ind : 4.0
+Number of advance calls so far: 3334528
+The best ind : 4.0
+Number of advance calls so far: 3399737
+The best ind : 4.0
+Number of advance calls so far: 3462090
+The best ind : 4.0
+Number of advance calls so far: 3529267
+The best ind : 4.0
+Number of advance calls so far: 3591678
+The best ind : 4.0
+Number of advance calls so far: 3656077
+The best ind : 4.0
+Number of advance calls so far: 3718272
+The best ind : 4.0
+Number of advance calls so far: 3776110
+The best ind : 4.0
+Number of advance calls so far: 3840917
+The best ind : 4.0
+Number of advance calls so far: 3904819
+The best ind : 4.0
+Number of advance calls so far: 3971941
+The best ind : 4.0
+Number of advance calls so far: 4031746
+The best ind : 4.0
+Number of advance calls so far: 4096704
+The best ind : 4.0
+Number of advance calls so far: 4156057
+The best ind : 4.0
+Number of advance calls so far: 4210735
+The best ind : 4.0
+Number of advance calls so far: 4266272
+The best ind : 4.0
+Number of advance calls so far: 4322752
+The best ind : 4.0
+Number of advance calls so far: 4376703
+The best ind : 4.0
+Number of advance calls so far: 4434231
+The best ind : 4.0
+Number of advance calls so far: 4492231
+The best ind : 4.0
+Number of advance calls so far: 4552392
+The best ind : 4.0
+Number of advance calls so far: 4620006
+The best ind : 4.0
+Number of advance calls so far: 4678933
+The best ind : 4.0
+Number of advance calls so far: 4743577
+The best ind : 4.0
+Number of advance calls so far: 4799842
+The best ind : 4.0
+Number of advance calls so far: 4857212
+The best ind : 4.0
+Number of advance calls so far: 4909842
+The best ind : 4.0
+Number of advance calls so far: 4962759
+The best ind : 4.0
+Number of advance calls so far: 5000716
+Saving for breakpoint[5000000]    with score: 4.0
+Completed 5 million advances: (actual number: 5000716)
+The best one sequence: [ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_UP]
+The best score for level 0 is: 4.0
+Scores at 200,000; 1,000,000; 5,000,000: [4.0, 4.0, 4.0]
+Iteration cycle: 7 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 5138
+The best ind : 3.0
+Number of advance calls so far: 10064
+The best ind : 3.0
+Number of advance calls so far: 15952
+The best ind : 3.0
+Number of advance calls so far: 26481
+The best ind : 4.0
+Number of advance calls so far: 44601
+The best ind : 5.0
+Number of advance calls so far: 61892
+The best ind : 5.0
+Number of advance calls so far: 80514
+The best ind : 5.0
+Number of advance calls so far: 96583
+The best ind : 5.0
+Number of advance calls so far: 115622
+The best ind : 5.0
+Number of advance calls so far: 137454
+The best ind : 5.0
+Number of advance calls so far: 163389
+The best ind : 5.0
+Number of advance calls so far: 189435
+The best ind : 5.0
+Number of advance calls so far: 215036
+Saving for breakpoint[200000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 241285
+The best ind : 5.0
+Number of advance calls so far: 269017
+The best ind : 5.0
+Number of advance calls so far: 295508
+The best ind : 5.0
+Number of advance calls so far: 324749
+The best ind : 5.0
+Number of advance calls so far: 352450
+The best ind : 5.0
+Number of advance calls so far: 379051
+The best ind : 5.0
+Number of advance calls so far: 403066
+The best ind : 5.0
+Number of advance calls so far: 425891
+The best ind : 5.0
+Number of advance calls so far: 448597
+The best ind : 5.0
+Number of advance calls so far: 470929
+The best ind : 5.0
+Number of advance calls so far: 493008
+The best ind : 5.0
+Number of advance calls so far: 516524
+The best ind : 5.0
+Number of advance calls so far: 540599
+The best ind : 5.0
+Number of advance calls so far: 566212
+The best ind : 5.0
+Number of advance calls so far: 593013
+The best ind : 5.0
+Number of advance calls so far: 619906
+The best ind : 5.0
+Number of advance calls so far: 648751
+The best ind : 5.0
+Number of advance calls so far: 681374
+The best ind : 5.0
+Number of advance calls so far: 706709
+The best ind : 5.0
+Number of advance calls so far: 734853
+The best ind : 5.0
+Number of advance calls so far: 759825
+The best ind : 5.0
+Number of advance calls so far: 786528
+The best ind : 5.0
+Number of advance calls so far: 809549
+The best ind : 5.0
+Number of advance calls so far: 832576
+The best ind : 5.0
+Number of advance calls so far: 857411
+The best ind : 5.0
+Number of advance calls so far: 882906
+The best ind : 5.0
+Number of advance calls so far: 910872
+The best ind : 5.0
+Number of advance calls so far: 940389
+The best ind : 5.0
+Number of advance calls so far: 968070
+The best ind : 5.0
+Number of advance calls so far: 996467
+The best ind : 5.0
+Number of advance calls so far: 1028698
+Saving for breakpoint[1000000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 1060621
+The best ind : 5.0
+Number of advance calls so far: 1092851
+The best ind : 5.0
+Number of advance calls so far: 1125371
+The best ind : 5.0
+Number of advance calls so far: 1160308
+The best ind : 5.0
+Number of advance calls so far: 1196451
+The best ind : 5.0
+Number of advance calls so far: 1235819
+The best ind : 5.0
+Number of advance calls so far: 1275961
+The best ind : 5.0
+Number of advance calls so far: 1313915
+The best ind : 5.0
+Number of advance calls so far: 1350003
+The best ind : 5.0
+Number of advance calls so far: 1390766
+The best ind : 5.0
+Number of advance calls so far: 1430239
+The best ind : 5.0
+Number of advance calls so far: 1466708
+The best ind : 5.0
+Number of advance calls so far: 1499106
+The best ind : 5.0
+Number of advance calls so far: 1532432
+The best ind : 5.0
+Number of advance calls so far: 1565432
+The best ind : 5.0
+Number of advance calls so far: 1599059
+The best ind : 5.0
+Number of advance calls so far: 1631885
+The best ind : 5.0
+Number of advance calls so far: 1665166
+The best ind : 5.0
+Number of advance calls so far: 1699893
+The best ind : 5.0
+Number of advance calls so far: 1734185
+The best ind : 5.0
+Number of advance calls so far: 1771626
+The best ind : 5.0
+Number of advance calls so far: 1808552
+The best ind : 5.0
+Number of advance calls so far: 1850504
+The best ind : 5.0
+Number of advance calls so far: 1888401
+The best ind : 5.0
+Number of advance calls so far: 1926278
+The best ind : 5.0
+Number of advance calls so far: 1962117
+The best ind : 5.0
+Number of advance calls so far: 1998191
+The best ind : 5.0
+Number of advance calls so far: 2034655
+The best ind : 5.0
+Number of advance calls so far: 2070723
+The best ind : 5.0
+Number of advance calls so far: 2106477
+The best ind : 5.0
+Number of advance calls so far: 2149318
+The best ind : 5.0
+Number of advance calls so far: 2190510
+The best ind : 5.0
+Number of advance calls so far: 2230270
+The best ind : 5.0
+Number of advance calls so far: 2270547
+The best ind : 5.0
+Number of advance calls so far: 2310211
+The best ind : 5.0
+Number of advance calls so far: 2353759
+The best ind : 5.0
+Number of advance calls so far: 2407777
+The best ind : 5.0
+Number of advance calls so far: 2459475
+The best ind : 5.0
+Number of advance calls so far: 2511029
+The best ind : 5.0
+Number of advance calls so far: 2563276
+The best ind : 5.0
+Number of advance calls so far: 2615397
+The best ind : 5.0
+Number of advance calls so far: 2657310
+The best ind : 5.0
+Number of advance calls so far: 2693131
+The best ind : 5.0
+Number of advance calls so far: 2737102
+The best ind : 5.0
+Number of advance calls so far: 2783400
+The best ind : 5.0
+Number of advance calls so far: 2823936
+The best ind : 5.0
+Number of advance calls so far: 2866506
+The best ind : 5.0
+Number of advance calls so far: 2910139
+The best ind : 5.0
+Number of advance calls so far: 2953231
+The best ind : 5.0
+Number of advance calls so far: 2998841
+The best ind : 5.0
+Number of advance calls so far: 3043946
+The best ind : 5.0
+Number of advance calls so far: 3095111
+The best ind : 5.0
+Number of advance calls so far: 3143549
+The best ind : 5.0
+Number of advance calls so far: 3191816
+The best ind : 5.0
+Number of advance calls so far: 3235703
+The best ind : 5.0
+Number of advance calls so far: 3277660
+The best ind : 5.0
+Number of advance calls so far: 3319899
+The best ind : 5.0
+Number of advance calls so far: 3357417
+The best ind : 5.0
+Number of advance calls so far: 3395717
+The best ind : 5.0
+Number of advance calls so far: 3439373
+The best ind : 5.0
+Number of advance calls so far: 3484096
+The best ind : 5.0
+Number of advance calls so far: 3528776
+The best ind : 5.0
+Number of advance calls so far: 3574347
+The best ind : 5.0
+Number of advance calls so far: 3615056
+The best ind : 5.0
+Number of advance calls so far: 3652340
+The best ind : 5.0
+Number of advance calls so far: 3694123
+The best ind : 5.0
+Number of advance calls so far: 3737219
+The best ind : 5.0
+Number of advance calls so far: 3779014
+The best ind : 5.0
+Number of advance calls so far: 3810639
+The best ind : 5.0
+Number of advance calls so far: 3841825
+The best ind : 5.0
+Number of advance calls so far: 3882177
+The best ind : 5.0
+Number of advance calls so far: 3914767
+The best ind : 5.0
+Number of advance calls so far: 3945467
+The best ind : 5.0
+Number of advance calls so far: 3978940
+The best ind : 5.0
+Number of advance calls so far: 4010384
+The best ind : 5.0
+Number of advance calls so far: 4040785
+The best ind : 5.0
+Number of advance calls so far: 4067911
+The best ind : 5.0
+Number of advance calls so far: 4095348
+The best ind : 5.0
+Number of advance calls so far: 4123902
+The best ind : 5.0
+Number of advance calls so far: 4152543
+The best ind : 5.0
+Number of advance calls so far: 4178915
+The best ind : 5.0
+Number of advance calls so far: 4206296
+The best ind : 5.0
+Number of advance calls so far: 4232892
+The best ind : 5.0
+Number of advance calls so far: 4258381
+The best ind : 5.0
+Number of advance calls so far: 4284232
+The best ind : 5.0
+Number of advance calls so far: 4310067
+The best ind : 5.0
+Number of advance calls so far: 4336123
+The best ind : 5.0
+Number of advance calls so far: 4365454
+The best ind : 5.0
+Number of advance calls so far: 4394765
+The best ind : 5.0
+Number of advance calls so far: 4422802
+The best ind : 5.0
+Number of advance calls so far: 4451475
+The best ind : 5.0
+Number of advance calls so far: 4480076
+The best ind : 5.0
+Number of advance calls so far: 4511953
+The best ind : 5.0
+Number of advance calls so far: 4543425
+The best ind : 5.0
+Number of advance calls so far: 4577789
+The best ind : 5.0
+Number of advance calls so far: 4608932
+The best ind : 5.0
+Number of advance calls so far: 4638881
+The best ind : 5.0
+Number of advance calls so far: 4668855
+The best ind : 5.0
+Number of advance calls so far: 4699630
+The best ind : 5.0
+Number of advance calls so far: 4730743
+The best ind : 5.0
+Number of advance calls so far: 4759698
+The best ind : 5.0
+Number of advance calls so far: 4790791
+The best ind : 5.0
+Number of advance calls so far: 4826139
+The best ind : 5.0
+Number of advance calls so far: 4861945
+The best ind : 5.0
+Number of advance calls so far: 4903959
+The best ind : 5.0
+Number of advance calls so far: 4943862
+The best ind : 5.0
+Number of advance calls so far: 4986858
+The best ind : 5.0
+Number of advance calls so far: 5000291
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000291)
+The best one sequence: [ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_LEFT, ACTION_DOWN, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_UP]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [5.0, 5.0, 5.0]
+Iteration cycle: 8 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 5502
+The best ind : 3.0
+Number of advance calls so far: 12646
+The best ind : 3.0
+Number of advance calls so far: 21639
+The best ind : 3.0
+Number of advance calls so far: 34307
+The best ind : 3.0
+Number of advance calls so far: 51512
+The best ind : 3.0
+Number of advance calls so far: 67695
+The best ind : 3.0
+Number of advance calls so far: 88764
+The best ind : 3.0
+Number of advance calls so far: 111675
+The best ind : 3.0
+Number of advance calls so far: 135026
+The best ind : 3.0
+Number of advance calls so far: 161029
+The best ind : 4.0
+Number of advance calls so far: 189037
+The best ind : 4.0
+Number of advance calls so far: 215801
+Saving for breakpoint[200000]    with score: 4.0
+The best ind : 4.0
+Number of advance calls so far: 244085
+The best ind : 5.0
+Number of advance calls so far: 272602
+The best ind : 5.0
+Number of advance calls so far: 302567
+The best ind : 5.0
+Number of advance calls so far: 333959
+The best ind : 5.0
+Number of advance calls so far: 365418
+The best ind : 5.0
+Number of advance calls so far: 399478
+The best ind : 5.0
+Number of advance calls so far: 438731
+The best ind : 5.0
+Number of advance calls so far: 477157
+The best ind : 5.0
+Number of advance calls so far: 521944
+The best ind : 5.0
+Number of advance calls so far: 566588
+The best ind : 5.0
+Number of advance calls so far: 613967
+The best ind : 5.0
+Number of advance calls so far: 661505
+The best ind : 5.0
+Number of advance calls so far: 715486
+The best ind : 5.0
+Number of advance calls so far: 765638
+The best ind : 5.0
+Number of advance calls so far: 812253
+The best ind : 5.0
+Number of advance calls so far: 859552
+The best ind : 5.0
+Number of advance calls so far: 909167
+The best ind : 5.0
+Number of advance calls so far: 952453
+The best ind : 5.0
+Number of advance calls so far: 996570
+The best ind : 5.0
+Number of advance calls so far: 1043039
+Saving for breakpoint[1000000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 1080969
+The best ind : 5.0
+Number of advance calls so far: 1115572
+The best ind : 5.0
+Number of advance calls so far: 1153988
+The best ind : 5.0
+Number of advance calls so far: 1195219
+The best ind : 5.0
+Number of advance calls so far: 1235917
+The best ind : 5.0
+Number of advance calls so far: 1274271
+The best ind : 5.0
+Number of advance calls so far: 1313692
+The best ind : 5.0
+Number of advance calls so far: 1353340
+The best ind : 5.0
+Number of advance calls so far: 1396159
+The best ind : 5.0
+Number of advance calls so far: 1437486
+The best ind : 5.0
+Number of advance calls so far: 1480333
+The best ind : 5.0
+Number of advance calls so far: 1519336
+The best ind : 5.0
+Number of advance calls so far: 1557546
+The best ind : 5.0
+Number of advance calls so far: 1595362
+The best ind : 5.0
+Number of advance calls so far: 1632890
+The best ind : 5.0
+Number of advance calls so far: 1669734
+The best ind : 5.0
+Number of advance calls so far: 1707961
+The best ind : 5.0
+Number of advance calls so far: 1748300
+The best ind : 5.0
+Number of advance calls so far: 1786640
+The best ind : 5.0
+Number of advance calls so far: 1824184
+The best ind : 5.0
+Number of advance calls so far: 1862391
+The best ind : 5.0
+Number of advance calls so far: 1901534
+The best ind : 5.0
+Number of advance calls so far: 1943804
+The best ind : 5.0
+Number of advance calls so far: 1985068
+The best ind : 5.0
+Number of advance calls so far: 2028334
+The best ind : 5.0
+Number of advance calls so far: 2072483
+The best ind : 5.0
+Number of advance calls so far: 2114129
+The best ind : 5.0
+Number of advance calls so far: 2151560
+The best ind : 5.0
+Number of advance calls so far: 2190248
+The best ind : 5.0
+Number of advance calls so far: 2227162
+The best ind : 5.0
+Number of advance calls so far: 2263830
+The best ind : 5.0
+Number of advance calls so far: 2300583
+The best ind : 5.0
+Number of advance calls so far: 2336936
+The best ind : 5.0
+Number of advance calls so far: 2372472
+The best ind : 5.0
+Number of advance calls so far: 2409049
+The best ind : 5.0
+Number of advance calls so far: 2448329
+The best ind : 5.0
+Number of advance calls so far: 2487370
+The best ind : 5.0
+Number of advance calls so far: 2524395
+The best ind : 5.0
+Number of advance calls so far: 2564447
+The best ind : 5.0
+Number of advance calls so far: 2603627
+The best ind : 5.0
+Number of advance calls so far: 2646095
+The best ind : 5.0
+Number of advance calls so far: 2688635
+The best ind : 5.0
+Number of advance calls so far: 2734849
+The best ind : 5.0
+Number of advance calls so far: 2786013
+The best ind : 5.0
+Number of advance calls so far: 2833644
+The best ind : 5.0
+Number of advance calls so far: 2879641
+The best ind : 5.0
+Number of advance calls so far: 2926890
+The best ind : 5.0
+Number of advance calls so far: 2971129
+The best ind : 5.0
+Number of advance calls so far: 3015485
+The best ind : 5.0
+Number of advance calls so far: 3061094
+The best ind : 5.0
+Number of advance calls so far: 3105690
+The best ind : 5.0
+Number of advance calls so far: 3152030
+The best ind : 5.0
+Number of advance calls so far: 3196349
+The best ind : 5.0
+Number of advance calls so far: 3241849
+The best ind : 5.0
+Number of advance calls so far: 3289857
+The best ind : 5.0
+Number of advance calls so far: 3340100
+The best ind : 5.0
+Number of advance calls so far: 3385959
+The best ind : 5.0
+Number of advance calls so far: 3432183
+The best ind : 5.0
+Number of advance calls so far: 3478460
+The best ind : 5.0
+Number of advance calls so far: 3527876
+The best ind : 5.0
+Number of advance calls so far: 3577354
+The best ind : 5.0
+Number of advance calls so far: 3621491
+The best ind : 5.0
+Number of advance calls so far: 3664880
+The best ind : 5.0
+Number of advance calls so far: 3701578
+The best ind : 5.0
+Number of advance calls so far: 3736940
+The best ind : 5.0
+Number of advance calls so far: 3772283
+The best ind : 5.0
+Number of advance calls so far: 3807602
+The best ind : 5.0
+Number of advance calls so far: 3843494
+The best ind : 5.0
+Number of advance calls so far: 3881794
+The best ind : 5.0
+Number of advance calls so far: 3921852
+The best ind : 5.0
+Number of advance calls so far: 3966430
+The best ind : 5.0
+Number of advance calls so far: 4011507
+The best ind : 5.0
+Number of advance calls so far: 4058837
+The best ind : 5.0
+Number of advance calls so far: 4103512
+The best ind : 5.0
+Number of advance calls so far: 4145541
+The best ind : 5.0
+Number of advance calls so far: 4186882
+The best ind : 5.0
+Number of advance calls so far: 4231074
+The best ind : 5.0
+Number of advance calls so far: 4278560
+The best ind : 5.0
+Number of advance calls so far: 4327309
+The best ind : 5.0
+Number of advance calls so far: 4374895
+The best ind : 5.0
+Number of advance calls so far: 4423477
+The best ind : 5.0
+Number of advance calls so far: 4470447
+The best ind : 5.0
+Number of advance calls so far: 4513437
+The best ind : 5.0
+Number of advance calls so far: 4558441
+The best ind : 5.0
+Number of advance calls so far: 4604944
+The best ind : 5.0
+Number of advance calls so far: 4655391
+The best ind : 5.0
+Number of advance calls so far: 4703639
+The best ind : 5.0
+Number of advance calls so far: 4756063
+The best ind : 5.0
+Number of advance calls so far: 4805938
+The best ind : 5.0
+Number of advance calls so far: 4857643
+The best ind : 5.0
+Number of advance calls so far: 4908809
+The best ind : 5.0
+Number of advance calls so far: 4957815
+The best ind : 5.0
+Number of advance calls so far: 5000586
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000586)
+The best one sequence: [ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_NIL, ACTION_USE, ACTION_UP, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_USE, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_NIL, ACTION_UP]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [4.0, 5.0, 5.0]
+Iteration cycle: 9 Game level: 0
+This is the random seed, it's set due to randomness in Chaser NPC's -131244659
+ * WARNING: Time limitations based on WALL TIME on Windows * 
+Number of advance calls so far: 5015
+The best ind : 3.0
+Number of advance calls so far: 11782
+The best ind : 3.0
+Number of advance calls so far: 20908
+The best ind : 4.0
+Number of advance calls so far: 32742
+The best ind : 4.0
+Number of advance calls so far: 47249
+The best ind : 4.0
+Number of advance calls so far: 63132
+The best ind : 4.0
+Number of advance calls so far: 80085
+The best ind : 4.0
+Number of advance calls so far: 99348
+The best ind : 4.0
+Number of advance calls so far: 121032
+The best ind : 4.0
+Number of advance calls so far: 144916
+The best ind : 4.0
+Number of advance calls so far: 169869
+The best ind : 4.0
+Number of advance calls so far: 195072
+The best ind : 5.0
+Number of advance calls so far: 223243
+Saving for breakpoint[200000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 252628
+The best ind : 5.0
+Number of advance calls so far: 285908
+The best ind : 5.0
+Number of advance calls so far: 319125
+The best ind : 5.0
+Number of advance calls so far: 353580
+The best ind : 5.0
+Number of advance calls so far: 388655
+The best ind : 5.0
+Number of advance calls so far: 424225
+The best ind : 5.0
+Number of advance calls so far: 460970
+The best ind : 5.0
+Number of advance calls so far: 500728
+The best ind : 5.0
+Number of advance calls so far: 541478
+The best ind : 5.0
+Number of advance calls so far: 583686
+The best ind : 5.0
+Number of advance calls so far: 629244
+The best ind : 5.0
+Number of advance calls so far: 676796
+The best ind : 5.0
+Number of advance calls so far: 724800
+The best ind : 5.0
+Number of advance calls so far: 775305
+The best ind : 5.0
+Number of advance calls so far: 826878
+The best ind : 5.0
+Number of advance calls so far: 882799
+The best ind : 5.0
+Number of advance calls so far: 938378
+The best ind : 5.0
+Number of advance calls so far: 993690
+The best ind : 5.0
+Number of advance calls so far: 1053319
+Saving for breakpoint[1000000]    with score: 5.0
+The best ind : 5.0
+Number of advance calls so far: 1112965
+The best ind : 5.0
+Number of advance calls so far: 1172622
+The best ind : 5.0
+Number of advance calls so far: 1226608
+The best ind : 5.0
+Number of advance calls so far: 1280248
+The best ind : 5.0
+Number of advance calls so far: 1337978
+The best ind : 5.0
+Number of advance calls so far: 1396936
+The best ind : 5.0
+Number of advance calls so far: 1459026
+The best ind : 5.0
+Number of advance calls so far: 1517438
+The best ind : 5.0
+Number of advance calls so far: 1574841
+The best ind : 5.0
+Number of advance calls so far: 1631524
+The best ind : 5.0
+Number of advance calls so far: 1689403
+The best ind : 5.0
+Number of advance calls so far: 1741293
+The best ind : 5.0
+Number of advance calls so far: 1795139
+The best ind : 5.0
+Number of advance calls so far: 1851088
+The best ind : 5.0
+Number of advance calls so far: 1903672
+The best ind : 5.0
+Number of advance calls so far: 1953399
+The best ind : 5.0
+Number of advance calls so far: 2003833
+The best ind : 5.0
+Number of advance calls so far: 2059474
+The best ind : 5.0
+Number of advance calls so far: 2114462
+The best ind : 5.0
+Number of advance calls so far: 2169673
+The best ind : 5.0
+Number of advance calls so far: 2224670
+The best ind : 5.0
+Number of advance calls so far: 2281830
+The best ind : 5.0
+Number of advance calls so far: 2343519
+The best ind : 5.0
+Number of advance calls so far: 2406084
+The best ind : 5.0
+Number of advance calls so far: 2468727
+The best ind : 5.0
+Number of advance calls so far: 2534455
+The best ind : 5.0
+Number of advance calls so far: 2602483
+The best ind : 5.0
+Number of advance calls so far: 2662955
+The best ind : 5.0
+Number of advance calls so far: 2722208
+The best ind : 5.0
+Number of advance calls so far: 2779627
+The best ind : 5.0
+Number of advance calls so far: 2832212
+The best ind : 5.0
+Number of advance calls so far: 2885455
+The best ind : 5.0
+Number of advance calls so far: 2939637
+The best ind : 5.0
+Number of advance calls so far: 2996119
+The best ind : 5.0
+Number of advance calls so far: 3053111
+The best ind : 5.0
+Number of advance calls so far: 3108722
+The best ind : 5.0
+Number of advance calls so far: 3161966
+The best ind : 5.0
+Number of advance calls so far: 3215035
+The best ind : 5.0
+Number of advance calls so far: 3264701
+The best ind : 5.0
+Number of advance calls so far: 3314117
+The best ind : 5.0
+Number of advance calls so far: 3359951
+The best ind : 5.0
+Number of advance calls so far: 3405293
+The best ind : 5.0
+Number of advance calls so far: 3453934
+The best ind : 5.0
+Number of advance calls so far: 3505154
+The best ind : 5.0
+Number of advance calls so far: 3558567
+The best ind : 5.0
+Number of advance calls so far: 3615289
+The best ind : 5.0
+Number of advance calls so far: 3672834
+The best ind : 5.0
+Number of advance calls so far: 3734042
+The best ind : 5.0
+Number of advance calls so far: 3800488
+The best ind : 5.0
+Number of advance calls so far: 3868661
+The best ind : 5.0
+Number of advance calls so far: 3938395
+The best ind : 5.0
+Number of advance calls so far: 4008798
+The best ind : 5.0
+Number of advance calls so far: 4079789
+The best ind : 5.0
+Number of advance calls so far: 4148570
+The best ind : 5.0
+Number of advance calls so far: 4213354
+The best ind : 5.0
+Number of advance calls so far: 4278359
+The best ind : 5.0
+Number of advance calls so far: 4342479
+The best ind : 5.0
+Number of advance calls so far: 4412143
+The best ind : 5.0
+Number of advance calls so far: 4478323
+The best ind : 5.0
+Number of advance calls so far: 4536991
+The best ind : 5.0
+Number of advance calls so far: 4597840
+The best ind : 5.0
+Number of advance calls so far: 4656961
+The best ind : 5.0
+Number of advance calls so far: 4718756
+The best ind : 5.0
+Number of advance calls so far: 4783452
+The best ind : 5.0
+Number of advance calls so far: 4842755
+The best ind : 5.0
+Number of advance calls so far: 4908225
+The best ind : 5.0
+Number of advance calls so far: 4973208
+The best ind : 5.0
+Number of advance calls so far: 5000658
+Saving for breakpoint[5000000]    with score: 5.0
+Completed 5 million advances: (actual number: 5000658)
+The best one sequence: [ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_RIGHT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_LEFT, ACTION_LEFT, ACTION_LEFT, ACTION_UP, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_RIGHT, ACTION_USE, ACTION_USE, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_USE, ACTION_DOWN, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_DOWN, ACTION_RIGHT, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_NIL, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_USE, ACTION_UP, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_RIGHT, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_LEFT, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_USE, ACTION_USE, ACTION_UP, ACTION_LEFT, ACTION_USE, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_UP, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_NIL, ACTION_USE, ACTION_LEFT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_LEFT, ACTION_USE, ACTION_NIL, ACTION_NIL, ACTION_DOWN, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_NIL, ACTION_RIGHT, ACTION_LEFT, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_RIGHT, ACTION_RIGHT, ACTION_RIGHT, ACTION_UP, ACTION_DOWN, ACTION_UP, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_DOWN, ACTION_LEFT, ACTION_RIGHT, ACTION_USE, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_NIL, ACTION_UP, ACTION_NIL, ACTION_DOWN, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_DOWN, ACTION_DOWN, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_USE, ACTION_RIGHT, ACTION_DOWN, ACTION_LEFT, ACTION_UP, ACTION_UP, ACTION_DOWN, ACTION_NIL, ACTION_NIL, ACTION_LEFT, ACTION_RIGHT, ACTION_UP, ACTION_LEFT, ACTION_NIL, ACTION_UP, ACTION_RIGHT, ACTION_DOWN, ACTION_RIGHT, ACTION_DOWN, ACTION_USE, ACTION_RIGHT, ACTION_LEFT, ACTION_USE, ACTION_UP, ACTION_NIL]
+The best score for level 0 is: 5.0
+Scores at 200,000; 1,000,000; 5,000,000: [5.0, 5.0, 5.0]

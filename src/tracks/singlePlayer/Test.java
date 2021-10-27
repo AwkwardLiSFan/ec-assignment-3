@@ -36,7 +36,7 @@ public class Test {
 				System.out.println("Iteration cycle: " + iteration + " Game level: " + gameLevel);
 				advancesRan = 0;
 				// Creating a copy of the game state
-				ForwardModel gameState = init(gameIndex[0], gameLevel);
+				ForwardModel gameState = init(gameIndex[1], gameLevel);
 				gameState.setNewSeed(-131244659);
 				ForwardModel gameStateCopy = gameState.copy();
 				gameStateCopy.setNewSeed(-131244659);
