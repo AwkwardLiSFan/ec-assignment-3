@@ -9,7 +9,7 @@ public class TestLevelGeneration {
 
 		// Available Level Generators
 		String randomLevelGenerator = "tracks.levelGeneration.randomLevelGenerator.LevelGenerator";
-		String geneticGenerator = "tracks.levelGeneration.geneticLevelGenerator.LevelGenerator";
+		String geneticGenerator = "tracks.levelGeneration.geneticLevelGenerator.LevelGeneratorAssignment3";
 		String constructiveLevelGenerator = "tracks.levelGeneration.constructiveLevelGenerator.LevelGenerator";
 
 		String gamesPath = "examples/gridphysics/";
@@ -45,17 +45,16 @@ public class TestLevelGeneration {
 
 		// Other settings
 		int seed = new Random().nextInt();
-		int gameIdx = 11;
+		int gameIdx = 75 ;
 		String recordLevelFile = generateLevelPath + games[gameIdx] + "_glvl.txt";
 		String game = generateLevelPath + games[gameIdx] + ".txt";
 
 
 		// 1. This starts a game, in a generated level created by a specific level generator
-		if(LevelGenMachine.generateOneLevel(game, constructiveLevelGenerator, recordLevelFile)){
+		if(LevelGenMachine.generateOneLevel(game, geneticGenerator, recordLevelFile)){
 		    LevelGenMachine.playOneGeneratedLevel(game, recordActionsFile, recordLevelFile, seed);
 		}
-
-
+  
 		// 2. This generates numberOfLevels levels.
 		// String levelGenerator = "tracks.levelGeneration." + args[0] + ".LevelGenerator";
 		// int numberOfLevels = 5;
