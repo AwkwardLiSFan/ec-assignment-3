@@ -239,7 +239,7 @@ public class Chromosome implements Comparable<Chromosome>{
 		}
 		
 		FixLevel();
-	}
+	}*/
 
 	/**
 	 * mutate the current chromosome
@@ -257,14 +257,19 @@ public class Chromosome implements Comparable<Chromosome>{
 			}
 
 			// find a random point in the left-half of the map 
-			int pointY = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
-			int pointX = SharedData.random.nextInt(level.length/2 - solidFrame) + solidFrame / 2;
+			int pointX = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+			int pointY = SharedData.random.nextInt(level.length/2 - solidFrame) + solidFrame / 2;
 
 			// based on the fixed insertion probability, insert a sprite at a random location on the left half, ensure symmetry is maintained
 			if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB){
 				String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
-				level[pointY][pointX].add(spriteName);
-				level[level[0].length - pointY][pointX].add(spriteName);
+				ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+				int index = SharedData.random.nextInt(freePositions.size());
+				level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+				level[level[0].length - freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+				
+				//level[pointY][pointX].add(spriteName);
+				//level[level[0].length - pointY][pointX].add(spriteName);
 			}
 
 			// if insertion not carried out, replace a random sprite on the left half of the map with the equivalent sprite on the right half to 
