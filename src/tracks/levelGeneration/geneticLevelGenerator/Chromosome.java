@@ -203,7 +203,7 @@ public class Chromosome implements Comparable<Chromosome>{
 
 	/**
 	 * mutate the current chromosome
-	 */
+	
 	public void mutate(){
 		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
 		
@@ -240,7 +240,43 @@ public class Chromosome implements Comparable<Chromosome>{
 		
 		FixLevel();
 	}
-	
+
+	/**
+	 * mutate the current chromosome
+	*/
+	public void mutate(){
+		// get all the sprites available
+		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+		
+		// mutate based on pre-defined mutation amount 
+		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++){
+
+			int solidFrame = 0;
+			if(SharedData.gameAnalyzer.getSolidSprites().size() > 0){
+				solidFrame = 2;
+			}
+
+			// find a random point in the left-half of the map 
+			int pointX = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+			int pointY = SharedData.random.nextInt(level.length/2 - solidFrame) + solidFrame / 2;
+
+			// based on the fixed insertion probability, insert a sprite at a random location on the left half, ensure symmetry is maintained
+			if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB){
+				String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+				level[pointY][pointX].add(spriteName);
+				level[level[0].length - pointY][pointX].add(spriteName);
+			}
+
+			// if insertion not carried out, replace a random sprite on the left half of the map with the equivalent sprite on the right half to 
+			// promote symmetry
+			else {
+				int point2X = SharedData.random.nextInt(level[0].length/2 - solidFrame) + solidFrame / 2;
+				int point2Y = SharedData.random.nextInt(level.length - solidFrame) + solidFrame / 2;
+				level[point2Y][point2X] = level[level.length - point2Y][point2X];
+			}	
+		}
+		FixLevel();
+	}
 
 	/**
 	 * get the free positions in the current level (that doesnt contain solid or object from the input list)
