@@ -651,7 +651,7 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * @return	1 if its feasible and less than 1 if not
 	 */
 	public double getConstrainFitness(){
-		return fitness[0];   // return the proportion of agent wins
+		return fitness[0] > 0;
 	}
 	
 
