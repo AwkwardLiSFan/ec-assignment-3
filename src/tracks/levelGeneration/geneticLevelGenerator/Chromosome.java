@@ -257,8 +257,8 @@ public class Chromosome implements Comparable<Chromosome>{
 			}
 
 			// find a random point in the left-half of the map 
-			int pointX = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
-			int pointY = SharedData.random.nextInt(level.length/2 - solidFrame) + solidFrame / 2;
+			int pointY = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+			int pointX = SharedData.random.nextInt(level.length/2 - solidFrame) + solidFrame / 2;
 
 			// based on the fixed insertion probability, insert a sprite at a random location on the left half, ensure symmetry is maintained
 			if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB){
