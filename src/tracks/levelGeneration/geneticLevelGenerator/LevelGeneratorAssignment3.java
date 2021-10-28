@@ -204,10 +204,11 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 				fitnessSum = fitnessSum + population.get(i).getConstrainFitness();
 			}
 			
-			probabilities[0] = population.get(0).getConstrainFitness()(); 
+			probabilities[0] = population.get(0).getConstrainFitness(); 
 			for(int i=1; i<population.size(); i++){
 				//For each chromosome it adds the previous fitness with the current fitness
 				probabilities[i] = probabilities[i-1] + (population.get(i).getCombinedFitness()/fitnessSum) + SharedData.EIPSLON;
+			}
 		} else { 
 			for (int i=0; i<population.size(); i++){
 				fitnessSum = fitnessSum + population.get(i).getCombinedFitness();
