@@ -203,7 +203,7 @@ public class Chromosome implements Comparable<Chromosome>{
 
 	/**
 	 * mutate the current chromosome
-	
+	 
 	public void mutate(){
 		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
 		
@@ -586,91 +586,39 @@ public class Chromosome implements Comparable<Chromosome>{
 	/**
 	 * Calculate the current fitness of the chromosome
 	 * @param time	amount of time to evaluate the chromosome
-	 * @return		current fitness of the chromosome
+	 * @return		current fitness of the chromosome.
+	 *              Entry 0 is the proportion of wins from 10 trials of the best agent on this level,
+	 *              and entry 1 is the minimum number of moves (contains Integer.MAX_VALUE if not found)
 	 */
 	public ArrayList<Double> calculateFitness(long time){
 		if(!calculated){
 			calculated = true;
 			StateObservation stateObs = getStateObservation();
-			
 
-			//Play the game using the best agent
-			StepController stepAgent = new StepController(automatedAgent, SharedData.EVALUATION_STEP_TIME);
-			ElapsedCpuTimer elapsedTimer = new ElapsedCpuTimer();
-			elapsedTimer.setMaxTimeMillis(time);
-			stepAgent.playGame(stateObs.copy(), elapsedTimer);
-			
-			StateObservation bestState = stepAgent.getFinalState();
-			ArrayList<Types.ACTIONS> bestSol = stepAgent.getSolution();
+			int numWins = 0;
+			int minMoves = Integer.MAX_VALUE;
 
-			StateObservation doNothingState = null;
-			int doNothingLength = Integer.MAX_VALUE;
-			//playing the game using the donothing agent and naive agent
-			for(int i=0; i<SharedData.REPETITION_AMOUNT; i++){
-				StateObservation tempState = stateObs.copy();
-				int temp = getNaivePlayerResult(tempState, bestSol.size(), doNothingAgent);
-				if(temp < doNothingLength){
-					doNothingLength = temp;
-					doNothingState = tempState;
-				}
-			}
-			double coverPercentage = getCoverPercentage();
-			
-			//calculate the maxScore need to be satisfied based on the difference 
-			//between the score of different collectible objects
-			double maxScore = 0;
-			if(SharedData.gameAnalyzer.getMinScoreUnit() > 0){
-				double numberOfUnits = SharedData.gameAnalyzer.getMaxScoreUnit() / (SharedData.MAX_SCORE_PERCENTAGE * SharedData.gameAnalyzer.getMinScoreUnit());
-				maxScore = numberOfUnits * SharedData.gameAnalyzer.getMinScoreUnit();
-			}
-			
+			//Play the game NUM_AGENT_TRIALS times using the best agent
+			for (int i = 0; i < SharedData.NUM_AGENT_TRIALS; i++) {
+				StepController stepAgent = new StepController(automatedAgent, SharedData.EVALUATION_STEP_TIME);
+				ElapsedCpuTimer elapsedTimer = new ElapsedCpuTimer();
+				elapsedTimer.setMaxTimeMillis(time / 10);
+				stepAgent.playGame(stateObs.copy(), elapsedTimer);
 
-			//calculate the constrain fitness by applying all different constraints
-			HashMap<String, Object> parameters = new HashMap<String, Object>();
-			parameters.put("solutionLength", bestSol.size());
-			parameters.put("minSolutionLength", SharedData.MIN_SOLUTION_LENGTH);
-			parameters.put("doNothingSteps", doNothingLength);
-			parameters.put("doNothingState", doNothingState.getGameWinner());
-			parameters.put("bestPlayer", bestState.getGameWinner());
-			parameters.put("minDoNothingSteps", SharedData.MIN_DOTHING_STEPS);
-			parameters.put("coverPercentage", coverPercentage);
-			parameters.put("minCoverPercentage", SharedData.MIN_COVER_PERCENTAGE);
-			parameters.put("maxCoverPercentage", SharedData.MAX_COVER_PERCENTAGE);
-			parameters.put("numOfObjects", calculateNumberOfObjects());
-			parameters.put("gameAnalyzer", SharedData.gameAnalyzer);
-			parameters.put("gameDescription", SharedData.gameDescription);
-			
-			CombinedConstraints constraint = new CombinedConstraints();
-			constraint.addConstraints(new String[]{"SolutionLengthConstraint", "DeathConstraint", 
+				StateObservation bestState = stepAgent.getFinalState();
+				ArrayList<Types.ACTIONS> bestSol = stepAgent.getSolution();
 
-					"CoverPercentageConstraint", "SpriteNumberConstraint", "GoalConstraint", "AvatarNumberConstraint", "WinConstraint"});
-			constraint.setParameters(parameters);
-			constrainFitness = constraint.checkConstraint();
-			
-			System.out.println("SolutionLength:" + bestSol.size() + " doNothingSteps:" + doNothingLength + " coverPercentage:" + coverPercentage + " bestPlayer:" + bestState.getGameWinner());
-			
+				if (bestState.getGameWinner() == Types.WINNER.PLAYER_WINS) {
+					numWins++;
 
-			//calculate the fitness if it satisfied all the constraints
-			if(constrainFitness >= 1){
-				StateObservation naiveState = null;
-				for(int i=0; i<SharedData.REPETITION_AMOUNT; i++){
-					StateObservation tempState = stateObs.copy();
-					getNaivePlayerResult(tempState, bestSol.size(), naiveAgent);
-					if(naiveState == null || tempState.getGameScore() > naiveState.getGameScore()){
-						naiveState = tempState;
+					if (minMoves < bestSol.size()) {
+						minMoves = bestSol.size();
 					}
 				}
-				
-				double scoreDiffScore = getGameScore(bestState.getGameScore() - naiveState.getGameScore(), maxScore);
-				double ruleScore = getUniqueRuleScore(bestState, SharedData.MIN_UNIQUE_RULE_NUMBER);
-				
-				fitness.add(scoreDiffScore);
-				fitness.add(ruleScore);
 			}
 
-			this.automatedAgent = null;
-			this.naiveAgent = null;
-			this.stateObs = null;
+			fitness.add(new Double(numWins) / SharedData.NUM_AGENT_TRIALS);
+			fitness.add(new Double(minMoves));
 		}
 		
 		return fitness;
@@ -686,14 +634,15 @@ public class Chromosome implements Comparable<Chromosome>{
 	
 
 	/**
-	 * Get the average value of the fitness
-	 * @return	average value of the fitness array
+	 * Get the sum of fitnesses
+	 * @return	sum of fitnesses in the fitness aray
 	 */
 	public double getCombinedFitness(){
 		double result = 0;
-		for(double v: this.fitness){
+		for (double v: this.fitness){
 			result += v;
 		}
+
 		return result / this.fitness.size();
 	}
 	
@@ -702,7 +651,7 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * @return	1 if its feasible and less than 1 if not
 	 */
 	public double getConstrainFitness(){
-		return constrainFitness;
+		return fitness[0];   // return the proportion of agent wins
 	}
 	
 
@@ -727,33 +676,33 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * Compare two chromosome with each other based on their 
 	 * constrained fitness and normal fitness
 	 */
-	@Override
-	public int compareTo(Chromosome o) {
-		if(this.constrainFitness < 1 || o.constrainFitness < 1){
-			if(this.constrainFitness < o.constrainFitness){
-				return 1;
-			}
-			if(this.constrainFitness > o.constrainFitness){
-				return -1;
-			}
-			return 0;
-		}
-		
-		double firstFitness = 0;
-		double secondFitness = 0;
-		for(int i=0; i<this.fitness.size(); i++){
-			firstFitness += this.fitness.get(i);
-			secondFitness += o.fitness.get(i);
-		}
-		
-		if(firstFitness > secondFitness){
-			return -1;
-		}
-		
-		if(firstFitness < secondFitness){
-			return 1;
-		}
-		
-		return 0;
-	}
+	// @Override
+	// public int compareTo(Chromosome o) {
+	// 	if(this.constrainFitness < 1 || o.constrainFitness < 1){
+	// 		if(this.constrainFitness < o.constrainFitness){
+	// 			return 1;
+	// 		}
+	// 		if(this.constrainFitness > o.constrainFitness){
+	// 			return -1;
+	// 		}
+	// 		return 0;
+	// 	}
+
+	// 	double firstFitness = 0;
+	// 	double secondFitness = 0;
+	// 	for(int i=0; i<this.fitness.size(); i++){
+	// 		firstFitness += this.fitness.get(i);
+	// 		secondFitness += o.fitness.get(i);
+	// 	}
+
+	// 	if(firstFitness > secondFitness){
+	// 		return -1;
+	// 	}
+
+	// 	if(firstFitness < secondFitness){
+	// 		return 1;
+	// 	}
+
+	// 	return 0;
+	// }
 }
