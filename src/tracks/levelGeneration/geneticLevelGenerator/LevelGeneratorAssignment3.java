@@ -209,8 +209,12 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 				//For each chromosome it adds the previous fitness with the current fitness
 				probabilities[i] = probabilities[i-1] + (population.get(i).getCombinedFitness()/fitnessSum) + SharedData.EIPSLON;
 			}
+<<<<<<< HEAD
 		} else {
 			
+=======
+		} else { 
+>>>>>>> 6423d7bfdc12be070f13c54cae9feacf8351445b
 			for (int i=0; i<population.size(); i++){
 				fitnessSum = fitnessSum + population.get(i).getCombinedFitness();
 			}
@@ -257,10 +261,8 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		
 
 		//get the level size
-		int width = (int)Math.max(SharedData.MIN_SIZE + size, game.getAllSpriteData().size() * (1 + 0.25 * SharedData.random.nextDouble()) + size);
-		int height = (int)Math.max(SharedData.MIN_SIZE + size, game.getAllSpriteData().size() * (1 + 0.25 * SharedData.random.nextDouble()) + size);
-		width = (int)Math.min(width, SharedData.MAX_SIZE + size);
-		height = (int)Math.min(height, SharedData.MAX_SIZE + size);
+		int width = 10;
+		int height = 10;
 		
 		System.out.println("Generation #1: ");
 		ArrayList<Chromosome> fChromosomes = new ArrayList<Chromosome>();
