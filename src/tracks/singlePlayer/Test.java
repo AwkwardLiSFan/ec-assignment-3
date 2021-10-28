@@ -335,6 +335,10 @@ class Individual implements Comparable<Individual>{
 	}
 	public int compareTo(Individual compareInd){
 		int compareScore=(int)((Individual)compareInd).score;
+		if (compareScore == this.score){
+			int compareLength = (int)((Individual)compareInd).moveSet.size();
+			return (int)(this.moveSet.size() - compareLength);
+		}
 		return (int)(compareScore-this.score);
 	}
 	
