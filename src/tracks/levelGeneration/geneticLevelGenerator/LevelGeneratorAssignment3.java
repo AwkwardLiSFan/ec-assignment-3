@@ -87,8 +87,8 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			
 
 			//select the parents using roulletewheel selection
-			Chromosome parent1 = rouletteWheelSelection(population);
-			Chromosome parent2 = rouletteWheelSelection(population);
+			Chromosome parent1 = selection(population);
+			Chromosome parent2 = selection(population);
 			Chromosome child1 = parent1.clone();
 			Chromosome child2 = parent2.clone();
 			//do cross over
@@ -160,69 +160,20 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 	 * @param population	array of chromosomes surviving in this population
 	 * @return				the picked chromosome based on its constraint fitness
 	 */
-	// private Chromosome constraintRouletteWheelSelection(ArrayList<Chromosome> population){
-	// 	//calculate the probabilities of the chromosomes based on their fitness
-	// 	double[] probabilities = new double[population.size()];
-	// 	probabilities[0] = population.get(0).getConstrainFitness();
-	// 	for(int i=1; i<population.size(); i++){
-	// 		probabilities[i] = probabilities[i-1] + population.get(i).getConstrainFitness() + SharedData.EIPSLON;
-	// 	}
-		
-	// 	for(int i=0; i<probabilities.length; i++){
-	// 		probabilities[i] = probabilities[i] / probabilities[probabilities.length - 1];
-	// 	}
-		
-
-	// 	//choose a chromosome based on its probability
-	// 	double prob = SharedData.random.nextDouble();
-	// 	for(int i=0; i<probabilities.length; i++){
-	// 		if(prob < probabilities[i]){
-	// 			return population.get(i);
-	// 		}
-	// 	}
-		
-	// 	return population.get(0);
-	// }
-	
-
-	/**
-	 * Get the fitness for any population
-	 * @param population	array of chromosomes surviving in this population
-	 * @return				the picked chromosome based on its fitness
-	 */
-	private Chromosome rouletteWheelSelection(ArrayList<Chromosome> population){
-		//if the population is infeasible use the constraintRoulletWheel function
-		//if getConstrainedFitness <1 infeasible 
-
-		//Initialise the probability array for the current population
+	private Chromosome constraintRouletteWheelSelection(ArrayList<Chromosome> population){
+		//calculate the probabilities of the chromosomes based on their fitness
 		double[] probabilities = new double[population.size()];
-		double fitnessSum=0;
-
-		//Check if the population is feasible or infeasible
-		if(population.get(0).getConstrainFitness() < 1){
-			for (int i=0; i<population.size(); i++){
-				fitnessSum = fitnessSum + population.get(i).getConstrainFitness();
-			}
-			
-			probabilities[0] = population.get(0).getConstrainFitness(); 
-			for(int i=1; i<population.size(); i++){
-				//For each chromosome it adds the previous fitness with the current fitness
-				probabilities[i] = probabilities[i-1] + (population.get(i).getCombinedFitness()/fitnessSum) + SharedData.EIPSLON;
-			}
-		} else {
-			for (int i=0; i<population.size(); i++){
-				fitnessSum = fitnessSum + population.get(i).getCombinedFitness();
-			}
-			
-			probabilities[0] = population.get(0).getCombinedFitness(); 
-			for(int i=1; i<population.size(); i++){
-				//For each chromosome it adds the previous fitness with the current fitness
-				probabilities[i] = probabilities[i-1] + (population.get(i).getCombinedFitness()/fitnessSum) + SharedData.EIPSLON;
-			}
-
+		probabilities[0] = population.get(0).getConstrainFitness();
+		for(int i=1; i<population.size(); i++){
+			probabilities[i] = probabilities[i-1] + population.get(i).getConstrainFitness() + SharedData.EIPSLON;
 		}
+		
+		for(int i=0; i<probabilities.length; i++){
+			probabilities[i] = probabilities[i] / probabilities[probabilities.length - 1];
+		}
+		
 
-		//choose random chromosome based on its fitness
+		//choose a chromosome based on its probability
 		double prob = SharedData.random.nextDouble();
 		for(int i=0; i<probabilities.length; i++){
 			if(prob < probabilities[i]){
@@ -232,6 +183,114 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		
 		return population.get(0);
 	}
+	
+	//selection
+	private Chromosome selection(ArrayList<Chromosome> population){
+		//Check if the population is feasible or infeasible
+		if(population.get(0).getConstrainFitness() < 1){
+			constraintRouletteWheelSelection(population);
+		}
+
+		//Variables 
+		int sizePop=0, variables=0, wins, moves;
+		// Chromosome randomChrom;
+		// Random rand = new Random();
+		// Integer randNum=0;
+		Double  w1=-1.0, w2=-1.0;
+		// ArrayList<Chromosome> candidate = new ArrayList<Chromosome>();
+		ArrayList<Double> candidateWins = new ArrayList<Double>();
+		ArrayList<Double> candidateMoves = new ArrayList<Double>();
+		ArrayList<Double> weightedSum = new ArrayList<Double>();
+
+		//Get size of chromosome 
+		sizePop = population.get(0).getFitness().size();
+		variables  = population.get(0).getFitness().size();
+
+		//Index of objectives in fitness array 
+		wins=variables-2;
+		moves = variables-1;
+
+		// //Select random chromosomes from population to undergo selection
+		// for (int i=0; i<pool_size; i++){
+		// 	randNum = rand.nextInt((sizePop - 0) + 1) + 0;
+		// 	randomChrom = population.get(randNum);
+		// 	for (int k=0; k<candidate.size(); k++){
+		// 		if (randomChrom.equals(candidate.get(k))){
+		// 			randNum = rand.nextInt((sizePop - 0) + 1) + 0;
+		// 			randomChrom = population.get(randNum);
+		// 			k=0;
+		// 		}
+		// 	}
+		// 	candidate.add(randomChrom);
+		// }
+
+		//Go through each chromosome and get the wins and moves objectives and calculate the weighted sum 
+		for (int i=0; i<sizePop; i++){
+			candidateWins.add(population.get(i).getFitness().get(wins));
+			candidateMoves.add(population.get(i).getFitness().get(moves));
+			weightedSum.add(w1*candidateWins.get(i)+w2*candidateMoves.get(i));
+		}
+
+		Integer winnerIndex=0;
+
+		for (int i=1; i<sizePop; i++){
+			if (weightedSum.get(i)<weightedSum.get(i-1)){
+				winnerIndex=i;
+			}
+		}
+
+		return population.get(winnerIndex);
+
+		
+
+
+	/**
+	 * Get the fitness for any population
+	 * @param population	array of chromosomes surviving in this population
+	 * @return				the picked chromosome based on its fitness
+	 */
+	// private Chromosome rouletteWheelSelection(ArrayList<Chromosome> population){
+	// 	//if the population is infeasible use the constraintRoulletWheel function
+	// 	//if getConstrainedFitness <1 infeasible 
+
+	// 	//Initialise the probability array for the current population
+	// 	double[] probabilities = new double[population.size()];
+	// 	double fitnessSum=0;
+
+	// 	//Check if the population is feasible or infeasible
+	// 	if(population.get(0).getConstrainFitness() < 1){
+	// 		for (int i=0; i<population.size(); i++){
+	// 			fitnessSum = fitnessSum + population.get(i).getConstrainFitness();
+	// 		}
+			
+	// 		probabilities[0] = population.get(0).getConstrainFitness(); 
+	// 		for(int i=1; i<population.size(); i++){
+	// 			//For each chromosome it adds the previous fitness with the current fitness
+	// 			probabilities[i] = probabilities[i-1] + (population.get(i).getCombinedFitness()/fitnessSum) + SharedData.EIPSLON;
+	// 		}
+	// 	} else {
+	// 		for (int i=0; i<population.size(); i++){
+	// 			fitnessSum = fitnessSum + population.get(i).getCombinedFitness();
+	// 		}
+			
+	// 		probabilities[0] = population.get(0).getCombinedFitness(); 
+	// 		for(int i=1; i<population.size(); i++){
+	// 			//For each chromosome it adds the previous fitness with the current fitness
+	// 			probabilities[i] = probabilities[i-1] + (population.get(i).getCombinedFitness()/fitnessSum) + SharedData.EIPSLON;
+	// 		}
+
+	// 	}
+
+	// 	//choose random chromosome based on its fitness
+	// 	double prob = SharedData.random.nextDouble();
+	// 	for(int i=0; i<probabilities.length; i++){
+	// 		if(prob < probabilities[i]){
+	// 			return population.get(i);
+	// 		}
+	// 	}
+		
+	// 	return population.get(0);
+	// }
 	
 	/**
 	 * Generate a level using GA in a fixed amount of time and 
