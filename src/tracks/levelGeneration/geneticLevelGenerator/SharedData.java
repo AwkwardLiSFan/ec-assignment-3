@@ -96,7 +96,7 @@ public class SharedData {
 	/**
 	 * starting the GA with seeds from the constructive algorithm
 	 */
-	public static final boolean CONSTRUCTIVE_INITIALIZATION = true;
+	public static final boolean CONSTRUCTIVE_INITIALIZATION = false;
 	
 	/**
 	 * The name of a the best agent with some human error
@@ -110,6 +110,10 @@ public class SharedData {
 	 * The name of the do nothing agent
 	 */
 	public static final String DO_NOTHING_AGENT_NAME = "tracks.singlePlayer.simple.doNothing.Agent";
+	/**
+	 * The number of trials that an agent will have to do
+	 */
+	public static final int NUM_AGENT_TRIALS = 10;
 	
 	/**
 	 * The game description object
