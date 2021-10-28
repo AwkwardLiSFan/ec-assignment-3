@@ -651,7 +651,7 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * @return	1 if its feasible and less than 1 if not
 	 */
 	public double getConstrainFitness(){
-		return fitness[0] > 0;
+		return fitness.get(0) > 0 ? 1 : 0;
 	}
 	
 
@@ -676,33 +676,33 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * Compare two chromosome with each other based on their 
 	 * constrained fitness and normal fitness
 	 */
-	// @Override
-	// public int compareTo(Chromosome o) {
-	// 	if(this.constrainFitness < 1 || o.constrainFitness < 1){
-	// 		if(this.constrainFitness < o.constrainFitness){
-	// 			return 1;
-	// 		}
-	// 		if(this.constrainFitness > o.constrainFitness){
-	// 			return -1;
-	// 		}
-	// 		return 0;
-	// 	}
+	@Override
+	public int compareTo(Chromosome o) {
+		if(this.constrainFitness < 1 || o.constrainFitness < 1){
+			if(this.constrainFitness < o.constrainFitness){
+				return 1;
+			}
+			if(this.constrainFitness > o.constrainFitness){
+				return -1;
+			}
+			return 0;
+		}
 
-	// 	double firstFitness = 0;
-	// 	double secondFitness = 0;
-	// 	for(int i=0; i<this.fitness.size(); i++){
-	// 		firstFitness += this.fitness.get(i);
-	// 		secondFitness += o.fitness.get(i);
-	// 	}
+		double firstFitness = 0;
+		double secondFitness = 0;
+		for(int i=0; i<this.fitness.size(); i++){
+			firstFitness += this.fitness.get(i);
+			secondFitness += o.fitness.get(i);
+		}
 
-	// 	if(firstFitness > secondFitness){
-	// 		return -1;
-	// 	}
+		if(firstFitness > secondFitness){
+			return -1;
+		}
 
-	// 	if(firstFitness < secondFitness){
-	// 		return 1;
-	// 	}
+		if(firstFitness < secondFitness){
+			return 1;
+		}
 
-	// 	return 0;
-	// }
+		return 0;
+	}
 }
