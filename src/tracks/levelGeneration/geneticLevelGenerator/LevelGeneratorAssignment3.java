@@ -241,7 +241,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 
 		return population.get(winnerIndex);
 
-		
+	}
 
 
 	/**
