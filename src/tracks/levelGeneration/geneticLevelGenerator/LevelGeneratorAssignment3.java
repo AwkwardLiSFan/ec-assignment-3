@@ -256,10 +256,8 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		
 
 		//get the level size
-		int width = (int)Math.max(SharedData.MIN_SIZE + size, game.getAllSpriteData().size() * (1 + 0.25 * SharedData.random.nextDouble()) + size);
-		int height = (int)Math.max(SharedData.MIN_SIZE + size, game.getAllSpriteData().size() * (1 + 0.25 * SharedData.random.nextDouble()) + size);
-		width = (int)Math.min(width, SharedData.MAX_SIZE + size);
-		height = (int)Math.min(height, SharedData.MAX_SIZE + size);
+		int width = 10;
+		int height = 10;
 		
 		System.out.println("Generation #1: ");
 		ArrayList<Chromosome> fChromosomes = new ArrayList<Chromosome>();
