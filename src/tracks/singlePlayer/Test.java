@@ -36,7 +36,7 @@ public class Test {
 				System.out.println("Iteration cycle: " + iteration + " Game level: " + gameLevel);
 				advancesRan = 0;
 				// Creating a copy of the game state
-				ForwardModel gameState = init(gameIndex[1], gameLevel);
+				ForwardModel gameState = init(gameIndex[3], gameLevel);
 				gameState.setNewSeed(-131244659);
 				ForwardModel gameStateCopy = gameState.copy();
 				gameStateCopy.setNewSeed(-131244659);
@@ -78,7 +78,7 @@ public class Test {
 							break;
 						}
 					}
-					System.out.println("Number of advance calls so far: " + advancesRan);
+					//System.out.println("Number of advance calls so far: " + advancesRan);
 					
 					// Saving the scores after each breakpoint
 					if(advancesRan > breakPoints[currentBreakPoint]){
@@ -100,7 +100,7 @@ public class Test {
 			
 					// Elitism to get best Individual
 					bestInd = elitism(population);
-					System.out.println("The best ind : " + bestInd.score);
+					//System.out.println("The best ind : " + bestInd.score);
 					// Add best individual to the new population
 					newPopulation.add(bestInd);
 
@@ -139,7 +139,7 @@ public class Test {
 
 				}
 
-				System.out.println("The best one sequence: " + bestInd.moveSet);
+				//System.out.println("The best one sequence: " + bestInd.moveSet);
 				System.out.println("The best score for level " + gameLevel + " is: " + bestInd.score);
 				System.out.println("Scores at 200,000; 1,000,000; 5,000,000: " + resultArray);
 			}
