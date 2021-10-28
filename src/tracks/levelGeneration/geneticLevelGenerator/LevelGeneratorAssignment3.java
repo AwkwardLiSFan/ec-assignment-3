@@ -160,29 +160,29 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 	 * @param population	array of chromosomes surviving in this population
 	 * @return				the picked chromosome based on its constraint fitness
 	 */
-	private Chromosome constraintRouletteWheelSelection(ArrayList<Chromosome> population){
-		//calculate the probabilities of the chromosomes based on their fitness
-		double[] probabilities = new double[population.size()];
-		probabilities[0] = population.get(0).getConstrainFitness();
-		for(int i=1; i<population.size(); i++){
-			probabilities[i] = probabilities[i-1] + population.get(i).getConstrainFitness() + SharedData.EIPSLON;
-		}
+	// private Chromosome constraintRouletteWheelSelection(ArrayList<Chromosome> population){
+	// 	//calculate the probabilities of the chromosomes based on their fitness
+	// 	double[] probabilities = new double[population.size()];
+	// 	probabilities[0] = population.get(0).getConstrainFitness();
+	// 	for(int i=1; i<population.size(); i++){
+	// 		probabilities[i] = probabilities[i-1] + population.get(i).getConstrainFitness() + SharedData.EIPSLON;
+	// 	}
 		
-		for(int i=0; i<probabilities.length; i++){
-			probabilities[i] = probabilities[i] / probabilities[probabilities.length - 1];
-		}
+	// 	for(int i=0; i<probabilities.length; i++){
+	// 		probabilities[i] = probabilities[i] / probabilities[probabilities.length - 1];
+	// 	}
 		
 
-		//choose a chromosome based on its probability
-		double prob = SharedData.random.nextDouble();
-		for(int i=0; i<probabilities.length; i++){
-			if(prob < probabilities[i]){
-				return population.get(i);
-			}
-		}
+	// 	//choose a chromosome based on its probability
+	// 	double prob = SharedData.random.nextDouble();
+	// 	for(int i=0; i<probabilities.length; i++){
+	// 		if(prob < probabilities[i]){
+	// 			return population.get(i);
+	// 		}
+	// 	}
 		
-		return population.get(0);
-	}
+	// 	return population.get(0);
+	// }
 	
 
 	/**
@@ -204,11 +204,13 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 				fitnessSum = fitnessSum + population.get(i).getConstrainFitness();
 			}
 			
-			probabilities[0] = population.get(0).getConstrainFitness()(); 
+			probabilities[0] = population.get(0).getConstrainFitness(); 
 			for(int i=1; i<population.size(); i++){
 				//For each chromosome it adds the previous fitness with the current fitness
 				probabilities[i] = probabilities[i-1] + (population.get(i).getCombinedFitness()/fitnessSum) + SharedData.EIPSLON;
-		} else { 
+			}
+		} else {
+			
 			for (int i=0; i<population.size(); i++){
 				fitnessSum = fitnessSum + population.get(i).getCombinedFitness();
 			}
