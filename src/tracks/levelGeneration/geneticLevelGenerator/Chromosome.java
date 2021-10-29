@@ -399,7 +399,6 @@ public class Chromosome implements Comparable<Chromosome>{
 		// ensure symmetry by adding the sprite to the other half of the map 
 		level[level[0].length - freePositions.get(index).y - 1][freePositions.get(index).x].add(spriteName);
 	}
->>>>>>> f278044ebbe05cc6eac379ecbe4c64bb80f37546
 
 	/**
 	 * Fix the player in the level (there must be only one player no more or less)
