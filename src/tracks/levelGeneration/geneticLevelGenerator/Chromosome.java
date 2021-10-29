@@ -52,6 +52,13 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * The current stateObservation of the level
 	 */
 	private StateObservation stateObs;
+	/**
+	 * specific sprite data pointers
+	 */
+	private ArrayList<SpriteData> spriteData;
+	private SpriteData boxSpriteData;
+	private SpriteData holeSpriteData;
+
 	
 	/**
 	 * initialize the chromosome with a certain length and width
@@ -69,6 +76,16 @@ public class Chromosome implements Comparable<Chromosome>{
 		this.fitness = new ArrayList<Double>();
 		this.calculated = false;
 		this.stateObs = null;
+
+		this.spriteData = SharedData.gameDescription.getAllSpriteData();
+		for (SpriteData s : this.spriteData) {
+			if (s.name.equals("box")) {
+				this.boxSpriteData = s;
+			}
+			if (s.name.equals("hole")) {
+				this.holeSpriteData = s;
+			}
+		}
 	}
 	
 
@@ -561,19 +578,43 @@ public class Chromosome implements Comparable<Chromosome>{
 			}
 		}
 
-		FixPlayer();
-
-		//get the list of all the avatar names
-		ArrayList<SpriteData> avatar = SharedData.gameDescription.getAvatar();
-		ArrayList<String> avatarNames = new ArrayList<String>();
-		for(SpriteData a:avatar){
-			avatarNames.add(a.name);
+		// count boxes
+		int boxCount = 0;
+		int holeCount = 0;
+		for (int i = 0; i < width / 2; i++) {
+			for (int j = 0; j < height; j++) {
+				if (level[i][j].indexOf("box") != -1) {
+					boxCount++;
+				}
+				if (level[i][j].indexOf("hole") != -1) {
+					holeCount++;
+				}
+			}
 		}
 
-		//get list of all the avatar positions in the level
-		ArrayList<SpritePointData> avatarPositions = getPositions(avatarNames);
+		// balance the number of boxes and holes
+		if (boxCount < holeCount) {
+			int numToAdd = holeCount - boxCount;
 
-		//System.out.println(String.format("avatarPositions.size(): %d", avatarPositions.size()));
+			while (numToAdd > 0) {
+				System.out.println("addSprite");
+				addSprite(boxSpriteData);
+				numToAdd--;
+			}
+		}
+		else if (boxCount > holeCount) {
+			int numToAdd = boxCount - holeCount;
+
+			while (numToAdd > 0) {
+				System.out.println("addSprite");
+				addSprite(holeSpriteData);
+				numToAdd--;
+			}
+		}
+
+		FixPlayer();
+
+		System.out.println(String.format("boxcount: %d, holecount: %d", boxCount, holeCount));
 	}
 	
 
@@ -800,7 +841,7 @@ public class Chromosome implements Comparable<Chromosome>{
 			for (int i = 0; i < SharedData.NUM_AGENT_TRIALS; i++) {
 				StepController stepAgent = new StepController(automatedAgent, SharedData.EVALUATION_STEP_TIME);
 				ElapsedCpuTimer elapsedTimer = new ElapsedCpuTimer();
-				elapsedTimer.setMaxTimeMillis(time / 10);
+				elapsedTimer.setMaxTimeMillis(time / SharedData.NUM_AGENT_TRIALS);
 				stepAgent.playGame(stateObs.copy(), elapsedTimer);
 
 				StateObservation bestState = stepAgent.getFinalState();
