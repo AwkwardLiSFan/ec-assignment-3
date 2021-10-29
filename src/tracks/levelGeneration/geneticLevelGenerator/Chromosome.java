@@ -378,11 +378,26 @@ public class Chromosome implements Comparable<Chromosome>{
 		return positions;
 	}
 
-
 	/**
 	 * Randomly add given sprite on the board, keep.
+	 * @param s	data for chosen sprite
 	 */
-	private void addSprite(sprite s) {
+	private void addSprite(SpriteData s) {
+
+		// gets the sprite name based on the sprite data passed as an argument to the method 
+		String spriteName = s.name;
+
+		// gets all free positions on the board where the sprite can be added 
+		ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+
+		// select a random point out of all free positions 
+		int index = SharedData.random.nextInt(freePositions.size());
+
+		// adds the sprite to selected position on the map
+		level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+
+		// ensure symmetry by adding the sprite to the other half of the map 
+		level[level[0].length - freePositions.get(index).y - 1][freePositions.get(index).x].add(spriteName);
 	}
 
 	/**
