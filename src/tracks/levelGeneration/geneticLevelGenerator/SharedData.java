@@ -96,7 +96,7 @@ public class SharedData {
 	/**
 	 * starting the GA with seeds from the constructive algorithm
 	 */
-	public static final boolean CONSTRUCTIVE_INITIALIZATION = false;
+	public static final boolean CONSTRUCTIVE_INITIALIZATION = true;
 	
 	/**
 	 * The name of a the best agent with some human error
