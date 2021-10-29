@@ -10,7 +10,7 @@ public class SharedData {
 	/**
 	 * The size of the Genetic Algorithm Population
 	 */
-	public static final int POPULATION_SIZE = 3;
+	public static final int POPULATION_SIZE = 7;
 	/**
 	 * the amount of time to evaluate a single level
 	 */
@@ -97,7 +97,7 @@ public class SharedData {
 	/**
 	 * The name of a the best agent with some human error
 	 */
-	public static final String AGENT_NAME = "tracks.singlePlayer.advanced.sampleMCTS.Agent";
+	public static final String AGENT_NAME = "tracks.singlePlayer.advanced.olets.Agent";
 	/**
 	 * The name of a naive agent
 	 */

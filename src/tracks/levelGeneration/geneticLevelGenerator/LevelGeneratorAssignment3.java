@@ -203,7 +203,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		ArrayList<Double> weightedSum = new ArrayList<Double>();
 
 		//Get size of chromosome 
-		sizePop = population.get(0).getFitness().size();
+		sizePop = population.length;
 		variables  = population.get(0).getFitness().size();
 
 		//Index of objectives in fitness array 
