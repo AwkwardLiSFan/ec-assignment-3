@@ -380,7 +380,7 @@ public class Chromosome implements Comparable<Chromosome>{
 			// get the list of all free positions where above sprite is not present 
 			ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
 				
-			// replace the free spots with 10% probability
+			// replace the free positions with 10% probability
 			for (int j = 0; j <freePositions.size(); j++){
 				if (SharedData.random.nextDouble() < 0.1){
 					int index = SharedData.random.nextInt(freePositions.size());
@@ -388,7 +388,7 @@ public class Chromosome implements Comparable<Chromosome>{
 				}
 			}
 		}
-		
+
 		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
 		
 		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++)
