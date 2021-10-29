@@ -300,7 +300,6 @@ public class Chromosome implements Comparable<Chromosome>{
 			if(SharedData.gameAnalyzer.getSolidSprites().size() > 0){
 				solidFrame = 2;
 			}
-
 			// find a random point in the left-half of the map 
 			int pointX = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
 			int pointY = SharedData.random.nextInt(level.length/2 - solidFrame) + solidFrame / 2;
