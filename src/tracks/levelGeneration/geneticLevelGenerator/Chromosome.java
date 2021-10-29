@@ -157,7 +157,7 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * crossover the current chromosome with the input chromosome
 	 * @param c	the other chromosome to crossover with
 	 * @return	the current children from the crossover process
-	 */
+	 
 	public ArrayList<Chromosome> crossOver(Chromosome c){
 		ArrayList<Chromosome> children = new ArrayList<Chromosome>();
 		children.add(new Chromosome(level[0].length, level.length));
@@ -198,8 +198,52 @@ public class Chromosome implements Comparable<Chromosome>{
 		children.get(1).constructAgent();
 		
 		return children;
-	}
+	}*/
 	
+	/**
+	 * crossover the current chromosome with the input chromosome
+	 * @param c	the other chromosome to crossover with
+	 * @return	the current children from the crossover process
+	 */
+	public ArrayList<Chromosome> crossOver(Chromosome c){
+		ArrayList<Chromosome> children = new ArrayList<Chromosome>();
+		children.add(new Chromosome(level[0].length, level.length));
+		children.add(new Chromosome(level[0].length, level.length));
+
+		for(int y = 0; y < level.length/2; y++){
+
+			// find crossover point in the row of the first half of the map 
+			int pointX = SharedData.random.nextInt(level[0].length);
+
+			// iterate over each element in one row of the map 
+			for(int x = 0; x < level[y].length; x++){
+				
+				// check if crossover point for that row has been reached  
+				if (x <= pointX){
+					// retain elements of that chromosome if crossover point hasn't been reached 
+					children.get(0).level[y][x].addAll(this.level[y][x]);
+					children.get(1).level[y][x].addAll(c.level[y][x]);
+				}
+				else{
+					// if crossover point has been reached, the remaining elements of the row come from the other Parent for each child 
+					children.get(0).level[y][x].addAll(c.level[y][x]);
+					children.get(1).level[y][x].addAll(this.level[y][x]);
+
+					// mirror this operation horizontally to ensure symmetry 
+					children.get(0).level[level.length - 1 - y][x].addAll(c.level[y][x]);
+					children.get(1).level[level.length - 1 - y][x].addAll(this.level[y][x]);
+				}
+			}
+		}
+		
+		children.get(0).FixLevel();
+		children.get(1).FixLevel();
+		
+		children.get(0).constructAgent();
+		children.get(1).constructAgent();
+		
+		return children;
+	}
 
 	/**
 	 * mutate the current chromosome
