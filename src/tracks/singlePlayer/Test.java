@@ -26,9 +26,11 @@ public class Test {
     public static void main(String[] args) {
 		// games we are playing: Bomber{8}, Boulder Chase{10}, Chase{18}, Garbage Collector{45}
 		int[] gameIndex = {8, 10, 18, 45};
+		int game = 3;
+		System.out.println("Playing gameIndex: " + gameIndex[game]);
 		//int gameLevel = 0;
 		
-		// for each level
+		// for each level\
 		for (int gameLevel = 0; gameLevel < 5; gameLevel++) {
 			
 			// go through it 10 times
@@ -36,7 +38,7 @@ public class Test {
 				System.out.println("Iteration cycle: " + iteration + " Game level: " + gameLevel);
 				advancesRan = 0;
 				// Creating a copy of the game state
-				ForwardModel gameState = init(gameIndex[1], gameLevel);
+				ForwardModel gameState = init(gameIndex[game], gameLevel);
 				gameState.setNewSeed(-131244659);
 				ForwardModel gameStateCopy = gameState.copy();
 				gameStateCopy.setNewSeed(-131244659);
