@@ -379,7 +379,7 @@ public class Chromosome implements Comparable<Chromosome>{
 						level[row][start] = level[row][end];
 						level[row][end] = t;
 						start++; 
-						end++;
+						end--;
 					}
 				}
 				// delete a random point in the row
@@ -529,8 +529,6 @@ public class Chromosome implements Comparable<Chromosome>{
 		//get list of all the avatar positions in the level
 		ArrayList<SpritePointData> avatarPositions = getPositions(avatarNames);
 
-		//System.out.println(getLevelString(getLevelMapping()));
-		//System.out.println(String.format("avatarPositions.size(): %d", avatarPositions.size()));
 		// if not avatar insert a new one 
 		if(avatarPositions.size() == 0){
 			ArrayList<SpritePointData> freePositions = getFreePositions(avatarNames);
@@ -542,11 +540,9 @@ public class Chromosome implements Comparable<Chromosome>{
 		//if there is more than one avatar remove all of them except one
 		else if(avatarPositions.size() > 1){
 			int notDelete = SharedData.random.nextInt(avatarPositions.size());
-			//System.out.println(String.format("notDelete: %d", notDelete));
 			int index = 0;
 			for(SpritePointData point:avatarPositions){
 				if(index != notDelete){
-					//System.out.println(String.format("deleting at index %d", index));
 					level[point.y][point.x].remove(point.name);
 				}
 				index += 1;
@@ -559,8 +555,6 @@ public class Chromosome implements Comparable<Chromosome>{
 		for(SpriteData a:avatar){
 			avatarNames.add(a.name);
 		}
-		//System.out.println(getLevelString(getLevelMapping()));
-		//System.out.println(String.format("new avatarPositions.size(): %d", avatarPositions.size()));
 	}
 	
 
@@ -597,7 +591,6 @@ public class Chromosome implements Comparable<Chromosome>{
 			int numToAdd = holeCount - boxCount;
 
 			while (numToAdd > 0) {
-				System.out.println("addSprite");
 				addSprite(boxSpriteData);
 				numToAdd--;
 			}
@@ -606,15 +599,12 @@ public class Chromosome implements Comparable<Chromosome>{
 			int numToAdd = boxCount - holeCount;
 
 			while (numToAdd > 0) {
-				System.out.println("addSprite");
 				addSprite(holeSpriteData);
 				numToAdd--;
 			}
 		}
 
 		FixPlayer();
-
-		System.out.println(String.format("boxcount: %d, holecount: %d", boxCount, holeCount));
 	}
 	
 
