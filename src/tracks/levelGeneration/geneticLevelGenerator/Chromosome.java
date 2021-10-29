@@ -266,7 +266,7 @@ public class Chromosome implements Comparable<Chromosome>{
 				ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
 				int index = SharedData.random.nextInt(freePositions.size());
 				level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
-				level[level[0].length - freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+				level[level[0].length - freePositions.get(index).y - 1][freePositions.get(index).x].add(spriteName);
 				
 				//level[pointY][pointX].add(spriteName);
 				//level[level[0].length - pointY][pointX].add(spriteName);
