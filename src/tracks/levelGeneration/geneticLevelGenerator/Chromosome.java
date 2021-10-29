@@ -287,8 +287,8 @@ public class Chromosome implements Comparable<Chromosome>{
 	}*/
 
 	/**
-	 * mutate the current chromosome
-	*/
+	 * mutate the current chromosome: #1
+	
 	public void mutate(){
 		// get all the sprites available
 		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
@@ -324,6 +324,104 @@ public class Chromosome implements Comparable<Chromosome>{
 				level[point2Y][point2X] = level[level.length - point2Y][point2X];
 			}	
 		}
+		FixLevel();
+	}
+	*/
+
+	/**
+	 * mutate the current chromosome: #2
+	 */
+	public void mutate(){
+		
+		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++){
+
+			// iterate over each row
+			for(int row = 0; row < level.length; row++){
+				
+				// select two random points in this row 
+				int pointOne = SharedData.random.nextInt(level[row].length);
+				int pointTwo = SharedData.random.nextInt(level[row].length);
+				// ensure that both points are different 
+				while (pointOne == pointTwo){
+					pointOne = SharedData.random.nextInt(level[row].length);
+					pointTwo = SharedData.random.nextInt(level[row].length);
+				}
+
+				// swap the elements at these two positions in the row 
+				ArrayList<String> temp = level[row][pointOne];
+				level[row][pointOne] = level[row][pointTwo];
+				level[row][pointTwo] = temp;
+				
+				// carry out inversion of the row with 50% probability 
+				if(SharedData.random.nextDouble() > 0.5){
+					int start = 0; 
+					int end = level[0].length - 1;
+
+					while (start < end){
+						ArrayList<String> t = level[row][start];
+						level[row][start] = level[row][end];
+						level[row][end] = t;
+						start++; 
+						end++;
+					}
+				}
+				// delete a random point in the row
+				else{
+					level[row][SharedData.random.nextInt(level[row].length)].clear(); 
+				}
+			}
+
+			// get the list of all sprites 
+			ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+
+			// select a sprite randomly 
+			String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+
+			// get the list of all free positions where above sprite is not present 
+			ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+				
+			// replace the free spots with 10% probability
+			for (int j = 0; j <freePositions.size(); j++){
+				if (SharedData.random.nextDouble() < 0.1){
+					int index = SharedData.random.nextInt(freePositions.size());
+					level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+				}
+			}
+		}
+		
+		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+		
+		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++)
+		{
+			int solidFrame = 0;
+			if(SharedData.gameAnalyzer.getSolidSprites().size() > 0){
+				solidFrame = 2;
+			}
+			int pointX = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+			int pointY = SharedData.random.nextInt(level.length - solidFrame) + solidFrame / 2;
+			//insert new random sprite to a new random free position
+			if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB){
+				String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+				ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+				int index = SharedData.random.nextInt(freePositions.size());
+				level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+			}
+
+			//clear any random position
+			else if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB + SharedData.DELETION_PROB){
+				level[pointY][pointX].clear();
+			}
+			//swap any two random positions
+			else{
+				int point2X = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+				int point2Y = SharedData.random.nextInt(level.length - solidFrame) + solidFrame / 2;
+				
+				ArrayList<String> temp = level[pointY][pointX];
+				level[pointY][pointX] = level[point2Y][point2X];
+				level[point2Y][point2X] = temp;
+			}
+		}
+		
 		FixLevel();
 	}
 
