@@ -383,8 +383,13 @@ public class Chromosome implements Comparable<Chromosome>{
 			// replace the free positions with 10% probability
 			for (int j = 0; j <freePositions.size(); j++){
 				if (SharedData.random.nextDouble() < 0.1){
+					
+					// select a random index for one of the free positions 
 					int index = SharedData.random.nextInt(freePositions.size());
+					// add the chosen sprite to this position
 					level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+					// update free positions so the newly added sprite is no longer counted as a free position
+					freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
 				}
 			}
 		}
