@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 import core.game.Event;
 import core.game.GameDescription.SpriteData;
@@ -377,7 +378,13 @@ public class Chromosome implements Comparable<Chromosome>{
 		
 		return positions;
 	}
-	
+
+
+	/**
+	 * Randomly add given sprite on the board, keep.
+	 */
+	private void addSprite(sprite s) {
+	}
 
 	/**
 	 * Fix the player in the level (there must be only one player no more or less)
@@ -392,7 +399,9 @@ public class Chromosome implements Comparable<Chromosome>{
 
 		//get list of all the avatar positions in the level
 		ArrayList<SpritePointData> avatarPositions = getPositions(avatarNames);
-		
+
+		System.out.println(getLevelString(getLevelMapping()));
+		System.out.println(String.format("avatarPositions.size(): %d", avatarPositions.size()));
 		// if not avatar insert a new one 
 		if(avatarPositions.size() == 0){
 			ArrayList<SpritePointData> freePositions = getFreePositions(avatarNames);
@@ -412,6 +421,15 @@ public class Chromosome implements Comparable<Chromosome>{
 				index += 1;
 			}
 		}
+
+		//get the list of all the avatar names
+		ArrayList<SpriteData> avatar = SharedData.gameDescription.getAvatar();
+		ArrayList<String> avatarNames = new ArrayList<String>();
+		for(SpriteData a:avatar){
+			avatarNames.add(a.name);
+		}
+		System.out.println(getLevelString(getLevelMapping()));
+		System.out.println(String.format("new avatarPositions.size(): %d", avatarPositions.size()));
 	}
 	
 
@@ -419,7 +437,28 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * Fix the level by fixing the player number
 	 */
 	private void FixLevel(){
+		// mirror one side of the level
+		int width = level.length;
+		int height = level[0].length;
+		for (int i = 0; i < width / 2; i++) {
+			for (int j = 0; j < height; j++) {
+				level[i][j] = level[width - 1 - i][j];
+			}
+		}
+
 		FixPlayer();
+
+		//get the list of all the avatar names
+		ArrayList<SpriteData> avatar = SharedData.gameDescription.getAvatar();
+		ArrayList<String> avatarNames = new ArrayList<String>();
+		for(SpriteData a:avatar){
+			avatarNames.add(a.name);
+		}
+
+		//get list of all the avatar positions in the level
+		ArrayList<SpritePointData> avatarPositions = getPositions(avatarNames);
+
+		System.out.println(String.format("avatarPositions.size(): %d", avatarPositions.size()));
 	}
 	
 
@@ -655,7 +694,7 @@ public class Chromosome implements Comparable<Chromosome>{
 				if (bestState.getGameWinner() == Types.WINNER.PLAYER_WINS) {
 					numWins++;
 
-					if (minMoves < bestSol.size()) {
+					if (minMoves > bestSol.size()) {
 						minMoves = bestSol.size();
 					}
 				}
@@ -663,6 +702,44 @@ public class Chromosome implements Comparable<Chromosome>{
 
 			fitness.add(new Double(numWins) / SharedData.NUM_AGENT_TRIALS);
 			fitness.add(new Double(minMoves));
+
+			System.out.println(fitness);
+			System.out.println("LevelMapping:");
+			for (Map.Entry<Character, ArrayList<String>> e : this.getLevelMapping().getCharMapping().entrySet()) {
+				System.out.print("    " + e.getKey() + " > ");
+				for (String s : e.getValue()) {
+					System.out.print(s + " ");
+				}
+				System.out.println();
+			}
+			System.out.println(this.getLevelString(this.getLevelMapping()));
+
+			//calculate the maxScore need to be satisfied based on the difference
+			//between the score of different collectible objects
+			double maxScore = 0;
+			if(SharedData.gameAnalyzer.getMinScoreUnit() > 0){
+				double numberOfUnits = SharedData.gameAnalyzer.getMaxScoreUnit() / (SharedData.MAX_SCORE_PERCENTAGE * SharedData.gameAnalyzer.getMinScoreUnit());
+				maxScore = numberOfUnits * SharedData.gameAnalyzer.getMinScoreUnit();
+			}
+
+			//calculate the constrain fitness by applying all different constraints
+			HashMap<String, Object> parameters = new HashMap<String, Object>();
+			parameters.put("numWins", numWins);
+			parameters.put("coverPercentage", getCoverPercentage());
+			parameters.put("minCoverPercentage", SharedData.MIN_COVER_PERCENTAGE);
+			parameters.put("maxCoverPercentage", SharedData.MAX_COVER_PERCENTAGE);
+			parameters.put("numOfObjects", calculateNumberOfObjects());
+			parameters.put("gameAnalyzer", SharedData.gameAnalyzer);
+			parameters.put("gameDescription", SharedData.gameDescription);
+
+			CombinedConstraints constraint = new CombinedConstraints();
+			constraint.addConstraints(new String[]{"CoverPercentageConstraint",
+												   "SpriteNumberConstraint",
+												   "GoalConstraint",
+												   "AvatarNumberConstraint",
+												   "WinConstraint"});
+			constraint.setParameters(parameters);
+			constrainFitness = constraint.checkConstraint();
 		}
 		
 		return fitness;
@@ -695,7 +772,7 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * @return	1 if its feasible and less than 1 if not
 	 */
 	public double getConstrainFitness(){
-		return fitness.get(0) > 0 ? 1 : 0;
+		return constrainFitness;
 	}
 	
 

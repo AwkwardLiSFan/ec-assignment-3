@@ -7,9 +7,9 @@ import ontology.Types.WINNER;
 public class WinConstraint extends AbstractConstraint {
 
 	/**
-	 * the winning state of the player
+	 * number of wins
 	 */
-	public Types.WINNER bestPlayer;
+	public double numWins;
 	
 	/**
 	 * check if the player win the game
@@ -17,13 +17,6 @@ public class WinConstraint extends AbstractConstraint {
 	 */
 	@Override
 	public double checkConstraint() {
-		double result = 0;
-		if(bestPlayer == WINNER.PLAYER_WINS){
-			result += 1;
-		}
-		if(bestPlayer == WINNER.NO_WINNER){
-			result += SharedData.DRAW_FITNESS;
-		}
-		return result;
+		return numWins / SharedData.NUM_AGENT_TRIALS;
 	}
 }
