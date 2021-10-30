@@ -135,7 +135,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		
 		// insert NSGA-II code here 
 		//add the best chromosome(s) from old population to the new population
-		Collections.sort(newPopulation);
+		/*Collections.sort(newPopulation);
 		for(int i=SharedData.POPULATION_SIZE - SharedData.ELITISM_NUMBER;i<newPopulation.size();i++){
 			newPopulation.remove(i);
 		}
@@ -152,14 +152,37 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 				newPopulation.add(fPopulation.get(i));
 			}
 		}
+		*/
+
+		// for population size = 7, number of generations = 100
+		int generationCounter = 0;
+
+		// iterate until the size of the population no longer exceeds mu (7)
+		while(newPopulation.size() >= SharedData.POPULATION_SIZE){
+
+			// rank the population using dominance rank and determine the set of solutions with the worst rank 
+			
+			// for each solution x in above set of solutions, determine loss of hypervolume 			
 		
-		return newPopulation;
+			// termination check 
+			if (generationCounter >= SharedData.NUM_GENERATIONS){
+				return newPopulation;
+			}	
+
+			// else, update number of generations
+			generationCounter++; 
+
+			// crossover/mutation here 
+			
+		}
+
+		
 	}
 
-	private Integer dominate(ArrayList<Chromosome> population, Chromosome individual){
+	private int dominate(ArrayList<Chromosome> population, Chromosome individual){
+
 		Integer numSolutions=0, sizePop;
 		Double winsI, movesI, wins, moves;
-
 		winsI = individual.getFitness().get(0);
 		movesI = individual.getFitness().get(1);
 
@@ -168,8 +191,9 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		for (int i=0; i< sizePop; i++){
 			wins = population.get(i).getFitness().get(0);
 			moves = population.get(i).getFitness().get(1);
-			if (winsI<=wins && movesI<moves)
+			if (winsI<=wins && movesI<moves){
 				numSolutions = numSolutions + 1;
+			}
 			else if (movesI<=moves && winsI<wins)
 				numSolutions = numSolutions + 1;
 
