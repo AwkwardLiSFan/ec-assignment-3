@@ -339,18 +339,56 @@ public class Test {
 		}
 		// End of dominance ranking
 
-		for(int x = 0; x < population.size(); x++){
-			System.out.println("i:"+x+"   rank: " + population.get(x).dominance + "   score: " + population.get(x).score + "   length: " + population.get(x).moveSet.size());
-		}
+		// for(int x = 0; x < population.size(); x++){
+		// 	System.out.println("i:"+x+"   rank: " + population.get(x).dominance + "   score: " + population.get(x).score + "   length: " + population.get(x).moveSet.size());
+		// }
 		// sort by dominance ranking
 		Collections.sort(population);
-		for(int x = 0; x < population.size(); x++){
-			System.out.println("i:"+x+"   rank: " + population.get(x).dominance + "   score: " + population.get(x).score + "   length: " + population.get(x).moveSet.size());
+		// for(int x = 0; x < population.size(); x++){
+		// 	System.out.println("i:"+x+"   rank: " + population.get(x).dominance + "   score: " + population.get(x).score + "   length: " + population.get(x).moveSet.size());
+		// }
+
+		// create P' such that P' is a subset of P of the worst rank individuals
+		ArrayList<Individual> nonDominatedPopulation = new ArrayList<Individual>();
+
+		// populate worstPopulation with rank 0 individuals 
+		for (int ind = 0; ind < population.size(); ind++) {
+			if (population.get(ind).dominance == 0) {
+				nonDominatedPopulation.add(population.get(ind));
+			}
+		}
+		// get hypervolume sum for nonDominatedPopulation
+		int hypervolumeSum = hypervolumeIndicator(nonDominatedPopulation);
+
+		// calculate loss of hypervolume: I(P') - I(P'\(each individual))
+		ArrayList<Individual> removedIndividuals = new ArrayList<Individual>();
+		for (int j = 0; j < nonDominatedPopulation.size(); j++) {
+			removedIndividuals.addAll(nonDominatedPopulation);
+			removedIndividuals.remove(nonDominatedPopulation.get(j));
+
+			int nonDominatedPopulation.get(j).loss = hypervolumeIndicator(removedIndividuals);
 		}
 
-		// 
-
 		return population;
+	}
+
+	// Sub-step 2
+	public static int hypervolumeIndicator (ArrayList<Individual> nonDominatedPopulation) {
+		
+		// calculate hypervolume indicator based on the reference point (0,0)
+		int hypervolumeSum = (int)nonDominatedPopulation.get(0).score * nonDominatedPopulation.get(0).moveSet.size();
+		Individual current = nonDominatedPopulation.get(0);
+		for (int i = 1; i < nonDominatedPopulation.size(); i++) {
+			
+			// take into account of the overlap - Francis' code
+			Individual previous = current;
+			current = nonDominatedPopulation.get(i);
+			hypervolumeSum += nonDominatedPopulation.get(i).score * nonDominatedPopulation.get(i).moveSet.size() - previous.score * previous.moveSet.size();
+		}
+		
+		// hypervolumeSum is I(P')
+		System.out.println("Sum is:" + hypervolumeSum);
+		return hypervolumeSum;
 	}
 	
 }
@@ -360,6 +398,7 @@ class Individual implements Comparable<Individual>{
 	public ArrayList<Types.ACTIONS> moveSet;
 	public double score;
 	public int dominance;
+	public int loss;
 
 	public Individual(){
 		this.score = -1;
