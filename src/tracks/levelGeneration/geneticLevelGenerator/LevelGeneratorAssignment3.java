@@ -135,7 +135,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		
 		// insert NSGA-II code here 
 		//add the best chromosome(s) from old population to the new population
-		Collections.sort(newPopulation);
+		/*Collections.sort(newPopulation);
 		for(int i=SharedData.POPULATION_SIZE - SharedData.ELITISM_NUMBER;i<newPopulation.size();i++){
 			newPopulation.remove(i);
 		}
@@ -151,7 +151,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			for(int i=0;i<SharedData.ELITISM_NUMBER;i++){
 				newPopulation.add(fPopulation.get(i));
 			}
-		}
+			}*/
 
 		/*
 		 * NOTE: tentative code below
@@ -214,13 +214,12 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			population.remove(lossIndex);
 		}
 		
-		return newPopulation;
 	}
 
-	private Integer dominate(ArrayList<Chromosome> population, Chromosome individual){
+	private int dominate(ArrayList<Chromosome> population, Chromosome individual){
+
 		Integer numSolutions=0, sizePop;
 		Double winsI, movesI, wins, moves;
-
 		winsI = individual.getFitness().get(0);
 		movesI = individual.getFitness().get(1);
 
@@ -229,8 +228,9 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		for (int i=0; i< sizePop; i++){
 			wins = population.get(i).getFitness().get(0);
 			moves = population.get(i).getFitness().get(1);
-			if (winsI<=wins && movesI<moves)
+			if (winsI<=wins && movesI<moves){
 				numSolutions = numSolutions + 1;
+			}
 			else if (movesI<=moves && winsI<wins)
 				numSolutions = numSolutions + 1;
 
