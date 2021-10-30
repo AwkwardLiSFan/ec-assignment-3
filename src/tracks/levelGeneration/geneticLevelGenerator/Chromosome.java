@@ -52,6 +52,13 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * The current stateObservation of the level
 	 */
 	private StateObservation stateObs;
+	/**
+	 * specific sprite data pointers
+	 */
+	private ArrayList<SpriteData> spriteData;
+	private SpriteData boxSpriteData;
+	private SpriteData holeSpriteData;
+
 	
 	/**
 	 * initialize the chromosome with a certain length and width
@@ -69,6 +76,16 @@ public class Chromosome implements Comparable<Chromosome>{
 		this.fitness = new ArrayList<Double>();
 		this.calculated = false;
 		this.stateObs = null;
+
+		this.spriteData = SharedData.gameDescription.getAllSpriteData();
+		for (SpriteData s : this.spriteData) {
+			if (s.name.equals("box")) {
+				this.boxSpriteData = s;
+			}
+			if (s.name.equals("hole")) {
+				this.holeSpriteData = s;
+			}
+		}
 	}
 	
 
@@ -287,8 +304,8 @@ public class Chromosome implements Comparable<Chromosome>{
 	}*/
 
 	/**
-	 * mutate the current chromosome
-	*/
+	 * mutate the current chromosome: #1
+	
 	public void mutate(){
 		// get all the sprites available
 		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
@@ -324,6 +341,104 @@ public class Chromosome implements Comparable<Chromosome>{
 				level[point2Y][point2X] = level[level.length - point2Y][point2X];
 			}	
 		}
+		FixLevel();
+	}
+	*/
+
+	/**
+	 * mutate the current chromosome: #2
+	 */
+	public void mutate(){
+		
+		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++){
+
+			// iterate over each row
+			for(int row = 0; row < level.length; row++){
+				
+				// select two random points in this row 
+				int pointOne = SharedData.random.nextInt(level[row].length);
+				int pointTwo = SharedData.random.nextInt(level[row].length);
+				// ensure that both points are different 
+				while (pointOne == pointTwo){
+					pointOne = SharedData.random.nextInt(level[row].length);
+					pointTwo = SharedData.random.nextInt(level[row].length);
+				}
+
+				// swap the elements at these two positions in the row 
+				ArrayList<String> temp = level[row][pointOne];
+				level[row][pointOne] = level[row][pointTwo];
+				level[row][pointTwo] = temp;
+				
+				// carry out inversion of the row with 50% probability 
+				if(SharedData.random.nextDouble() > 0.5){
+					int start = 0; 
+					int end = level[0].length - 1;
+
+					while (start < end){
+						ArrayList<String> t = level[row][start];
+						level[row][start] = level[row][end];
+						level[row][end] = t;
+						start++; 
+						end--;
+					}
+				}
+				// delete a random point in the row
+				else{
+					level[row][SharedData.random.nextInt(level[row].length)].clear(); 
+				}
+			}
+
+			// get the list of all sprites 
+			ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+
+			// select a sprite randomly 
+			String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+
+			// get the list of all free positions where above sprite is not present 
+			ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+				
+			// replace one of the free positions with 10% probability
+			if (SharedData.random.nextDouble() < 0.1){	
+				// select a random index for one of the free positions 
+				int index = SharedData.random.nextInt(freePositions.size());
+				// add the chosen sprite to this position
+				level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+			}
+		}
+
+		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+		
+		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++)
+		{
+			int solidFrame = 0;
+			if(SharedData.gameAnalyzer.getSolidSprites().size() > 0){
+				solidFrame = 2;
+			}
+			int pointX = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+			int pointY = SharedData.random.nextInt(level.length - solidFrame) + solidFrame / 2;
+			//insert new random sprite to a new random free position
+			if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB){
+				String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+				ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+				int index = SharedData.random.nextInt(freePositions.size());
+				level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+			}
+
+			//clear any random position
+			else if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB + SharedData.DELETION_PROB){
+				level[pointY][pointX].clear();
+			}
+			//swap any two random positions
+			else{
+				int point2X = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+				int point2Y = SharedData.random.nextInt(level.length - solidFrame) + solidFrame / 2;
+				
+				ArrayList<String> temp = level[pointY][pointX];
+				level[pointY][pointX] = level[point2Y][point2X];
+				level[point2Y][point2X] = temp;
+			}
+		}
+		
 		FixLevel();
 	}
 
@@ -414,8 +529,6 @@ public class Chromosome implements Comparable<Chromosome>{
 		//get list of all the avatar positions in the level
 		ArrayList<SpritePointData> avatarPositions = getPositions(avatarNames);
 
-		//System.out.println(getLevelString(getLevelMapping()));
-		//System.out.println(String.format("avatarPositions.size(): %d", avatarPositions.size()));
 		// if not avatar insert a new one 
 		if(avatarPositions.size() == 0){
 			ArrayList<SpritePointData> freePositions = getFreePositions(avatarNames);
@@ -427,11 +540,9 @@ public class Chromosome implements Comparable<Chromosome>{
 		//if there is more than one avatar remove all of them except one
 		else if(avatarPositions.size() > 1){
 			int notDelete = SharedData.random.nextInt(avatarPositions.size());
-			//System.out.println(String.format("notDelete: %d", notDelete));
 			int index = 0;
 			for(SpritePointData point:avatarPositions){
 				if(index != notDelete){
-					//System.out.println(String.format("deleting at index %d", index));
 					level[point.y][point.x].remove(point.name);
 				}
 				index += 1;
@@ -444,8 +555,6 @@ public class Chromosome implements Comparable<Chromosome>{
 		for(SpriteData a:avatar){
 			avatarNames.add(a.name);
 		}
-		//System.out.println(getLevelString(getLevelMapping()));
-		//System.out.println(String.format("new avatarPositions.size(): %d", avatarPositions.size()));
 	}
 	
 
@@ -463,19 +572,39 @@ public class Chromosome implements Comparable<Chromosome>{
 			}
 		}
 
-		FixPlayer();
-
-		//get the list of all the avatar names
-		ArrayList<SpriteData> avatar = SharedData.gameDescription.getAvatar();
-		ArrayList<String> avatarNames = new ArrayList<String>();
-		for(SpriteData a:avatar){
-			avatarNames.add(a.name);
+		// count boxes
+		int boxCount = 0;
+		int holeCount = 0;
+		for (int i = 0; i < width / 2; i++) {
+			for (int j = 0; j < height; j++) {
+				if (level[i][j].indexOf("box") != -1) {
+					boxCount++;
+				}
+				if (level[i][j].indexOf("hole") != -1) {
+					holeCount++;
+				}
+			}
 		}
 
-		//get list of all the avatar positions in the level
-		ArrayList<SpritePointData> avatarPositions = getPositions(avatarNames);
+		// balance the number of boxes and holes
+		if (boxCount < holeCount) {
+			int numToAdd = holeCount - boxCount;
 
-		//System.out.println(String.format("avatarPositions.size(): %d", avatarPositions.size()));
+			while (numToAdd > 0) {
+				addSprite(boxSpriteData);
+				numToAdd--;
+			}
+		}
+		else if (boxCount > holeCount) {
+			int numToAdd = boxCount - holeCount;
+
+			while (numToAdd > 0) {
+				addSprite(holeSpriteData);
+				numToAdd--;
+			}
+		}
+
+		FixPlayer();
 	}
 	
 
@@ -702,7 +831,7 @@ public class Chromosome implements Comparable<Chromosome>{
 			for (int i = 0; i < SharedData.NUM_AGENT_TRIALS; i++) {
 				StepController stepAgent = new StepController(automatedAgent, SharedData.EVALUATION_STEP_TIME);
 				ElapsedCpuTimer elapsedTimer = new ElapsedCpuTimer();
-				elapsedTimer.setMaxTimeMillis(time / 10);
+				elapsedTimer.setMaxTimeMillis(time / SharedData.NUM_AGENT_TRIALS);
 				stepAgent.playGame(stateObs.copy(), elapsedTimer);
 
 				StateObservation bestState = stepAgent.getFinalState();
