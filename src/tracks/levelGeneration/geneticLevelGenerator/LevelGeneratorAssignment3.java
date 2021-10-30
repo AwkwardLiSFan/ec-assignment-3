@@ -152,6 +152,67 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 				newPopulation.add(fPopulation.get(i));
 			}
 		}
+
+		/*
+		 * NOTE: tentative code below
+		 *
+		 * The code below assumes that we have a single population called population
+		 */
+
+		while (population.size() > SharedData.POPULATION_SIZE) {
+			// 1. rank individuals
+			ArrayList<Double> ranks = new ArrayList<Double>();
+
+			int worstRank = 0;
+			for (int i = 0; i < population.size(); i++) {
+				int currentRank = dominate(population, population[i]);
+
+				if (worstRank < currentRank) {
+					worstRank = currentRank;
+				}
+
+				ranks.add(currentRank);
+			}
+
+			// choose worst ranking individuals
+			const int NUM_TO_CHOOSE = 5; // must be less then SharedData.POPULATION_SIZE
+			ArrayList<Chromosome> worstRankingPopulation = new ArrayList<Chromosome>();
+
+			while (worstRankingPopulation.size() < NUM_TO_CHOOSE) {
+				for (int i = 0; i < NUM_TO_CHOOSE; i++) {
+					if (ranks.get(i) == worstRank) {
+						worstRankingPopulation.add(population.get(i));
+
+						if (worstRankingPopulation.size() < NUM_TO_CHOOSE) {
+							break;
+						}
+					}
+				}
+
+				worstRank--;
+			}
+
+			// 2. determine hypervolume losses
+
+			ArrayList<Double> losses = new ArrayList<Double>();
+
+			for (int i = 0; i < population.size(); i++) {
+				losses.add(getLoss(population.get(i), population));
+			}
+
+			// 3. get solution with smallest loss and remove it
+
+			double minLoss = losses.get(0);
+			int lossIndex = 0;
+			for (int i = 1; i < population.size(); i++) {
+				if (minLosses > losses.get(i)) {
+					minLosses = losses.get(i);
+					lossIndex = i;
+				}
+			}
+
+			population.remove(lossIndex);
+		}
 		
 		return newPopulation;
 	}
