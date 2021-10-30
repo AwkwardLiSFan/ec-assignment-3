@@ -159,13 +159,13 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		 * The code below assumes that we have a single population called population
 		 */
 
-		while (population.size() > SharedData.POPULATION_SIZE) {
+		while (newPopulation.size() > SharedData.POPULATION_SIZE) {
 			// 1. rank individuals
-			ArrayList<Double> ranks = new ArrayList<Double>();
+			ArrayList<Integer> ranks = new ArrayList<Integer>();
 
 			int worstRank = 0;
-			for (int i = 0; i < population.size(); i++) {
-				int currentRank = dominate(population, population[i]);
+			for (int i = 0; i < newPopulation.size(); i++) {
+				int currentRank = dominate(newPopulation, newPopulation.get(i));
 
 				if (worstRank < currentRank) {
 					worstRank = currentRank;
@@ -175,13 +175,13 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			}
 
 			// choose worst ranking individuals
-			const int NUM_TO_CHOOSE = 5; // must be less then SharedData.POPULATION_SIZE
+			final int NUM_TO_CHOOSE = 5; // must be less then SharedData.POPULATION_SIZE
 			ArrayList<Chromosome> worstRankingPopulation = new ArrayList<Chromosome>();
 
 			while (worstRankingPopulation.size() < NUM_TO_CHOOSE) {
 				for (int i = 0; i < NUM_TO_CHOOSE; i++) {
 					if (ranks.get(i) == worstRank) {
-						worstRankingPopulation.add(population.get(i));
+						worstRankingPopulation.add(newPopulation.get(i));
 
 						if (worstRankingPopulation.size() < NUM_TO_CHOOSE) {
 							break;
@@ -196,22 +196,22 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 
 			ArrayList<Double> losses = new ArrayList<Double>();
 
-			for (int i = 0; i < population.size(); i++) {
-				losses.add(getLoss(population.get(i), population));
+			for (int i = 0; i < worstRankingPopulation.size(); i++) {
+				losses.add(getLoss(worstRankingPopulation.get(i), worstRankingPopulation));
 			}
 
 			// 3. get solution with smallest loss and remove it
 
 			double minLoss = losses.get(0);
 			int lossIndex = 0;
-			for (int i = 1; i < population.size(); i++) {
-				if (minLosses > losses.get(i)) {
-					minLosses = losses.get(i);
+			for (int i = 1; i < worstRankingPopulation.size(); i++) {
+				if (minLoss > losses.get(i)) {
+					minLoss = losses.get(i);
 					lossIndex = i;
 				}
 			}
 
-			population.remove(lossIndex);
+			worstRankingPopulation.remove(lossIndex);
 		}
 		
 	}
