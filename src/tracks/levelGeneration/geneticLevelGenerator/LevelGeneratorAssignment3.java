@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
+import java.lang.Math;
 
 import core.game.GameDescription;
 import core.generator.AbstractLevelGenerator;
@@ -155,29 +156,61 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		return newPopulation;
 	}
 
-	private Integer dominate(ArrayList<Chromosome> populaton, Chromosome individual){
+	private Integer dominate(ArrayList<Chromosome> population, Chromosome individual){
 		Integer numSolutions=0, sizePop;
 		Double winsI, movesI, wins, moves;
 
 		winsI = individual.getFitness().get(0);
 		movesI = individual.getFitness().get(1);
 
-		sizePop = populaton.size();
+		sizePop = population.size();
 
 		for (int i=0; i< sizePop; i++){
-			wins = populaton.get(i).getFitness().get(0);
-			moves = populaton.get(i).getFitness().get(1);
+			wins = population.get(i).getFitness().get(0);
+			moves = population.get(i).getFitness().get(1);
 			if (winsI<=wins && movesI<moves)
 				numSolutions = numSolutions + 1;
 			else if (movesI<=moves && winsI<wins)
 				numSolutions = numSolutions + 1;
 
 		}
-
 		return numSolutions;
-
 	}
 
+	private double getIndicatorHypervolume(Chromosome individual, ArrayList<Chromosome> population){
+		
+		// declare all variables that will be used multiple times to minimize function calls to getFitness()
+		double individualFitnessZero = individual.getFitness().get(0) ;
+		double individualFitnessOne = individual.getFitness().get(1) ;
+		double closestToIndividualZero = Math.abs(population.get(0).getFitness().get(0) - individualFitnessZero);
+		double closestToIndividualOne = Math.abs(population.get(0).getFitness().get(1) - individualFitnessOne);
+		
+		// find a chromosome 'y' in the population s.t. y.fitness[0] <= individual.fitness[0] and difference b/w them is minimal
+		// Repeat for fitness[1] too  
+		for (int i = 1; i < population.size(); i++){
+			
+			// for fitness[0]
+			if (population.get(i).getFitness().get(0) <= individualFitnessZero){
+				// check if difference is lesser than minimal difference found so far
+				if (Math.abs(individualFitnessZero - population.get(i).getFitness().get(0)) < closestToIndividualZero){
+					// assign new minimal difference to closestToIndividual
+					closestToIndividualZero = Math.abs(individualFitnessZero - population.get(i).getFitness().get(0));
+				}
+			}
+
+			// for fitness[1]
+			if (population.get(i).getFitness().get(1) <= individualFitnessOne){
+				// check if difference is lesser than minimal difference found so far
+				if (Math.abs(individualFitnessOne - population.get(i).getFitness().get(1)) < closestToIndividualOne){
+					// assign new minimal difference to closestToIndividual
+					closestToIndividualOne = Math.abs(individualFitnessOne - population.get(i).getFitness().get(1));
+				}
+			}
+		}
+
+		// return hypervolume  indicator: (individual.fitness[0] - y.fitness[0]) + (individual.fitness[1] - y.fitness[1)
+		return closestToIndividualZero + closestToIndividualOne;
+	}
 
 	/**
 	 * Roullete wheel selection for the infeasible population
