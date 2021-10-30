@@ -177,39 +177,39 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		return numSolutions;
 	}
 
-	private double getIndicatorHypervolume(Chromosome individual, ArrayList<Chromosome> population){
-		
-		// declare all variables that will be used multiple times to minimize function calls to getFitness()
-		double individualFitnessZero = individual.getFitness().get(0) ;
-		double individualFitnessOne = individual.getFitness().get(1) ;
-		double closestToIndividualZero = Math.abs(population.get(0).getFitness().get(0) - individualFitnessZero);
-		double closestToIndividualOne = Math.abs(population.get(0).getFitness().get(1) - individualFitnessOne);
-		
-		// find a chromosome 'y' in the population s.t. y.fitness[0] <= individual.fitness[0] and difference b/w them is minimal
-		// Repeat for fitness[1] too  
-		for (int i = 1; i < population.size(); i++){
-			
-			// for fitness[0]
-			if (population.get(i).getFitness().get(0) <= individualFitnessZero){
-				// check if difference is lesser than minimal difference found so far
-				if (Math.abs(individualFitnessZero - population.get(i).getFitness().get(0)) < closestToIndividualZero){
-					// assign new minimal difference to closestToIndividual
-					closestToIndividualZero = Math.abs(individualFitnessZero - population.get(i).getFitness().get(0));
-				}
-			}
+	/**
+	 * Retrieves the hypervolume indicator for a population.
+	 */
+	private double getHypervolumeIndicator(ArrayList<Chromosome> population) {
+		ArrayList<Chromosome> nondominatedPopulation = new ArrayList<Chromosome>();
 
-			// for fitness[1]
-			if (population.get(i).getFitness().get(1) <= individualFitnessOne){
-				// check if difference is lesser than minimal difference found so far
-				if (Math.abs(individualFitnessOne - population.get(i).getFitness().get(1)) < closestToIndividualOne){
-					// assign new minimal difference to closestToIndividual
-					closestToIndividualOne = Math.abs(individualFitnessOne - population.get(i).getFitness().get(1));
-				}
-			}
+		for (Chromosome c : population) {
+			if (dominate(population, c) == 0)
+				nondominatedPopulation.add(c);
 		}
 
-		// return hypervolume  indicator: (individual.fitness[0] - y.fitness[0]) + (individual.fitness[1] - y.fitness[1)
-		return closestToIndividualZero + closestToIndividualOne;
+		Chromosome current = nondominatedPopulation.get(0);
+		double indicatorSum = current.getFitness().get(0) * current.getFitness().get(1);
+		for (int i = 1; i < nondominatedPopulation.size(); i++) {
+			Chromosome previous = current;
+			current = nondominatedPopulation.get(i);
+			indicatorSum += current.getFitness().get(0) * current.getFitness().get(1)
+				- previous.getFitness().get(0) * previous.getFitness().get(1);
+		}
+
+		return indicatorSum;
+	}
+
+	private double getLoss(Chromosome individual, ArrayList<Chromosome> population) {
+		double indicator = getHypervolumeIndicator(population);
+
+		ArrayList<Chromosome> removedPopulation = new ArrayList<Chromosome>();
+		removedPopulation.addAll(population);
+		removedPopulation.remove(individual);
+
+		double removedIndicator = getHypervolumeIndicator(population);
+
+		return indicator - removedIndicator;
 	}
 
 	/**
