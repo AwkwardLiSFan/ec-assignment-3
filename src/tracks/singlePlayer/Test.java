@@ -58,7 +58,7 @@ public class Test {
 				// Initialize the population
 				initializePopulation(populationSize, individualLength, actionList, population);
 				
-				int generationLimit = 1000000;
+				int generationLimit = 10000000;
 				Individual bestInd = new Individual();
 				//Individual previousBestInd = new Individual();
 				int advanceRunLimit = 5000000;
@@ -67,6 +67,8 @@ public class Test {
 				int currentBreakPoint = 0;
 
 				ArrayList<Double> resultArray = new ArrayList<Double>();
+				ArrayList<Integer> resultArrayLengths = new ArrayList<Integer>();
+				
 				// Start of the EA
 				for (int gen = 0; gen < generationLimit; gen++){
 					Individual previousBestInd = new Individual(population.get(0));
@@ -80,12 +82,13 @@ public class Test {
 							break;
 						}
 					}
-					System.out.println("Number of advance calls so far: " + advancesRan);
+					//System.out.println("Number of advance calls so far: " + advancesRan);
 					
 					// Saving the scores after each breakpoint
 					if(advancesRan > breakPoints[currentBreakPoint]){
 						System.out.println("Saving for breakpoint[" + breakPoints[currentBreakPoint] + "]    with score: " + previousBestInd.score);
 						resultArray.add(previousBestInd.score);
+						resultArrayLengths.add(previousBestInd.moveSet.size());
 						currentBreakPoint++;
 					}
 					
@@ -94,6 +97,7 @@ public class Test {
 						// Saving the scores after each breakpoint
 						if(advancesRan > breakPoints[currentBreakPoint]){
 							resultArray.add(previousBestInd.score);
+							resultArrayLengths.add(previousBestInd.moveSet.size());
 						}
 						break;
 					}
@@ -102,7 +106,7 @@ public class Test {
 			
 					// Elitism to get best Individual
 					bestInd = elitism(population);
-					System.out.println("The best ind : " + bestInd.score);
+					//System.out.println("The best ind : " + bestInd.score);
 					// Add best individual to the new population
 					newPopulation.add(bestInd);
 
@@ -144,6 +148,7 @@ public class Test {
 				System.out.println("The best one sequence: " + bestInd.moveSet);
 				System.out.println("The best score for level " + gameLevel + " is: " + bestInd.score);
 				System.out.println("Scores at 200,000; 1,000,000; 5,000,000: " + resultArray);
+				System.out.println("Lengths at 200,000; 1,000,000; 5,000,000: " + resultArrayLengths);
 			}
 		}
     }
