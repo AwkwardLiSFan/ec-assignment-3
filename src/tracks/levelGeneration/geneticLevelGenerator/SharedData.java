@@ -10,11 +10,7 @@ public class SharedData {
 	/**
 	 * The size of the Genetic Algorithm Population
 	 */
-	public static final int POPULATION_SIZE = 50;
-	/**
-	 * The amount of times used to check the one step look ahead and do nothing algorithm
-	 */
-	public static final int REPETITION_AMOUNT = 50;
+	public static final int POPULATION_SIZE = 7;
 	/**
 	 * the amount of time to evaluate a single level
 	 */
@@ -22,7 +18,7 @@ public class SharedData {
 	/**
 	 * The amount of time given for each time step
 	 */
-	public static final long EVALUATION_STEP_TIME = 40;
+	public static final long EVALUATION_STEP_TIME = 100;
 	/**
 	 * Crossover probability
 	 */
@@ -47,7 +43,7 @@ public class SharedData {
 	/**
 	 * the probability of inserting a new sprite
 	 */
-	public static final double INSERTION_PROB = 0.3;
+	public static final double INSERTION_PROB = 0.5;
 	/**
 	 * the probability of deleting an exisiting sprite
 	 */
@@ -101,7 +97,7 @@ public class SharedData {
 	/**
 	 * The name of a the best agent with some human error
 	 */
-	public static final String AGENT_NAME = "tracks.singlePlayer.tools.repeatOLETS.Agent";
+	public static final String AGENT_NAME = "tracks.singlePlayer.advanced.sampleMCTS.Agent";
 	/**
 	 * The name of a naive agent
 	 */
@@ -113,7 +109,7 @@ public class SharedData {
 	/**
 	 * The number of trials that an agent will have to do
 	 */
-	public static final int NUM_AGENT_TRIALS = 10;
+	public static final int NUM_AGENT_TRIALS = 1;
 	
 	/**
 	 * The game description object

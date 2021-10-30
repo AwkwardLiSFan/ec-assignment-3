@@ -155,6 +155,30 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		return newPopulation;
 	}
 
+	private Integer dominate(ArrayList<Chromosome> populaton, Chromosome individual){
+		Integer numSolutions=0, sizePop;
+		Double winsI, movesI, wins, moves;
+
+		winsI = individual.getFitness().get(0);
+		movesI = individual.getFitness().get(1);
+
+		sizePop = populaton.size();
+
+		for (int i=0; i< sizePop; i++){
+			wins = populaton.get(i).getFitness().get(0);
+			moves = populaton.get(i).getFitness().get(1);
+			if (winsI<=wins && movesI<moves)
+				numSolutions = numSolutions + 1;
+			else if (movesI<=moves && winsI<wins)
+				numSolutions = numSolutions + 1;
+
+		}
+
+		return numSolutions;
+
+	}
+
+
 	/**
 	 * Roullete wheel selection for the infeasible population
 	 * @param population	array of chromosomes surviving in this population
@@ -196,18 +220,18 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		// Chromosome randomChrom;
 		// Random rand = new Random();
 		// Integer randNum=0;
-		Double  w1=-1.0, w2=-1.0;
+		Double  w1=10.0, w2=-1.0;
 		// ArrayList<Chromosome> candidate = new ArrayList<Chromosome>();
 		ArrayList<Double> candidateWins = new ArrayList<Double>();
 		ArrayList<Double> candidateMoves = new ArrayList<Double>();
 		ArrayList<Double> weightedSum = new ArrayList<Double>();
 
 		//Get size of chromosome 
-		sizePop = population.get(0).getFitness().size();
+		sizePop = population.size();
 		variables  = population.get(0).getFitness().size();
 
 		//Index of objectives in fitness array 
-		wins=variables-2;
+		wins =variables-2;
 		moves = variables-1;
 
 		// //Select random chromosomes from population to undergo selection
@@ -240,8 +264,8 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		}
 
 		return population.get(winnerIndex);
-
 	}
+
 
 
 	/**
