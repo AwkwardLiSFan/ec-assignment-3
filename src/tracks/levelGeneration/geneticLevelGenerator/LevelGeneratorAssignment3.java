@@ -377,8 +377,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		int numberOfIterations = 0;
 
 		System.out.println(elapsedTimer.remainingTimeMillis() + " " + avgTime + " " + worstTime);
-		while(elapsedTimer.remainingTimeMillis() > 2 * avgTime &&
-				elapsedTimer.remainingTimeMillis() > worstTime){
+		for (int i = 0; i < SharedData.NUM_GENERATIONS; i++) {
 			ElapsedCpuTimer timer = new ElapsedCpuTimer();
 			
 			System.out.println("Generation #" + (numberOfIterations + 2) + ": ");

@@ -35,6 +35,10 @@ public class SharedData {
 	 * very small value
 	 */
 	public static final double EIPSLON = 1e-6;
+	/**
+	 * The number of generations of the EA
+	 */
+	public static final int NUM_GENERATIONS = 30;
 	
 	/**
 	 * the amount of mutations done on a chromosome to start as random
