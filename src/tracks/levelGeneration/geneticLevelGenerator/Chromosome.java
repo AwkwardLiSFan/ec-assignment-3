@@ -56,8 +56,6 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * specific sprite data pointers
 	 */
 	private ArrayList<SpriteData> spriteData;
-	private SpriteData boxSpriteData;
-	private SpriteData holeSpriteData;
 
 	
 	/**
@@ -78,12 +76,13 @@ public class Chromosome implements Comparable<Chromosome>{
 		this.stateObs = null;
 
 		this.spriteData = SharedData.gameDescription.getAllSpriteData();
-		for (SpriteData s : this.spriteData) {
-			if (s.name.equals("box")) {
-				this.boxSpriteData = s;
-			}
-			if (s.name.equals("hole")) {
-				this.holeSpriteData = s;
+
+		for (int i = 0; i < this.spriteData.size(); i++) {
+			if (this.spriteData.get(i).name.equals("background")
+				|| this.spriteData.get(i).name.equals("walked")
+				|| this.spriteData.get(i).name.equals("rock")) {
+				this.spriteData.remove(i);
+				i--;
 			}
 		}
 	}
@@ -223,37 +222,26 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * @param c	the other chromosome to crossover with
 	 * @return	the current children from the crossover process
 	 */
-	public ArrayList<Chromosome> crossOver(Chromosome c){
+	public ArrayList<Chromosome> crossOver(Chromosome other){
 		ArrayList<Chromosome> children = new ArrayList<Chromosome>();
 		children.add(new Chromosome(level[0].length, level.length));
 		children.add(new Chromosome(level[0].length, level.length));
 
-		for(int y = 0; y < level.length/2; y++){
+		// find crossover point in the row of the first half of the map
+		int pointX = SharedData.random.nextInt(level[0].length);
 
-			// find crossover point in the row of the first half of the map 
-			int pointX = SharedData.random.nextInt(level[0].length);
+		for (int y = 0; y < level.length; y++) {
+			for (int x = 0; x < pointX; x++) {
+				children.get(0).level[y][x].addAll(this.level[y][x]);
+				children.get(1).level[y][x].addAll(other.level[y][x]);
+			}
 
-			// iterate over each element in one row of the map 
-			for(int x = 0; x < level[y].length; x++){
-				
-				// check if crossover point for that row has been reached  
-				if (x <= pointX){
-					// retain elements of that chromosome if crossover point hasn't been reached 
-					children.get(0).level[y][x].addAll(this.level[y][x]);
-					children.get(1).level[y][x].addAll(c.level[y][x]);
-				}
-				else{
-					// if crossover point has been reached, the remaining elements of the row come from the other Parent for each child 
-					children.get(0).level[y][x].addAll(c.level[y][x]);
-					children.get(1).level[y][x].addAll(this.level[y][x]);
-
-					// mirror this operation horizontally to ensure symmetry 
-					children.get(0).level[level.length - 1 - y][x].addAll(c.level[y][x]);
-					children.get(1).level[level.length - 1 - y][x].addAll(this.level[y][x]);
-				}
+			for (int x = pointX; x < level[0].length; x++) {
+				children.get(0).level[y][x].addAll(other.level[y][x]);
+				children.get(1).level[y][x].addAll(this.level[y][x]);
 			}
 		}
-		
+
 		children.get(0).FixLevel();
 		children.get(1).FixLevel();
 		
@@ -389,7 +377,7 @@ public class Chromosome implements Comparable<Chromosome>{
 			}
 
 			// get the list of all sprites 
-			ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+			ArrayList<SpriteData> allSprites = this.spriteData;
 
 			// select a sprite randomly 
 			String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
@@ -406,7 +394,7 @@ public class Chromosome implements Comparable<Chromosome>{
 			}
 		}
 
-		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+		ArrayList<SpriteData> allSprites = this.spriteData;
 		
 		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++)
 		{
@@ -572,38 +560,6 @@ public class Chromosome implements Comparable<Chromosome>{
 			}
 		}
 
-		// count boxes
-		int boxCount = 0;
-		int holeCount = 0;
-		for (int i = 0; i < width / 2; i++) {
-			for (int j = 0; j < height; j++) {
-				if (level[i][j].indexOf("box") != -1) {
-					boxCount++;
-				}
-				if (level[i][j].indexOf("hole") != -1) {
-					holeCount++;
-				}
-			}
-		}
-
-		// balance the number of boxes and holes
-		if (boxCount < holeCount) {
-			int numToAdd = holeCount - boxCount;
-
-			while (numToAdd > 0) {
-				addSprite(boxSpriteData);
-				numToAdd--;
-			}
-		}
-		else if (boxCount > holeCount) {
-			int numToAdd = boxCount - holeCount;
-
-			while (numToAdd > 0) {
-				addSprite(holeSpriteData);
-				numToAdd--;
-			}
-		}
-
 		FixPlayer();
 	}
 	
@@ -693,7 +649,7 @@ public class Chromosome implements Comparable<Chromosome>{
 	 */
 	private HashMap<String, Integer> calculateNumberOfObjects(){
 		HashMap<String, Integer> objects = new HashMap<String, Integer>();
-		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+		ArrayList<SpriteData> allSprites = this.spriteData;
 		
 
 		//initialize the hashmap with all the sprite names

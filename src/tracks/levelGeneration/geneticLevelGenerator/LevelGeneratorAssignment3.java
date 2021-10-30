@@ -167,9 +167,9 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		for (int i=0; i< sizePop; i++){
 			wins = populaton.get(i).getFitness().get(0);
 			moves = populaton.get(i).getFitness().get(1);
-			if (winsI<=wins && movesI<moves){
+			if (winsI<=wins && movesI<moves)
 				numSolutions = numSolutions + 1;
-			} else if (movesI<=moves && winsI<wins)
+			else if (movesI<=moves && winsI<wins)
 				numSolutions = numSolutions + 1;
 
 		}

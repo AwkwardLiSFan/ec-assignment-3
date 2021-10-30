@@ -1,6 +1,7 @@
 package tracks.levelGeneration;
 
 import java.util.Random;
+import tools.Utils;
 
 public class TestLevelGeneration {
 
@@ -45,7 +46,7 @@ public class TestLevelGeneration {
 
 		// Other settings
 		int seed = new Random().nextInt();
-		int gameIdx = 75 ;
+		int gameIdx = 91 ;
 		String recordLevelFile = generateLevelPath + games[gameIdx] + "_glvl.txt";
 		String game = generateLevelPath + games[gameIdx] + ".txt";
 
