@@ -213,6 +213,25 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 	}
 
 	/**
+	 * Retrieves the solution with the smallest loss. Assumes nonempty population.
+	 */
+	private double getSolutionWithSmallestLoss(ArrayList<Chromosome> population) {
+		ArrayList<Double> losses = new ArrayList<Double>();
+
+		double minLoss = getLoss(population[0], population);
+		ChromoSome minLossChromosome = population[0]
+		for (int i = 1; i < population.size(); i++) {
+			double loss = getLoss(population.get(i), population);
+			if (minLoss > loss) {
+				minLoss = loss;
+				minLossChromosome = population.get(i);
+			}
+		}
+
+		return minLossChromosome;
+	}
+
+	/**
 	 * Roullete wheel selection for the infeasible population
 	 * @param population	array of chromosomes surviving in this population
 	 * @return				the picked chromosome based on its constraint fitness
