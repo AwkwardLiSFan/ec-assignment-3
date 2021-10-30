@@ -394,7 +394,6 @@ public class Test {
 			hypervolumeSum += nonDominatedPopulation.get(i).score * nonDominatedPopulation.get(i).moveSet.size() - previous.score * previous.moveSet.size();
 		}
 		
-		// hypervolumeSum is I(P')
 		// System.out.println("Sum is:" + hypervolumeSum);
 		return hypervolumeSum;
 	}
