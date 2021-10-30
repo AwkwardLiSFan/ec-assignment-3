@@ -132,7 +132,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			}
 		}
 		
-
+		// insert NSGA-II code here 
 		//add the best chromosome(s) from old population to the new population
 		Collections.sort(newPopulation);
 		for(int i=SharedData.POPULATION_SIZE - SharedData.ELITISM_NUMBER;i<newPopulation.size();i++){
