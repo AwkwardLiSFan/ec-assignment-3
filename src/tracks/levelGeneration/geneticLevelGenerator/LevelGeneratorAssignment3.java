@@ -201,19 +201,19 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			}
 
 			// 3. get solution with smallest loss and remove it
-
 			double minLoss = losses.get(0);
-			int lossIndex = 0;
+			Chromosome smallLossChromosome = worstRankingPopulation.get(0);
 			for (int i = 1; i < worstRankingPopulation.size(); i++) {
 				if (minLoss > losses.get(i)) {
 					minLoss = losses.get(i);
-					lossIndex = i;
+					smallLossChromosome = worstRankingPopulation.get(i);
 				}
 			}
 
-			worstRankingPopulation.remove(lossIndex);
+			newPopulation.remove(smallLossChromosome);
 		}
-		
+
+		return newPopulation;
 	}
 
 	private int dominate(ArrayList<Chromosome> population, Chromosome individual){
@@ -249,6 +249,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 				nondominatedPopulation.add(c);
 		}
 
+		// TODO: sort the nondominatedPopulation (currently the algorithm is not correct)
 		Chromosome current = nondominatedPopulation.get(0);
 		double indicatorSum = current.getFitness().get(0) * current.getFitness().get(1);
 		for (int i = 1; i < nondominatedPopulation.size(); i++) {
@@ -276,11 +277,11 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 	/**
 	 * Retrieves the solution with the smallest loss. Assumes nonempty population.
 	 */
-	private double getSolutionWithSmallestLoss(ArrayList<Chromosome> population) {
+	private Chromosome getSolutionWithSmallestLoss(ArrayList<Chromosome> population) {
 		ArrayList<Double> losses = new ArrayList<Double>();
 
-		double minLoss = getLoss(population[0], population);
-		ChromoSome minLossChromosome = population[0]
+		double minLoss = getLoss(population.get(0), population);
+		Chromosome minLossChromosome = population.get(0);
 		for (int i = 1; i < population.size(); i++) {
 			double loss = getLoss(population.get(i), population);
 			if (minLoss > loss) {
