@@ -26,7 +26,7 @@ public class Test {
     public static void main(String[] args) {
 		// games we are playing: Bomber{8}, Boulder Chase{10}, Chase{18}, Garbage Collector{45}
 		int[] gameIndex = {8, 10, 18, 45};
-		int game = 3;
+		int game = 0;
 		System.out.println("Playing gameIndex: " + gameIndex[game]);
 		//int gameLevel = 0;
 		
