@@ -60,6 +60,9 @@ public class Test {
 		
 		int generationLimit = 30;
 		Individual bestInd = new Individual();
+		double previousHyperVolume = 0;
+		double currentHyperVolume = 0;
+		
 		//Individual previousBestInd = new Individual();
 		int advanceRunLimit = 5000000;
 		// Break points during which we return the results
@@ -67,10 +70,10 @@ public class Test {
 		int currentBreakPoint = 0;
 
 		ArrayList<Double> resultArray = new ArrayList<Double>();
-		ArrayList<Integer> resultArrayLengths = new ArrayList<Integer>();
 		
 		// Start of the EA
 		for (int gen = 0; gen < generationLimit; gen++){
+			previousHyperVolume = currentHyperVolume;
 			Individual previousBestInd = new Individual(population.get(0));
 			// Loop through the population and play the game with each one
 			for(int i = 0; i < population.size(); i++){
@@ -87,8 +90,7 @@ public class Test {
 			// Saving the scores after each breakpoint
 			if(advancesRan > breakPoints[currentBreakPoint]){
 				System.out.println("Saving for breakpoint[" + breakPoints[currentBreakPoint] + "]    with score: " + previousBestInd.score);
-				resultArray.add(previousBestInd.score);
-				resultArrayLengths.add(previousBestInd.moveSet.size());
+				resultArray.add(previousHyperVolume);
 				currentBreakPoint++;
 			}
 			
@@ -96,8 +98,7 @@ public class Test {
 				System.out.println("Completed 5 million advances: (actual number: " + advancesRan + ")");
 				// Saving the scores after each breakpoint
 				if(advancesRan > breakPoints[currentBreakPoint]){
-					resultArray.add(previousBestInd.score);
-					resultArrayLengths.add(previousBestInd.moveSet.size());
+					resultArray.add(previousHyperVolume);
 				}
 				break;
 			}
@@ -106,7 +107,9 @@ public class Test {
 	
 			// Elitism to get best Individual
 			bestInd = elitism(population);
-			selection(population);
+			while(population.size() > populationSize){
+				population = selection(population);
+			}
 
 			//System.out.println("The best ind : " + bestInd.score);
 			// Add best individual to the new population
@@ -147,10 +150,9 @@ public class Test {
 
 		}
 
-		System.out.println("The best one sequence: " + bestInd.moveSet);
+		//System.out.println("The best one sequence: " + bestInd.moveSet);
 		//System.out.println("The best score for level " + gameLevel + " is: " + bestInd.score);
 		System.out.println("Scores at 200,000; 1,000,000; 5,000,000: " + resultArray);
-		System.out.println("Lengths at 200,000; 1,000,000; 5,000,000: " + resultArrayLengths);
 		//	}
 		//}
     }
@@ -348,8 +350,11 @@ public class Test {
 			System.out.println("i:"+x+"   rank: " + population.get(x).dominance + "   score: " + population.get(x).score + "   length: " + population.get(x).moveSet.size());
 		}
 
-		// 
+		//
 
+		//Sort the population by loss int ascending order
+		//Collections.sort(population, new SORTBYLOSS());
+		population.remove(population.size()-1);
 		return population;
 	}
 	
@@ -398,9 +403,13 @@ class Individual implements Comparable<Individual>{
 }
 
 class SORTBYSCORE implements Comparator<Individual> {
-    // Used for sorting in ascending order of
-    // name
     public int compare(Individual a, Individual b){
         return (int)(a.score - b.score);
     }
 }
+
+// class SORTBYLOSS implements Comparator<Individual> {
+//     public int compare(Individual a, Individual b){
+//         return (int)(a.loss - b.loss);
+//     }
+// }
