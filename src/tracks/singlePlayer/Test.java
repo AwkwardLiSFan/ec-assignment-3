@@ -368,9 +368,12 @@ public class Test {
 			removedIndividuals.addAll(nonDominatedPopulation);
 			removedIndividuals.remove(nonDominatedPopulation.get(j));
 
-			nonDominatedPopulation.get(j).loss = hypervolumeIndicator(removedIndividuals);
-		}
+			int removedHypervolumeSum = hypervolumeIndicator(removedIndividuals);
+			nonDominatedPopulation.get(j).loss = hypervolumeSum - removedHypervolumeSum;
 
+			System.out.println("loss:" + nonDominatedPopulation.get(j).loss);
+		}
+		
 		//Sort the population by loss int ascending order
 		//Collections.sort(population, new SORTBYLOSS());
 		population.remove(population.size()-1);
@@ -392,7 +395,7 @@ public class Test {
 		}
 		
 		// hypervolumeSum is I(P')
-		System.out.println("Sum is:" + hypervolumeSum);
+		// System.out.println("Sum is:" + hypervolumeSum);
 		return hypervolumeSum;
 	}
 	
