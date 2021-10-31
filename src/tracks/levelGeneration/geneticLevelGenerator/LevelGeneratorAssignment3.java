@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 import java.lang.Math;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
 
 import core.game.GameDescription;
 import core.generator.AbstractLevelGenerator;
@@ -220,7 +224,6 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			int largestContributorIndex = 0;
 			double maxContribution = contributions.get(0);
 			for (int j = 1; j < population.size(); j++) {
-				System.out.println(String.format("population.size(): %d, contributions.size(): %d", population.size(), contributions.size()));
 				if (maxContribution < contributions.get(j)) {
 					largestContributorIndex = j;
 					maxContribution = contributions.get(j);
@@ -443,6 +446,36 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		
 	// 	return population.get(0);
 	// }
+	//
+
+	/**
+	 * Outputs the fitness and the level file
+	 */
+	public void outputDetailsToFile(Chromosome c, String filename) {
+		try {
+			String levelString = c.getLevelString(c.getLevelMapping());
+			BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+
+			writer.write(String.format("fitness: %f, %f", c.getFitness().get(0), c.getFitness().get(1)));
+			writer.newLine();
+			writer.write("LevelMapping:");
+			writer.newLine();
+			for (Map.Entry<Character, ArrayList<String>> e : c.getLevelMapping().getCharMapping().entrySet()) {
+				writer.write("    " + e.getKey() + " > ");
+				for (String s : e.getValue()) {
+					writer.write(s + " ");
+				}
+				writer.newLine();
+			}
+			writer.newLine();
+			writer.write("LevelDescription");
+			writer.newLine();
+			writer.write(levelString);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * Generate a level using GA in a fixed amount of time and 
@@ -467,8 +500,8 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		
 
 		//get the level size
-		int width = 10;
-		int height = 10;
+		int width = SharedData.LEVEL_WIDTH;
+		int height = SharedData.LEVEL_HEIGHT;
 		
 		System.out.println("Generation #1: ");
 		ArrayList<Chromosome> fChromosomes = new ArrayList<Chromosome>();
@@ -515,7 +548,10 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			ArrayList<Chromosome> chromosomes = getNextPopulation(fChromosomes, iChromosomes);
 			fChromosomes.clear();
 			iChromosomes.clear();
-			for(Chromosome c:chromosomes){
+			for (int j = 0; j < chromosomes.size(); j++) {
+				Chromosome c = chromosomes.get(j);
+				outputDetailsToFile(c, String.format("generation%d-chromosome%d.txt", numberOfIterations+2, j));
+
 				if(c.getConstrainFitness() < 1){
 					iChromosomes.add(c);
 				}
