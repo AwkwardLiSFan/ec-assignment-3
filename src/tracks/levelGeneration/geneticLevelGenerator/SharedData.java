@@ -10,7 +10,7 @@ public class SharedData {
 	/**
 	 * The size of the Genetic Algorithm Population
 	 */
-	public static final int POPULATION_SIZE = 7;
+	public static final int POPULATION_SIZE = 40;
 	/**
 	 * the amount of time to evaluate a single level
 	 */
@@ -38,7 +38,7 @@ public class SharedData {
 	/**
 	 * The number of generations of the EA
 	 */
-	public static final int NUM_GENERATIONS = 30;
+	public static final int NUM_GENERATIONS = 100;
 	
 	/**
 	 * the amount of mutations done on a chromosome to start as random
