@@ -23,138 +23,144 @@ import ontology.Types;
  */
 public class Test {
 	public static int advancesRan = 0;
+	// Size of the population of 50
+	static int populationSize = 50;
+	static int globalHyperVolume = 0;
     public static void main(String[] args) {
 		// games we are playing: Bomber{8}, Boulder Chase{10}, Chase{18}, Garbage Collector{45}
 		int[] gameIndex = {8, 10, 18, 45};
 		int game = 0;
 		System.out.println("Playing gameIndex: " + gameIndex[game]);
-		int gameLevel = 0;
+		//int gameLevel = 0;
 		
-		// for each level\
-		//for (int gameLevel = 0; gameLevel < 5; gameLevel++) {
-		// go through it 10 times
-		//for (int iteration = 0; iteration < 10; iteration++) {
-		//System.out.println("Iteration cycle: " + iteration + " Game level: " + gameLevel);
-		advancesRan = 0;
-		// Creating a copy of the game state
-		ForwardModel gameState = init(gameIndex[game], gameLevel);
-		gameState.setNewSeed(-131244659);
-		ForwardModel gameStateCopy = gameState.copy();
-		gameStateCopy.setNewSeed(-131244659);
-
-		// List of actions that you can do during the game
-		ArrayList<Types.ACTIONS> actionList = gameStateCopy.getAvatarActions(true);
-		int numberOfActions = actionList.size();
-
-		Random rand = new Random();
-		// Initial length of individuals
-		int individualLength = 10000;
-
-		// Creating a population of individuals
-		ArrayList<Individual> population = new ArrayList<Individual>();
-		// Size of the population of 50
-		int populationSize = 150;
-		int popSize = 50;
-		// Initialize the population
-		initializePopulation(populationSize, individualLength, actionList, population);
-		
-		int generationLimit = 30;
-		Individual bestInd = new Individual();
-		double previousHyperVolume = 0;
-		double currentHyperVolume = 0;
-		
-		//Individual previousBestInd = new Individual();
-		int advanceRunLimit = 5000000;
-		// Break points during which we return the results
-		int[] breakPoints = {200000, 1000000, 5000000, 100000000};
-		int currentBreakPoint = 0;
-
-		ArrayList<Double> resultArray = new ArrayList<Double>();
-		
-		// Start of the EA
-		for (int gen = 0; gen < generationLimit; gen++){
-			previousHyperVolume = currentHyperVolume;
-			Individual previousBestInd = new Individual(population.get(0));
-			// Loop through the population and play the game with each one
-			for(int i = 0; i < population.size(); i++){
-				gameStateCopy = gameState.copy();
+		//for each level
+		for (int gameLevel = 0; gameLevel < 5; gameLevel++) {
+			//go through it 10 times
+			for (int iteration = 0; iteration < 10; iteration++) {
+				System.out.println("Iteration cycle: " + iteration + " Game level: " + gameLevel);
+				advancesRan = 0;
+				// Creating a copy of the game state\
+				ForwardModel gameState = init(gameIndex[game], gameLevel);
+				gameState.setNewSeed(-131244659);
+				ForwardModel gameStateCopy = gameState.copy();
 				gameStateCopy.setNewSeed(-131244659);
-				// Play the game with the selected individual
-				population.set(i, playGame(population.get(i), gameStateCopy));
-				if(advancesRan > advanceRunLimit){
-					break;
-				}
-			}
-			//System.out.println("Number of advance calls so far: " + advancesRan);
-			
-			// Saving the scores after each breakpoint
-			if(advancesRan > breakPoints[currentBreakPoint]){
-				System.out.println("Saving for breakpoint[" + breakPoints[currentBreakPoint] + "]    with score: " + previousBestInd.score);
-				resultArray.add(previousHyperVolume);
-				currentBreakPoint++;
-			}
-			
-			if(advancesRan > advanceRunLimit){
-				System.out.println("Completed 5 million advances: (actual number: " + advancesRan + ")");
-				// Saving the scores after each breakpoint
-				if(advancesRan > breakPoints[currentBreakPoint]){
-					resultArray.add(previousHyperVolume);
-				}
-				break;
-			}
 
-			ArrayList<Individual> newPopulation = new ArrayList<Individual>();
-	
-			// Elitism to get best Individual
-			bestInd = elitism(population);
-			while(population.size() > populationSize){
-				population = selection(population);
-			}
+				// List of actions that you can do during the game
+				ArrayList<Types.ACTIONS> actionList = gameStateCopy.getAvatarActions(true);
+				int numberOfActions = actionList.size();
 
-			//System.out.println("The best ind : " + bestInd.score);
-			// Add best individual to the new population
-			newPopulation.add(bestInd);
+				Random rand = new Random();
+				// Initial length of individuals
+				int individualLength = 10000;
 
-			
-
-			// Select the top 50 individuals
-			population.subList(population.size()/4, population.size()).clear();
-
-			// Randomly crossover those until we have populationSize individuals
-			while(newPopulation.size() < populationSize){
-				int p1, p2;
-				p1 = rand.nextInt(population.size());
-				p2 = rand.nextInt(population.size());
-
-				while (p1 == p2) {
-					p2 = rand.nextInt(population.size());
-				}
+				// Creating a population of individuals
+				ArrayList<Individual> population = new ArrayList<Individual>();
 				
-				newPopulation.addAll(crossover(population.get(p1), population.get(p2)));
-			}
-			// if we've added too many individuals then remove 1
-			while(newPopulation.size() > populationSize){
-				// remove the last element in the ArrayList of Individuals
-				newPopulation.remove(newPopulation.size()-1);
-			}
-			// Add the Elitist Individual to the newPopulation
-			newPopulation.set(0, bestInd);
+				// Initialize the population
+				initializePopulation(populationSize, individualLength, actionList, population);
+				
+				int generationLimit = 1000000000;
+				Individual bestInd = new Individual();
+				double previousHyperVolume = 0;
+				double currentHyperVolume = 0;
+				
+				//Individual previousBestInd = new Individual();
+				int advanceRunLimit = 5000000;
+				// Break points during which we return the results
+				int[] breakPoints = {200000, 1000000, 5000000, 100000000};
+				int currentBreakPoint = 0;
 
-			// Mutate the new population excluding the elite
-			for(int x = 1; x < population.size(); x++){
-				newPopulation.set(x, mutation(newPopulation.get(x), actionList));
-			}
-			// Update the population with the new population
-			population.clear();
-			population.addAll(newPopulation);
+				ArrayList<Double> resultArray = new ArrayList<Double>();
+				
+				// Start of the EA
+				for (int gen = 0; gen < generationLimit; gen++){
+					System.out.println("Gen: " + gen + "    advances: " + advancesRan);
+					previousHyperVolume = currentHyperVolume;
+					// Loop through the population and play the game with each one
+					for(int i = 0; i < population.size(); i++){
+						gameStateCopy = gameState.copy();
+						gameStateCopy.setNewSeed(-131244659);
+						// Play the game with the selected individual
+						population.set(i, playGame(population.get(i), gameStateCopy));
+						if(advancesRan > advanceRunLimit){
+							break;
+						}
+					}
+					//System.out.println("Number of advance calls so far: " + advancesRan);
+					
+					// Saving the scores after each breakpoint
+					if(advancesRan > breakPoints[currentBreakPoint]){
+						System.out.println("Saving for breakpoint[" + breakPoints[currentBreakPoint] + "]    with hyperVolume: " + previousHyperVolume);
+						resultArray.add(previousHyperVolume);
+						currentBreakPoint++;
+					}
+					// Checking if we have hit the advance limit cap
+					if(advancesRan > advanceRunLimit){
+						System.out.println("Completed 5 million advances: (actual number: " + advancesRan + ")");
+						// Saving the scores after each breakpoint
+						if(advancesRan > breakPoints[currentBreakPoint]){
+							resultArray.add(previousHyperVolume);
+						}
+						break;
+					}
+			
+					// Elitism to get best Individual
+					//bestInd = elitism(population);
 
+					// This is where we do the hypervolume calculations and trimming down the population
+					population = selection(population);
+					System.out.println("population size: " + population.size());
+					// if there is ever only 1 individual, then just randomly create more do diversify
+					if(population.size() <= 1){
+						Individual survivor = new Individual(population.get(0));
+						population.clear();
+						initializePopulation(populationSize, individualLength, actionList, population);
+						population.set(0, survivor);
+					}
+					currentHyperVolume = globalHyperVolume;
+
+					// Create a subset of population that we will be crossing over and mutating and then the result is re-added to the population
+					ArrayList<Individual> newPopulation = new ArrayList<Individual>();
+					for (int i = 0; i < population.size(); i++){
+						float prob = rand.nextFloat();
+						if(prob <= 0.7){
+							Individual child1 = new Individual(population.get(i));
+							newPopulation.add(child1);
+						}
+					}
+
+					// Randomly crossover those until we have populationSize individuals
+					while(newPopulation.size() < populationSize){
+						int p1, p2;
+						p1 = rand.nextInt(population.size());
+						p2 = rand.nextInt(population.size());
+
+						while (p1 == p2) {
+							p2 = rand.nextInt(population.size());
+						}
+						
+						newPopulation.addAll(crossover(population.get(p1), population.get(p2)));
+					}
+					// if we've added too many individuals then remove 1
+					while(newPopulation.size() > populationSize){
+						// remove the last element in the ArrayList of Individuals
+						newPopulation.remove(newPopulation.size()-1);
+					}
+
+					// Mutate the new population excluding the elite
+					for(int x = 0; x < population.size(); x++){
+						newPopulation.set(x, mutation(newPopulation.get(x), actionList));
+					}
+					// Update the population with the new population
+					population.addAll(newPopulation);
+
+				}
+
+				//System.out.println("The best one sequence: " + bestInd.moveSet);
+				//System.out.println("The best score for level " + gameLevel + " is: " + bestInd.score);
+				System.out.println("Scores at 200,000; 1,000,000; 5,000,000: " + resultArray);
+			}
 		}
-
-		//System.out.println("The best one sequence: " + bestInd.moveSet);
-		//System.out.println("The best score for level " + gameLevel + " is: " + bestInd.score);
-		System.out.println("Scores at 200,000; 1,000,000; 5,000,000: " + resultArray);
-		//	}
-		//}
     }
 
 	/**
@@ -213,9 +219,8 @@ public class Test {
 	 *            list of possible actions for an individual
      */
 	public static Individual mutation(Individual individual, ArrayList<Types.ACTIONS> actionList) {
-		Individual child = new Individual();
-		
-		child = individual;
+		Individual child = new Individual(individual);
+
 		int length = child.moveSet.size();
 		int numberOfActions = actionList.size();
 		Random rand = new Random();
@@ -340,7 +345,7 @@ public class Test {
 			}
 		}
 		// End of dominance ranking
-
+		// System.out.println("SORTING BY DOMINANCE SEEING IF IT WORKS");
 		// for(int x = 0; x < population.size(); x++){
 		// 	System.out.println("i:"+x+"   rank: " + population.get(x).dominance + "   score: " + population.get(x).score + "   length: " + population.get(x).moveSet.size());
 		// }
@@ -359,43 +364,127 @@ public class Test {
 				nonDominatedPopulation.add(population.get(ind));
 			}
 		}
-		// get hypervolume sum for nonDominatedPopulation
-		int hypervolumeSum = hypervolumeIndicator(nonDominatedPopulation);
+		
+		// sort by score and then length
+		// System.out.println("SORTING BY SCORE SEEING IF IT WORKS");
+		// for(int x = 0; x < nonDominatedPopulation.size(); x++){
+		// 	System.out.println("i:"+x+"   rank: " + nonDominatedPopulation.get(x).dominance + "   score: " + nonDominatedPopulation.get(x).score + "   length: " + nonDominatedPopulation.get(x).moveSet.size());
+		// }
+		Collections.sort(nonDominatedPopulation, new SORTBYSCORE());
+		// for(int x = 0; x < nonDominatedPopulation.size(); x++){
+		// 	System.out.println("i:"+x+"   rank: " + nonDominatedPopulation.get(x).dominance + "   score: " + nonDominatedPopulation.get(x).score + "   length: " + nonDominatedPopulation.get(x).moveSet.size());
+		// }
+		if(nonDominatedPopulation.size() <= populationSize){
+			return nonDominatedPopulation;
+		}
+		// pre-process that removes individuals that give nothing for the hypervolume
+		// remove the nonDominatedPopulation Individuals that contribute nothing
+		// for(int i = 0; i < nonDominatedPopulation.size(); i++){
+		// 	if ((nonDominatedPopulation.get(i).score == 0 || nonDominatedPopulation.get(i).moveSet.size() == 0) && nonDominatedPopulation.size() > populationSize){
+		// 		System.out.println("does this activate? : " + nonDominatedPopulation.size());
+		// 		nonDominatedPopulation.get(i).hyperVolume = 0;
+		// 		nonDominatedPopulation.remove(i);
+		// 	}
+		// }
 
-		// calculate loss of hypervolume: I(P') - I(P'\(each individual))
-		ArrayList<Individual> removedIndividuals = new ArrayList<Individual>();
-		for (int j = 0; j < nonDominatedPopulation.size(); j++) {
-			removedIndividuals.addAll(nonDominatedPopulation);
-			removedIndividuals.remove(nonDominatedPopulation.get(j));
-
-			int removedHypervolumeSum = hypervolumeIndicator(removedIndividuals);
-			nonDominatedPopulation.get(j).loss = hypervolumeSum - removedHypervolumeSum;
-
-			System.out.println("loss:" + nonDominatedPopulation.get(j).loss);
+		// instead we could remove duplicates
+		if(nonDominatedPopulation.size() > populationSize){
+			Random rand = new Random();
+			for(int i = 0; i < nonDominatedPopulation.size()-1;){
+				if(nonDominatedPopulation.get(i).score == nonDominatedPopulation.get(i).score && nonDominatedPopulation.get(i).moveSet.size() == nonDominatedPopulation.get(i).moveSet.size() 
+				&& nonDominatedPopulation.size() > populationSize){
+					float f1 = rand.nextFloat();
+					if(f1 < 0.5){
+						nonDominatedPopulation.remove(i);
+					} else {
+						nonDominatedPopulation.remove(i+1);
+					}
+				} else {
+					i++;
+				}
+			}
 		}
 		
-		//Sort the population by loss int ascending order
-		//Collections.sort(population, new SORTBYLOSS());
-		population.remove(population.size()-1);
-		return population;
+		// if we've already removed the required amount of useless individuals then just return the new population
+		// System.out.println("Start of pre-process");
+		if(nonDominatedPopulation.size() <= populationSize){
+			globalHyperVolume = hypervolumeIndicator(nonDominatedPopulation);
+			return nonDominatedPopulation;
+		}
+		// System.out.println("End of pre-process");
+
+		// keep removing the worst/least useful individual in each loop until the size of the population is small enough
+		while(nonDominatedPopulation.size() > populationSize){
+			// get hypervolume sum for nonDominatedPopulation
+			int hypervolumeSum = hypervolumeIndicator(nonDominatedPopulation);
+			globalHyperVolume = hypervolumeSum;
+
+			// calculate loss of hypervolume: I(P') - I(P'\(each individual))
+			// System.out.println("Start of loss calculations");
+			for (int j = 0; j < nonDominatedPopulation.size(); j++) {
+				ArrayList<Individual> removedIndividuals = new ArrayList<Individual>();
+				removedIndividuals.addAll(nonDominatedPopulation);
+				removedIndividuals.remove(nonDominatedPopulation.get(j));
+
+				// calculate the hypervolume of the set without the individual in question
+				int removedHypervolumeSum = hypervolumeIndicator(removedIndividuals);
+				// the loss is the difference between the original sets hypervolume and the sets hypervolume without the individual considered
+				nonDominatedPopulation.get(j).loss = hypervolumeSum - removedHypervolumeSum;
+
+				//System.out.println("loss:" + nonDominatedPopulation.get(j).loss);
+			}
+			// System.out.println("End of loss calculations");
+			
+			System.out.println("TESTING IF THE LOSS SORTING FUNCTION WORKS");
+			for(int i = 0; i < nonDominatedPopulation.size(); i++){
+				System.out.println("Index: " + i + "   loss:" + nonDominatedPopulation.get(i).loss);
+			}
+			//Sort the population by loss int ascending order
+			Collections.sort(nonDominatedPopulation, new SORTBYLOSS());
+			for(int i = 0; i < nonDominatedPopulation.size(); i++){
+				System.out.println("Index: " + i + "   loss:" + nonDominatedPopulation.get(i).loss);
+			}
+			// remove the least useful individual
+			nonDominatedPopulation.remove(nonDominatedPopulation.size()-1);
+		}
+		// get the final hypervolume
+		globalHyperVolume = hypervolumeIndicator(nonDominatedPopulation);
+		return nonDominatedPopulation;
 	}
 
 	// Sub-step 2
 	public static int hypervolumeIndicator (ArrayList<Individual> nonDominatedPopulation) {
+		int hypervolumeSum = 0;
+		// The reference point is (score = 0, length = 11000)
+		int referenceSize = 11000;
+		int referenceScore = 0;
 		
-		// calculate hypervolume indicator based on the reference point (0,0)
-		int hypervolumeSum = (int)nonDominatedPopulation.get(0).score * nonDominatedPopulation.get(0).moveSet.size();
-		Individual current = nonDominatedPopulation.get(0);
-		for (int i = 1; i < nonDominatedPopulation.size(); i++) {
-			
-			// take into account of the overlap - Francis' code
-			Individual previous = current;
-			current = nonDominatedPopulation.get(i);
-			hypervolumeSum += nonDominatedPopulation.get(i).score * nonDominatedPopulation.get(i).moveSet.size() - previous.score * previous.moveSet.size();
+		// Want to calculate the hypervolume of the first individual and then move the reference point in regards to that individual
+		// So we will have the starting reference point of score = 0 and length = 11000
+		// If we have the first point of score = 1 and size = 745
+		// The the hypervolume is (1 - 0) * (11000 * 745) i.e. (point.score - reference.score) * (reference.size - point.size)
+		// After this the reference point's score is updated. 
+
+		// itterate through the population and calculate the hypervolume of each point whilst moving the reference point
+		for(int i = 0; i < nonDominatedPopulation.size(); i++){
+			hypervolumeSum += (nonDominatedPopulation.get(i).score - referenceScore) * (referenceSize - nonDominatedPopulation.get(i).moveSet.size());
+			// update the new reference point
+			referenceScore = (int)nonDominatedPopulation.get(i).score;
 		}
 		
+		// // calculate hypervolume indicator based on the reference point (0,0)
+		// int hypervolumeSum = (int)nonDominatedPopulation.get(0).score * nonDominatedPopulation.get(0).moveSet.size();
+		// Individual current = nonDominatedPopulation.get(0);
+		// for (int i = 1; i < nonDominatedPopulation.size(); i++) {
+			
+		// 	// take into account of the overlap - Francis' code
+		// 	Individual previous = current;
+		// 	current = nonDominatedPopulation.get(i);
+		// 	hypervolumeSum += nonDominatedPopulation.get(i).score * nonDominatedPopulation.get(i).moveSet.size() - previous.score * previous.moveSet.size();
+		// }
+		
 		// hypervolumeSum is I(P')
-		// System.out.println("Sum is:" + hypervolumeSum);
+		//System.out.println("Sum is:" + hypervolumeSum);
 		return hypervolumeSum;
 	}
 	
@@ -407,6 +496,7 @@ class Individual implements Comparable<Individual>{
 	public double score;
 	public int dominance;
 	public int loss;
+	public int hyperVolume;
 
 	public Individual(){
 		this.score = -1;
@@ -427,20 +517,20 @@ class Individual implements Comparable<Individual>{
 		this.score = score;
 		this.dominance = dominance;
 	}
+	public Individual(ArrayList<Types.ACTIONS> moves, double score, int dominance, int hyperVolume){
+		this.moveSet = moves;
+		this.score = score;
+		this.dominance = dominance;
+		this.hyperVolume = hyperVolume;
+	}
 	// This is used to create a deep copy of the individual
 	public Individual(Individual that){
-		this(new ArrayList<Types.ACTIONS>(that.moveSet), that.score, that.dominance);
+		this(new ArrayList<Types.ACTIONS>(that.moveSet), that.score, that.dominance, that.hyperVolume);
 	}
 	public int compareTo(Individual compareInd){
 		int compareScore=(int)((Individual)compareInd).dominance;
 		return (int)(this.dominance - compareScore);
 	}
-
-	// static final Comparator<Individual> SORTBYSCORE =  new Comparator<Individual>() {
-	// 	public int compare(Individual s1, Individual s2) {
-	// 		return (int)(s2.score - s1.score);
-	// 	}
-	// };
 	
 }
 
@@ -450,8 +540,8 @@ class SORTBYSCORE implements Comparator<Individual> {
     }
 }
 
-// class SORTBYLOSS implements Comparator<Individual> {
-//     public int compare(Individual a, Individual b){
-//         return (int)(a.loss - b.loss);
-//     }
-// }
+class SORTBYLOSS implements Comparator<Individual> {
+    public int compare(Individual a, Individual b){
+        return (int)(b.loss - a.loss);
+    }
+}
