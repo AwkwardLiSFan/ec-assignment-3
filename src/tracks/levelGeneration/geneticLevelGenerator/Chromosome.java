@@ -381,6 +381,9 @@ public class Chromosome implements Comparable<Chromosome>{
 
 			// select a sprite randomly 
 			String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+			// 70% of the time, change randomly selected sprite to a ground sprite
+			if (SharedData.random.nextInt(100) < 60)
+				spriteName = "ground"; 
 
 			// get the list of all free positions where above sprite is not present 
 			ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
