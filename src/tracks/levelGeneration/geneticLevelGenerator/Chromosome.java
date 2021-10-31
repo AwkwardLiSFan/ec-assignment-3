@@ -802,8 +802,19 @@ public class Chromosome implements Comparable<Chromosome>{
 				}
 			}
 
-			fitness.add(new Double(numWins) / SharedData.NUM_AGENT_TRIALS);
 			fitness.add(new Double(minMoves));
+
+			// Calculate the number of ground tiles present
+			int groundTileCount = 0;
+			for (int i = 0; i < level.length; i++) {
+				for (int j = 0; j < level[0].length; j++) {
+					if (level[i][j].indexOf("ground") != -1) {
+						groundTileCount++;
+					}
+				}
+			}
+
+			fitness.add(new Double(groundTileCount));
 
 			System.out.println(fitness);
 			System.out.println("LevelMapping:");

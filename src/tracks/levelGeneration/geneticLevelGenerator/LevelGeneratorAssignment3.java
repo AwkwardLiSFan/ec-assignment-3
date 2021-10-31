@@ -158,6 +158,8 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		 *
 		 * The code below assumes that we have a single population called population
 		 */
+		newPopulation.addAll(fPopulation);
+		newPopulation.addAll(iPopulation);
 
 		newPopulation = greedyHypervolumeSubsetSelection(newPopulation, SharedData.POPULATION_SIZE);
 
@@ -259,10 +261,10 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			otherX = set.get(i).get(0);
 			otherY = set.get(i).get(1);
 
-			if (pointX<=otherX && pointY<otherY) {
+			if (pointX<=otherX && pointY>otherY) {
 				numSolutions = numSolutions + 1;
 			}
-			else if (pointY<=otherY && pointX<otherX) {
+			else if (pointY>=otherY && pointX<otherX) {
 				numSolutions = numSolutions + 1;
 			}
 		}
