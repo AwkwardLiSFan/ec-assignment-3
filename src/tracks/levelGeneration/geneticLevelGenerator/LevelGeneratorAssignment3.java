@@ -159,138 +159,150 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		 * The code below assumes that we have a single population called population
 		 */
 
-		while (newPopulation.size() > SharedData.POPULATION_SIZE) {
-			// 1. rank individuals
-			ArrayList<Integer> ranks = new ArrayList<Integer>();
-
-			int worstRank = 0;
-			for (int i = 0; i < newPopulation.size(); i++) {
-				int currentRank = dominate(newPopulation, newPopulation.get(i));
-
-				if (worstRank < currentRank) {
-					worstRank = currentRank;
-				}
-
-				ranks.add(currentRank);
-			}
-
-			// choose worst ranking individuals
-			final int NUM_TO_CHOOSE = 5; // must be less then SharedData.POPULATION_SIZE
-			ArrayList<Chromosome> worstRankingPopulation = new ArrayList<Chromosome>();
-
-			while (worstRankingPopulation.size() < NUM_TO_CHOOSE) {
-				for (int i = 0; i < NUM_TO_CHOOSE; i++) {
-					if (ranks.get(i) == worstRank) {
-						worstRankingPopulation.add(newPopulation.get(i));
-
-						if (worstRankingPopulation.size() < NUM_TO_CHOOSE) {
-							break;
-						}
-					}
-				}
-
-				worstRank--;
-			}
-
-			// 2. determine hypervolume losses
-
-			ArrayList<Double> losses = new ArrayList<Double>();
-
-			for (int i = 0; i < worstRankingPopulation.size(); i++) {
-				losses.add(getLoss(worstRankingPopulation.get(i), worstRankingPopulation));
-			}
-
-			// 3. get solution with smallest loss and remove it
-			double minLoss = losses.get(0);
-			Chromosome smallLossChromosome = worstRankingPopulation.get(0);
-			for (int i = 1; i < worstRankingPopulation.size(); i++) {
-				if (minLoss > losses.get(i)) {
-					minLoss = losses.get(i);
-					smallLossChromosome = worstRankingPopulation.get(i);
-				}
-			}
-
-			newPopulation.remove(smallLossChromosome);
-		}
+		newPopulation = greedyHypervolumeSubsetSelection(newPopulation, SharedData.POPULATION_SIZE);
 
 		return newPopulation;
 	}
 
-	private int dominate(ArrayList<Chromosome> population, Chromosome individual){
+	/**
+	 * Return an array of all fitnesses in the population as points.
+	 */
+	private ArrayList<ArrayList<Double>> getFitnessPoints(ArrayList<Chromosome> population) {
+		ArrayList<ArrayList<Double>> fitnessPoints = new ArrayList<ArrayList<Double>>();
 
-		Integer numSolutions=0, sizePop;
-		Double winsI, movesI, wins, moves;
-		winsI = individual.getFitness().get(0);
-		movesI = individual.getFitness().get(1);
+		for (Chromosome c : population) {
+			ArrayList<Double> point = new ArrayList<Double>();
 
-		sizePop = population.size();
+			point.addAll(c.getFitness());
 
-		for (int i=0; i< sizePop; i++){
-			wins = population.get(i).getFitness().get(0);
-			moves = population.get(i).getFitness().get(1);
-			if (winsI<=wins && movesI<moves){
+			fitnessPoints.add(point);
+		}
+
+		return fitnessPoints;
+	}
+
+	/**
+ 	 * Find the joint hypervolume contribution givem two points p1 and p2 and points.
+	 */
+	private double jointHypervolumeContribution(ArrayList<Double> p1, ArrayList<Double> p2, ArrayList<ArrayList<Double>> points) {
+		ArrayList<Double> jointPoint = new ArrayList<Double>();
+
+		for (int i = 0; i < p1.size(); i++) {
+			jointPoint.add(Math.max(p1.get(i), p2.get(i)));
+		}
+
+		double indicator = getHypervolumeIndicator(points);
+
+		points.add(jointPoint);
+
+		double indicatorWithJoint = getHypervolumeIndicator(points);
+
+		return indicatorWithJoint - indicator;
+	}
+
+	/**
+	 * Use a greedy method to select the subset maximising hypervolume.
+	 */
+	private ArrayList<Chromosome> greedyHypervolumeSubsetSelection(ArrayList<Chromosome> population, int subsetSize) {
+		ArrayList<Chromosome> subset = new ArrayList<Chromosome>();
+
+		// get hypervolumes
+		ArrayList<Double> contributions = new ArrayList<Double>();
+		for (Chromosome individual : population) {
+			double hypervolume = individual.getFitness().get(0) * individual.getFitness().get(1);
+			contributions.add(hypervolume);
+		}
+
+		for (int i = 0; i < subsetSize; i++) {
+			// find the largest contributor
+			int largestContributorIndex = 0;
+			double maxContribution = contributions.get(0);
+			for (int j = 1; j < population.size(); j++) {
+				System.out.println(String.format("population.size(): %d, contributions.size(): %d", population.size(), contributions.size()));
+				if (maxContribution < contributions.get(j)) {
+					largestContributorIndex = j;
+					maxContribution = contributions.get(j);
+				}
+			}
+
+			Chromosome largestContributor = population.get(largestContributorIndex);
+			population.remove(largestContributorIndex);
+			contributions.remove(largestContributorIndex);
+
+			for (int j = 0; j < population.size(); j++) {
+				ArrayList<Double> p1 = new ArrayList<Double>();
+				p1.addAll(largestContributor.getFitness());
+
+				ArrayList<Double> p2 = new ArrayList<Double>();
+				p2.addAll(population.get(j).getFitness());
+
+				contributions.set(j, contributions.get(j)
+								  - jointHypervolumeContribution(p1, p2, getFitnessPoints(population)));
+			}
+
+			subset.add(largestContributor);
+		}
+
+		return subset;
+	}
+
+	/**
+	 * Returns the number of points that a given point is dominated by in the given population.
+	 */
+	private int dominate(ArrayList<Double> point, ArrayList<ArrayList<Double>> set){
+		Integer numSolutions = 0;
+		Double pointX, pointY, otherX, otherY;
+		pointX = point.get(0);
+		pointY = point.get(1);
+
+		for (int i = 0; i < set.size(); i++) {
+			otherX = set.get(i).get(0);
+			otherY = set.get(i).get(1);
+
+			if (pointX<=otherX && pointY<otherY) {
 				numSolutions = numSolutions + 1;
 			}
-			else if (movesI<=moves && winsI<wins)
+			else if (pointY<=otherY && pointX<otherX) {
 				numSolutions = numSolutions + 1;
-
+			}
 		}
+
 		return numSolutions;
 	}
 
 	/**
-	 * Retrieves the hypervolume indicator for a population.
+	 * Retrieves the hypervolume indicator for a list of points
 	 */
-	private double getHypervolumeIndicator(ArrayList<Chromosome> population) {
-		ArrayList<Chromosome> nondominatedPopulation = new ArrayList<Chromosome>();
+	private double getHypervolumeIndicator(ArrayList<ArrayList<Double>> points) {
+		ArrayList<ArrayList<Double>> nondominatedPoints = new ArrayList<ArrayList<Double>>();
+		nondominatedPoints.addAll(points);
 
-		for (Chromosome c : population) {
-			if (dominate(population, c) == 0)
-				nondominatedPopulation.add(c);
+		// TODO: make this for-loop more efficient
+		for (ArrayList<Double> c : points) {
+			if (dominate(c, points) != 0)
+				nondominatedPoints.remove(c);
 		}
 
-		// TODO: sort the nondominatedPopulation (currently the algorithm is not correct)
-		Chromosome current = nondominatedPopulation.get(0);
-		double indicatorSum = current.getFitness().get(0) * current.getFitness().get(1);
-		for (int i = 1; i < nondominatedPopulation.size(); i++) {
-			Chromosome previous = current;
-			current = nondominatedPopulation.get(i);
-			indicatorSum += current.getFitness().get(0) * current.getFitness().get(1)
-				- previous.getFitness().get(0) * previous.getFitness().get(1);
-		}
-
-		return indicatorSum;
-	}
-
-	private double getLoss(Chromosome individual, ArrayList<Chromosome> population) {
-		double indicator = getHypervolumeIndicator(population);
-
-		ArrayList<Chromosome> removedPopulation = new ArrayList<Chromosome>();
-		removedPopulation.addAll(population);
-		removedPopulation.remove(individual);
-
-		double removedIndicator = getHypervolumeIndicator(population);
-
-		return indicator - removedIndicator;
-	}
-
-	/**
-	 * Retrieves the solution with the smallest loss. Assumes nonempty population.
-	 */
-	private Chromosome getSolutionWithSmallestLoss(ArrayList<Chromosome> population) {
-		ArrayList<Double> losses = new ArrayList<Double>();
-
-		double minLoss = getLoss(population.get(0), population);
-		Chromosome minLossChromosome = population.get(0);
-		for (int i = 1; i < population.size(); i++) {
-			double loss = getLoss(population.get(i), population);
-			if (minLoss > loss) {
-				minLoss = loss;
-				minLossChromosome = population.get(i);
+		// (insertion) sort in terms of one of the fitnesses
+		for (int i = 1; i < points.size(); i++) {
+			int j = i;
+			while ((j > 0) && (points.get(j).get(0) > points.get(j - 1).get(0))) {
+				Collections.swap(points, i, j);
+				j--;
 			}
 		}
 
-		return minLossChromosome;
+		ArrayList<Double> current = nondominatedPoints.get(0);
+		double indicatorSum = current.get(0) * current.get(1);
+		for (int i = 1; i < nondominatedPoints.size(); i++) {
+			ArrayList<Double> previous = current;
+			current = nondominatedPoints.get(i);
+			indicatorSum += current.get(0) * current.get(1)
+				- previous.get(0) * previous.get(1);
+		}
+
+		return indicatorSum;
+
 	}
 
 	/**
