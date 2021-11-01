@@ -289,16 +289,25 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 		}
 
 		// (insertion) sort in terms of one of the fitnesses
-		for (int i = 1; i < points.size(); i++) {
-			int j = i;
-			while ((j > 0) && (points.get(j).get(0) > points.get(j - 1).get(0))) {
-				Collections.swap(points, i, j);
-				j--;
-			}
-		}
+		// for (int i = 1; i < points.size(); i++) {
+		// 	int j = i;
+		// 	while ((j > 0) && (points.get(j).get(0) > points.get(j - 1).get(0))) {
+		// 		Collections.swap(points, i, j);
+		// 		j--;
+		// 	}
+		// }
 
-		double indicatorSum =0; 
-		if (nondominatedPoints.size()>0){}
+		for (int i = 1; i < points.size(); i++) {
+            int j = i - 1;
+            while (j >= 0 && points.get(j).get(0) > points.get(i).get(0)) {
+				Collections.swap(points, j, j+1);
+                j = j - 1;
+            }
+            points.get(j + 1).set(0,points.get(i).get(0));
+        }
+
+		double indicatorSum = 0.0; 
+		if (nondominatedPoints.size()>0){
 			ArrayList<Double> current = nondominatedPoints.get(0);
 			indicatorSum = current.get(0) * current.get(1);
 			for (int i = 1; i < nondominatedPoints.size(); i++) {
