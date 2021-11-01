@@ -22,18 +22,19 @@ import ontology.Types;
  * Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
 public class Test {
+	// counter to track the number of advance calls
 	public static int advancesRan = 0;
 	// Size of the population of 50
 	static int populationSize = 50;
+	// tracks the hypervolume after the Environmental Selection
 	static int globalHyperVolume = 0;
     public static void main(String[] args) {
 		// games we are playing: Bomber{8}, Boulder Chase{10}, Chase{18}, Garbage Collector{45}
 		int[] gameIndex = {8, 10, 18, 45};
 		int game = 0;
 		System.out.println("Playing gameIndex: " + gameIndex[game]);
-		//int gameLevel = 0;
 		
-		//for each level
+		//for each level in the game
 		for (int gameLevel = 0; gameLevel < 5; gameLevel++) {
 			//go through it 10 times
 			for (int iteration = 0; iteration < 10; iteration++) {
@@ -60,7 +61,6 @@ public class Test {
 				initializePopulation(populationSize, individualLength, actionList, population);
 				
 				int generationLimit = 1000000000;
-				Individual bestInd = new Individual();
 				double previousHyperVolume = 0;
 				double currentHyperVolume = 0;
 				
@@ -75,7 +75,9 @@ public class Test {
 				// Start of the EA
 				for (int gen = 0; gen < generationLimit; gen++){
 					System.out.println("Gen: " + gen + "    advances: " + advancesRan);
+					// update what the previous generations hypervolume was
 					previousHyperVolume = currentHyperVolume;
+
 					// Loop through the population and play the game with each one
 					for(int i = 0; i < population.size(); i++){
 						gameStateCopy = gameState.copy();
@@ -109,8 +111,8 @@ public class Test {
 
 					// This is where we do the hypervolume calculations and trimming down the population
 					population = selection(population);
-					System.out.println("population size: " + population.size());
-					// if there is ever only 1 individual, then just randomly create more do diversify
+
+					// if there is ever only 1 individual, then just randomly create more Individuals do diversify the population
 					if(population.size() <= 1){
 						Individual survivor = new Individual(population.get(0));
 						population.clear();
@@ -147,7 +149,7 @@ public class Test {
 						newPopulation.remove(newPopulation.size()-1);
 					}
 
-					// Mutate the new population excluding the elite
+					// Mutate the new population
 					for(int x = 0; x < population.size(); x++){
 						newPopulation.set(x, mutation(newPopulation.get(x), actionList));
 					}
@@ -220,7 +222,6 @@ public class Test {
      */
 	public static Individual mutation(Individual individual, ArrayList<Types.ACTIONS> actionList) {
 		Individual child = new Individual(individual);
-
 		int length = child.moveSet.size();
 		int numberOfActions = actionList.size();
 		Random rand = new Random();
@@ -228,8 +229,8 @@ public class Test {
 		// set individual mutation rate
 		double ind_rate = 1 / length;
 
+		// Mutates the Individuals moveset randomly
 		for (int i = 0; i < length; i++) {
-
 			double prob = rand.nextDouble();
 			if (prob <= ind_rate) {
 				// get a random action and mutate child
@@ -238,7 +239,7 @@ public class Test {
 			}
 		}
 
-		// add 50 random moves to moveSet
+		// add 50 random moves to the end of the Individuals moveSet
 		for (int j = 0; j < 50; j++) {
 			int actionIndex = rand.nextInt(numberOfActions);
 			child.moveSet.add(actionList.get(actionIndex));
@@ -255,6 +256,8 @@ public class Test {
 		return copyInd;
 	}
 
+	// Initializes the game state for a given game and it's respective level
+	// Returns the resulting initialized game state
 	public static ForwardModel init(int gameIndex, int level){
 		// Available tracks:
 		String sampleRHEAController = "tracks.singlePlayer.advanced.sampleRHEA.Agent";
@@ -288,6 +291,9 @@ public class Test {
 		return gameState;
 	}
 
+	// Initializes a population of individuals up to populationSize and each individuals moveset is as long as individualLength
+	// The movesets of the individuals are a random series of actions from the actionList ArrayList
+	// These Individuals are added to the ArrayList population
 	public static void initializePopulation(int populationSize, int individualLength, ArrayList<Types.ACTIONS> actionList, ArrayList<Individual> population){
 		int numberOfActions = actionList.size();
 		Random rand = new Random();
@@ -307,6 +313,8 @@ public class Test {
 		}
 	}
 
+	// Takes an individual object and a copy of the game state and simulates a player with a set of moves in the game from the start
+	// Returns the individual with the updated move set and score
 	public static Individual playGame(Individual ind, ForwardModel gameStateCopy){
 		// itterate through the game
 		int lastMove = ind.moveSet.size();
@@ -321,15 +329,19 @@ public class Test {
 				break;
 			}
 		}
+		// Update the moveset with all moves that lead up to the game being completed, if not completed
+		// All moves are kept.
 		ArrayList<Types.ACTIONS> newMoves = new ArrayList<Types.ACTIONS>();
 		newMoves.addAll(ind.moveSet.subList(0, lastMove));
 		double newScore = gameStateCopy.getScore();
+		// Create a new individual with the updated moveset and score
 		Individual newIndividual = new Individual(newMoves, newScore);
 		return newIndividual;
 	}
 
+	// returns the population after using the enviromental selection method in SIBEA
 	public static ArrayList<Individual> selection(ArrayList<Individual> population){
-		// Dominance ranking
+		// Calculate the Dominance ranking
 		for(int i = 0; i < population.size(); i++){
 			population.get(i).dominance = 0;
 			double indScore = population.get(i).score;
@@ -344,16 +356,8 @@ public class Test {
 				}
 			}
 		}
-		// End of dominance ranking
-		// System.out.println("SORTING BY DOMINANCE SEEING IF IT WORKS");
-		// for(int x = 0; x < population.size(); x++){
-		// 	System.out.println("i:"+x+"   rank: " + population.get(x).dominance + "   score: " + population.get(x).score + "   length: " + population.get(x).moveSet.size());
-		// }
 		// sort by dominance ranking
 		Collections.sort(population);
-		// for(int x = 0; x < population.size(); x++){
-		// 	System.out.println("i:"+x+"   rank: " + population.get(x).dominance + "   score: " + population.get(x).score + "   length: " + population.get(x).moveSet.size());
-		// }
 
 		// create P' such that P' is a subset of P of the worst rank individuals
 		ArrayList<Individual> nonDominatedPopulation = new ArrayList<Individual>();
@@ -366,17 +370,13 @@ public class Test {
 		}
 		
 		// sort by score and then length
-		// System.out.println("SORTING BY SCORE SEEING IF IT WORKS");
-		// for(int x = 0; x < nonDominatedPopulation.size(); x++){
-		// 	System.out.println("i:"+x+"   rank: " + nonDominatedPopulation.get(x).dominance + "   score: " + nonDominatedPopulation.get(x).score + "   length: " + nonDominatedPopulation.get(x).moveSet.size());
-		// }
 		Collections.sort(nonDominatedPopulation, new SORTBYSCORE());
-		// for(int x = 0; x < nonDominatedPopulation.size(); x++){
-		// 	System.out.println("i:"+x+"   rank: " + nonDominatedPopulation.get(x).dominance + "   score: " + nonDominatedPopulation.get(x).score + "   length: " + nonDominatedPopulation.get(x).moveSet.size());
-		// }
+
+		// if the non-dominated population size is already less than that of the population size then return
 		if(nonDominatedPopulation.size() <= populationSize){
 			return nonDominatedPopulation;
 		}
+
 		// pre-process that removes individuals that give nothing for the hypervolume
 		// remove the nonDominatedPopulation Individuals that contribute nothing
 		// for(int i = 0; i < nonDominatedPopulation.size(); i++){
@@ -387,7 +387,7 @@ public class Test {
 		// 	}
 		// }
 
-		// instead we could remove duplicates
+		// instead we could remove duplicates with a random chance whilst the non dominated population size is larger than the population size
 		if(nonDominatedPopulation.size() > populationSize){
 			Random rand = new Random();
 			for(int i = 0; i < nonDominatedPopulation.size()-1;){
@@ -406,12 +406,10 @@ public class Test {
 		}
 		
 		// if we've already removed the required amount of useless individuals then just return the new population
-		// System.out.println("Start of pre-process");
 		if(nonDominatedPopulation.size() <= populationSize){
 			globalHyperVolume = hypervolumeIndicator(nonDominatedPopulation);
 			return nonDominatedPopulation;
 		}
-		// System.out.println("End of pre-process");
 
 		// keep removing the worst/least useful individual in each loop until the size of the population is small enough
 		while(nonDominatedPopulation.size() > populationSize){
@@ -433,17 +431,10 @@ public class Test {
 
 				//System.out.println("loss:" + nonDominatedPopulation.get(j).loss);
 			}
-			// System.out.println("End of loss calculations");
-			
-			System.out.println("TESTING IF THE LOSS SORTING FUNCTION WORKS");
-			for(int i = 0; i < nonDominatedPopulation.size(); i++){
-				System.out.println("Index: " + i + "   loss:" + nonDominatedPopulation.get(i).loss);
-			}
-			//Sort the population by loss int ascending order
+
+			//Sort the population by loss in ascending order
 			Collections.sort(nonDominatedPopulation, new SORTBYLOSS());
-			for(int i = 0; i < nonDominatedPopulation.size(); i++){
-				System.out.println("Index: " + i + "   loss:" + nonDominatedPopulation.get(i).loss);
-			}
+
 			// remove the least useful individual
 			nonDominatedPopulation.remove(nonDominatedPopulation.size()-1);
 		}
@@ -453,6 +444,7 @@ public class Test {
 	}
 
 	// Sub-step 2
+	// Calculates the hypervolume of a given set of non dominated individuals
 	public static int hypervolumeIndicator (ArrayList<Individual> nonDominatedPopulation) {
 		int hypervolumeSum = 0;
 		// The reference point is (score = 0, length = 11000)
@@ -463,7 +455,7 @@ public class Test {
 		// So we will have the starting reference point of score = 0 and length = 11000
 		// If we have the first point of score = 1 and size = 745
 		// The the hypervolume is (1 - 0) * (11000 * 745) i.e. (point.score - reference.score) * (reference.size - point.size)
-		// After this the reference point's score is updated. 
+		// After this the reference point's score is updated to score = 1 and size = 11000
 
 		// itterate through the population and calculate the hypervolume of each point whilst moving the reference point
 		for(int i = 0; i < nonDominatedPopulation.size(); i++){
@@ -471,26 +463,14 @@ public class Test {
 			// update the new reference point
 			referenceScore = (int)nonDominatedPopulation.get(i).score;
 		}
-		
-		// // calculate hypervolume indicator based on the reference point (0,0)
-		// int hypervolumeSum = (int)nonDominatedPopulation.get(0).score * nonDominatedPopulation.get(0).moveSet.size();
-		// Individual current = nonDominatedPopulation.get(0);
-		// for (int i = 1; i < nonDominatedPopulation.size(); i++) {
-			
-		// 	// take into account of the overlap - Francis' code
-		// 	Individual previous = current;
-		// 	current = nonDominatedPopulation.get(i);
-		// 	hypervolumeSum += nonDominatedPopulation.get(i).score * nonDominatedPopulation.get(i).moveSet.size() - previous.score * previous.moveSet.size();
-		// }
-		
-		// hypervolumeSum is I(P')
+
 		//System.out.println("Sum is:" + hypervolumeSum);
 		return hypervolumeSum;
 	}
 	
 }
 
-
+// The class that will hold all information regarding an individual in the population
 class Individual implements Comparable<Individual>{
 	public ArrayList<Types.ACTIONS> moveSet;
 	public double score;
@@ -527,6 +507,7 @@ class Individual implements Comparable<Individual>{
 	public Individual(Individual that){
 		this(new ArrayList<Types.ACTIONS>(that.moveSet), that.score, that.dominance, that.hyperVolume);
 	}
+	// A generic sort function that will sort in ascending order via the dominance
 	public int compareTo(Individual compareInd){
 		int compareScore=(int)((Individual)compareInd).dominance;
 		return (int)(this.dominance - compareScore);
@@ -534,12 +515,14 @@ class Individual implements Comparable<Individual>{
 	
 }
 
+// A class that will sort in descending order via the score
 class SORTBYSCORE implements Comparator<Individual> {
     public int compare(Individual a, Individual b){
         return (int)(a.score - b.score);
     }
 }
 
+// A class that will sort the individual objects in ascending order via the loss
 class SORTBYLOSS implements Comparator<Individual> {
     public int compare(Individual a, Individual b){
         return (int)(b.loss - a.loss);
