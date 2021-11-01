@@ -12,17 +12,13 @@ public class SharedData {
 	 */
 	public static final int POPULATION_SIZE = 50;
 	/**
-	 * The amount of times used to check the one step look ahead and do nothing algorithm
-	 */
-	public static final int REPETITION_AMOUNT = 50;
-	/**
 	 * the amount of time to evaluate a single level
 	 */
 	public static final long EVALUATION_TIME = 30000;
 	/**
 	 * The amount of time given for each time step
 	 */
-	public static final long EVALUATION_STEP_TIME = 40;
+	public static final long EVALUATION_STEP_TIME = 100;
 	/**
 	 * Crossover probability
 	 */
@@ -39,6 +35,15 @@ public class SharedData {
 	 * very small value
 	 */
 	public static final double EIPSLON = 1e-6;
+	/**
+	 * The number of generations of the EA
+	 */
+	public static final int NUM_GENERATIONS = 100;
+	/**
+	 * The width and height of the levels
+	 */
+	public static final int LEVEL_WIDTH = 16;
+	public static final int LEVEL_HEIGHT = 16;
 	
 	/**
 	 * the amount of mutations done on a chromosome to start as random
@@ -47,7 +52,7 @@ public class SharedData {
 	/**
 	 * the probability of inserting a new sprite
 	 */
-	public static final double INSERTION_PROB = 0.3;
+	public static final double INSERTION_PROB = 0.5;
 	/**
 	 * the probability of deleting an exisiting sprite
 	 */
@@ -101,7 +106,7 @@ public class SharedData {
 	/**
 	 * The name of a the best agent with some human error
 	 */
-	public static final String AGENT_NAME = "tracks.singlePlayer.tools.repeatOLETS.Agent";
+	public static final String AGENT_NAME = "tracks.singlePlayer.advanced.sampleMCTS.Agent";
 	/**
 	 * The name of a naive agent
 	 */
@@ -110,6 +115,10 @@ public class SharedData {
 	 * The name of the do nothing agent
 	 */
 	public static final String DO_NOTHING_AGENT_NAME = "tracks.singlePlayer.simple.doNothing.Agent";
+	/**
+	 * The number of trials that an agent will have to do
+	 */
+	public static final int NUM_AGENT_TRIALS = 1;
 	
 	/**
 	 * The game description object

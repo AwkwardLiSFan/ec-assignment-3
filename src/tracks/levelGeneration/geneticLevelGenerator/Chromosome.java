@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 import core.game.Event;
 import core.game.GameDescription.SpriteData;
@@ -51,6 +52,11 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * The current stateObservation of the level
 	 */
 	private StateObservation stateObs;
+	/**
+	 * specific sprite data pointers
+	 */
+	private ArrayList<SpriteData> spriteData;
+
 	
 	/**
 	 * initialize the chromosome with a certain length and width
@@ -68,6 +74,17 @@ public class Chromosome implements Comparable<Chromosome>{
 		this.fitness = new ArrayList<Double>();
 		this.calculated = false;
 		this.stateObs = null;
+
+		this.spriteData = SharedData.gameDescription.getAllSpriteData();
+
+		for (int i = 0; i < this.spriteData.size(); i++) {
+			if (this.spriteData.get(i).name.equals("background")
+				|| this.spriteData.get(i).name.equals("walked")
+				|| this.spriteData.get(i).name.equals("rock")) {
+				this.spriteData.remove(i);
+				i--;
+			}
+		}
 	}
 	
 
@@ -157,7 +174,7 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * crossover the current chromosome with the input chromosome
 	 * @param c	the other chromosome to crossover with
 	 * @return	the current children from the crossover process
-	 */
+	 
 	public ArrayList<Chromosome> crossOver(Chromosome c){
 		ArrayList<Chromosome> children = new ArrayList<Chromosome>();
 		children.add(new Chromosome(level[0].length, level.length));
@@ -198,12 +215,45 @@ public class Chromosome implements Comparable<Chromosome>{
 		children.get(1).constructAgent();
 		
 		return children;
-	}
+	}*/
 	
+	/**
+	 * crossover the current chromosome with the input chromosome
+	 * @param c	the other chromosome to crossover with
+	 * @return	the current children from the crossover process
+	 */
+	public ArrayList<Chromosome> crossOver(Chromosome other){
+		ArrayList<Chromosome> children = new ArrayList<Chromosome>();
+		children.add(new Chromosome(level[0].length, level.length));
+		children.add(new Chromosome(level[0].length, level.length));
+
+		// find crossover point in the row of the first half of the map
+		int pointX = SharedData.random.nextInt(level[0].length);
+
+		for (int y = 0; y < level.length; y++) {
+			for (int x = 0; x < pointX; x++) {
+				children.get(0).level[y][x].addAll(this.level[y][x]);
+				children.get(1).level[y][x].addAll(other.level[y][x]);
+			}
+
+			for (int x = pointX; x < level[0].length; x++) {
+				children.get(0).level[y][x].addAll(other.level[y][x]);
+				children.get(1).level[y][x].addAll(this.level[y][x]);
+			}
+		}
+
+		children.get(0).FixLevel();
+		children.get(1).FixLevel();
+		
+		children.get(0).constructAgent();
+		children.get(1).constructAgent();
+		
+		return children;
+	}
 
 	/**
 	 * mutate the current chromosome
-	 */
+	 
 	public void mutate(){
 		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
 		
@@ -239,8 +289,149 @@ public class Chromosome implements Comparable<Chromosome>{
 		}
 		
 		FixLevel();
-	}
+	}*/
+
+	/**
+	 * mutate the current chromosome: #1
 	
+	public void mutate(){
+		// get all the sprites available
+		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+		
+		// mutate based on pre-defined mutation amount 
+		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++){
+
+			int solidFrame = 0;
+			if(SharedData.gameAnalyzer.getSolidSprites().size() > 0){
+				solidFrame = 2;
+			}
+			// find a random point in the left-half of the map 
+			int pointX = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+			int pointY = SharedData.random.nextInt(level.length/2 - solidFrame) + solidFrame / 2;
+
+			// based on the fixed insertion probability, insert a sprite at a random location on the left half, ensure symmetry is maintained
+			if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB){
+				String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+				ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+				int index = SharedData.random.nextInt(freePositions.size());
+				level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+				level[level[0].length - freePositions.get(index).y - 1][freePositions.get(index).x].add(spriteName);
+				
+				//level[pointY][pointX].add(spriteName);
+				//level[level[0].length - pointY][pointX].add(spriteName);
+			}
+
+			// if insertion not carried out, replace a random sprite on the left half of the map with the equivalent sprite on the right half to 
+			// promote symmetry
+			else {
+				int point2X = SharedData.random.nextInt(level[0].length/2 - solidFrame) + solidFrame / 2;
+				int point2Y = SharedData.random.nextInt(level.length - solidFrame) + solidFrame / 2;
+				level[point2Y][point2X] = level[level.length - point2Y][point2X];
+			}	
+		}
+		FixLevel();
+	}
+	*/
+
+	/**
+	 * mutate the current chromosome: #2
+	 */
+	public void mutate(){
+		
+		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++){
+
+			// iterate over each row
+			for(int row = 0; row < level.length; row++){
+				
+				// select two random points in this row 
+				int pointOne = SharedData.random.nextInt(level[row].length);
+				int pointTwo = SharedData.random.nextInt(level[row].length);
+				// ensure that both points are different 
+				while (pointOne == pointTwo){
+					pointOne = SharedData.random.nextInt(level[row].length);
+					pointTwo = SharedData.random.nextInt(level[row].length);
+				}
+
+				// swap the elements at these two positions in the row 
+				ArrayList<String> temp = level[row][pointOne];
+				level[row][pointOne] = level[row][pointTwo];
+				level[row][pointTwo] = temp;
+				
+				// carry out inversion of the row with 50% probability 
+				if(SharedData.random.nextDouble() > 0.5){
+					int start = 0; 
+					int end = level[0].length - 1;
+
+					while (start < end){
+						ArrayList<String> t = level[row][start];
+						level[row][start] = level[row][end];
+						level[row][end] = t;
+						start++; 
+						end--;
+					}
+				}
+				// delete a random point in the row
+				else{
+					level[row][SharedData.random.nextInt(level[row].length)].clear(); 
+				}
+			}
+
+			// get the list of all sprites 
+			ArrayList<SpriteData> allSprites = this.spriteData;
+
+			// select a sprite randomly 
+			String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+			// 70% of the time, change randomly selected sprite to a ground sprite
+			if (SharedData.random.nextInt(100) < 60)
+				spriteName = "ground"; 
+
+			// get the list of all free positions where above sprite is not present 
+			ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+				
+			// replace one of the free positions with 10% probability
+			if (SharedData.random.nextDouble() < 0.1){	
+				// select a random index for one of the free positions 
+				int index = SharedData.random.nextInt(freePositions.size());
+				// add the chosen sprite to this position
+				level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+			}
+		}
+
+		ArrayList<SpriteData> allSprites = this.spriteData;
+		
+		for(int i = 0; i < SharedData.MUTATION_AMOUNT; i++)
+		{
+			int solidFrame = 0;
+			if(SharedData.gameAnalyzer.getSolidSprites().size() > 0){
+				solidFrame = 2;
+			}
+			int pointX = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+			int pointY = SharedData.random.nextInt(level.length - solidFrame) + solidFrame / 2;
+			//insert new random sprite to a new random free position
+			if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB){
+				String spriteName = allSprites.get(SharedData.random.nextInt(allSprites.size())).name;
+				ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+				int index = SharedData.random.nextInt(freePositions.size());
+				level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+			}
+
+			//clear any random position
+			else if(SharedData.random.nextDouble() < SharedData.INSERTION_PROB + SharedData.DELETION_PROB){
+				level[pointY][pointX].clear();
+			}
+			//swap any two random positions
+			else{
+				int point2X = SharedData.random.nextInt(level[0].length - solidFrame) + solidFrame / 2;
+				int point2Y = SharedData.random.nextInt(level.length - solidFrame) + solidFrame / 2;
+				
+				ArrayList<String> temp = level[pointY][pointX];
+				level[pointY][pointX] = level[point2Y][point2X];
+				level[point2Y][point2X] = temp;
+			}
+		}
+		
+		FixLevel();
+	}
 
 	/**
 	 * get the free positions in the current level (that doesnt contain solid or object from the input list)
@@ -292,7 +483,28 @@ public class Chromosome implements Comparable<Chromosome>{
 		
 		return positions;
 	}
-	
+
+	/**
+	 * Randomly add given sprite on the board, keep.
+	 * @param s	data for chosen sprite
+	 */
+	private void addSprite(SpriteData s) {
+
+		// gets the sprite name based on the sprite data passed as an argument to the method 
+		String spriteName = s.name;
+
+		// gets all free positions on the board where the sprite can be added 
+		ArrayList<SpritePointData> freePositions = getFreePositions(new ArrayList<String>(Arrays.asList(new String[]{spriteName})));
+
+		// select a random point out of all free positions 
+		int index = SharedData.random.nextInt(freePositions.size());
+
+		// adds the sprite to selected position on the map
+		level[freePositions.get(index).y][freePositions.get(index).x].add(spriteName);
+
+		// ensure symmetry by adding the sprite to the other half of the map 
+		level[level[0].length - freePositions.get(index).y - 1][freePositions.get(index).x].add(spriteName);
+	}
 
 	/**
 	 * Fix the player in the level (there must be only one player no more or less)
@@ -307,7 +519,7 @@ public class Chromosome implements Comparable<Chromosome>{
 
 		//get list of all the avatar positions in the level
 		ArrayList<SpritePointData> avatarPositions = getPositions(avatarNames);
-		
+
 		// if not avatar insert a new one 
 		if(avatarPositions.size() == 0){
 			ArrayList<SpritePointData> freePositions = getFreePositions(avatarNames);
@@ -327,6 +539,13 @@ public class Chromosome implements Comparable<Chromosome>{
 				index += 1;
 			}
 		}
+
+		//get the list of all the avatar names
+		avatar = SharedData.gameDescription.getAvatar();
+		avatarNames = new ArrayList<String>();
+		for(SpriteData a:avatar){
+			avatarNames.add(a.name);
+		}
 	}
 	
 
@@ -334,6 +553,16 @@ public class Chromosome implements Comparable<Chromosome>{
 	 * Fix the level by fixing the player number
 	 */
 	private void FixLevel(){
+		// mirror one side of the level
+		int width = level.length;
+		int height = level[0].length;
+		for (int i = 0; i < width / 2; i++) {
+			for (int j = 0; j < height; j++) {
+				level[i][j].clear();
+				level[i][j].addAll(level[width - 1 - i][j]);
+			}
+		}
+
 		FixPlayer();
 	}
 	
@@ -423,7 +652,7 @@ public class Chromosome implements Comparable<Chromosome>{
 	 */
 	private HashMap<String, Integer> calculateNumberOfObjects(){
 		HashMap<String, Integer> objects = new HashMap<String, Integer>();
-		ArrayList<SpriteData> allSprites = SharedData.gameDescription.getAllSpriteData();
+		ArrayList<SpriteData> allSprites = this.spriteData;
 		
 
 		//initialize the hashmap with all the sprite names
@@ -545,91 +774,88 @@ public class Chromosome implements Comparable<Chromosome>{
 	/**
 	 * Calculate the current fitness of the chromosome
 	 * @param time	amount of time to evaluate the chromosome
-	 * @return		current fitness of the chromosome
+	 * @return		current fitness of the chromosome.
+	 *              Entry 0 is the proportion of wins from 10 trials of the best agent on this level,
+	 *              and entry 1 is the minimum number of moves (contains Integer.MAX_VALUE if not found)
 	 */
 	public ArrayList<Double> calculateFitness(long time){
 		if(!calculated){
 			calculated = true;
 			StateObservation stateObs = getStateObservation();
-			
 
-			//Play the game using the best agent
-			StepController stepAgent = new StepController(automatedAgent, SharedData.EVALUATION_STEP_TIME);
-			ElapsedCpuTimer elapsedTimer = new ElapsedCpuTimer();
-			elapsedTimer.setMaxTimeMillis(time);
-			stepAgent.playGame(stateObs.copy(), elapsedTimer);
-			
-			StateObservation bestState = stepAgent.getFinalState();
-			ArrayList<Types.ACTIONS> bestSol = stepAgent.getSolution();
+			int numWins = 0;
+			int minMoves = Integer.MAX_VALUE;
 
-			StateObservation doNothingState = null;
-			int doNothingLength = Integer.MAX_VALUE;
-			//playing the game using the donothing agent and naive agent
-			for(int i=0; i<SharedData.REPETITION_AMOUNT; i++){
-				StateObservation tempState = stateObs.copy();
-				int temp = getNaivePlayerResult(tempState, bestSol.size(), doNothingAgent);
-				if(temp < doNothingLength){
-					doNothingLength = temp;
-					doNothingState = tempState;
+			//Play the game NUM_AGENT_TRIALS times using the best agent
+			for (int i = 0; i < SharedData.NUM_AGENT_TRIALS; i++) {
+				StepController stepAgent = new StepController(automatedAgent, SharedData.EVALUATION_STEP_TIME);
+				ElapsedCpuTimer elapsedTimer = new ElapsedCpuTimer();
+				elapsedTimer.setMaxTimeMillis(time / SharedData.NUM_AGENT_TRIALS);
+				stepAgent.playGame(stateObs.copy(), elapsedTimer);
+
+				StateObservation bestState = stepAgent.getFinalState();
+				ArrayList<Types.ACTIONS> bestSol = stepAgent.getSolution();
+
+				if (bestState.getGameWinner() == Types.WINNER.PLAYER_WINS) {
+					numWins++;
+
+					if (minMoves > bestSol.size()) {
+						minMoves = bestSol.size();
+					}
 				}
 			}
-			double coverPercentage = getCoverPercentage();
-			
-			//calculate the maxScore need to be satisfied based on the difference 
+
+			fitness.add(new Double(minMoves));
+
+			// Calculate the number of ground tiles present
+			int groundTileCount = 0;
+			for (int i = 0; i < level.length; i++) {
+				for (int j = 0; j < level[0].length; j++) {
+					if (level[i][j].indexOf("ground") != -1) {
+						groundTileCount++;
+					}
+				}
+			}
+
+			fitness.add(new Double(groundTileCount));
+
+			System.out.println(fitness);
+			System.out.println("LevelMapping:");
+			for (Map.Entry<Character, ArrayList<String>> e : this.getLevelMapping().getCharMapping().entrySet()) {
+				System.out.print("    " + e.getKey() + " > ");
+				for (String s : e.getValue()) {
+					System.out.print(s + " ");
+				}
+				System.out.println();
+			}
+			System.out.println(this.getLevelString(this.getLevelMapping()));
+
+			//calculate the maxScore need to be satisfied based on the difference
 			//between the score of different collectible objects
 			double maxScore = 0;
 			if(SharedData.gameAnalyzer.getMinScoreUnit() > 0){
 				double numberOfUnits = SharedData.gameAnalyzer.getMaxScoreUnit() / (SharedData.MAX_SCORE_PERCENTAGE * SharedData.gameAnalyzer.getMinScoreUnit());
 				maxScore = numberOfUnits * SharedData.gameAnalyzer.getMinScoreUnit();
 			}
-			
 
 			//calculate the constrain fitness by applying all different constraints
 			HashMap<String, Object> parameters = new HashMap<String, Object>();
-			parameters.put("solutionLength", bestSol.size());
-			parameters.put("minSolutionLength", SharedData.MIN_SOLUTION_LENGTH);
-			parameters.put("doNothingSteps", doNothingLength);
-			parameters.put("doNothingState", doNothingState.getGameWinner());
-			parameters.put("bestPlayer", bestState.getGameWinner());
-			parameters.put("minDoNothingSteps", SharedData.MIN_DOTHING_STEPS);
-			parameters.put("coverPercentage", coverPercentage);
+			parameters.put("numWins", numWins);
+			parameters.put("coverPercentage", getCoverPercentage());
 			parameters.put("minCoverPercentage", SharedData.MIN_COVER_PERCENTAGE);
 			parameters.put("maxCoverPercentage", SharedData.MAX_COVER_PERCENTAGE);
 			parameters.put("numOfObjects", calculateNumberOfObjects());
 			parameters.put("gameAnalyzer", SharedData.gameAnalyzer);
 			parameters.put("gameDescription", SharedData.gameDescription);
-			
-			CombinedConstraints constraint = new CombinedConstraints();
-			constraint.addConstraints(new String[]{"SolutionLengthConstraint", "DeathConstraint", 
 
-					"CoverPercentageConstraint", "SpriteNumberConstraint", "GoalConstraint", "AvatarNumberConstraint", "WinConstraint"});
+			CombinedConstraints constraint = new CombinedConstraints();
+			constraint.addConstraints(new String[]{"CoverPercentageConstraint",
+												   "SpriteNumberConstraint",
+												   "GoalConstraint",
+												   "AvatarNumberConstraint",
+												   "WinConstraint"});
 			constraint.setParameters(parameters);
 			constrainFitness = constraint.checkConstraint();
-			
-			System.out.println("SolutionLength:" + bestSol.size() + " doNothingSteps:" + doNothingLength + " coverPercentage:" + coverPercentage + " bestPlayer:" + bestState.getGameWinner());
-			
-
-			//calculate the fitness if it satisfied all the constraints
-			if(constrainFitness >= 1){
-				StateObservation naiveState = null;
-				for(int i=0; i<SharedData.REPETITION_AMOUNT; i++){
-					StateObservation tempState = stateObs.copy();
-					getNaivePlayerResult(tempState, bestSol.size(), naiveAgent);
-					if(naiveState == null || tempState.getGameScore() > naiveState.getGameScore()){
-						naiveState = tempState;
-					}
-				}
-				
-				double scoreDiffScore = getGameScore(bestState.getGameScore() - naiveState.getGameScore(), maxScore);
-				double ruleScore = getUniqueRuleScore(bestState, SharedData.MIN_UNIQUE_RULE_NUMBER);
-				
-				fitness.add(scoreDiffScore);
-				fitness.add(ruleScore);
-			}
-
-			this.automatedAgent = null;
-			this.naiveAgent = null;
-			this.stateObs = null;
 		}
 		
 		return fitness;
@@ -645,14 +871,15 @@ public class Chromosome implements Comparable<Chromosome>{
 	
 
 	/**
-	 * Get the average value of the fitness
-	 * @return	average value of the fitness array
+	 * Get the sum of fitnesses
+	 * @return	sum of fitnesses in the fitness aray
 	 */
 	public double getCombinedFitness(){
 		double result = 0;
-		for(double v: this.fitness){
+		for (double v: this.fitness){
 			result += v;
 		}
+
 		return result / this.fitness.size();
 	}
 	
@@ -697,22 +924,22 @@ public class Chromosome implements Comparable<Chromosome>{
 			}
 			return 0;
 		}
-		
+
 		double firstFitness = 0;
 		double secondFitness = 0;
 		for(int i=0; i<this.fitness.size(); i++){
 			firstFitness += this.fitness.get(i);
 			secondFitness += o.fitness.get(i);
 		}
-		
+
 		if(firstFitness > secondFitness){
 			return -1;
 		}
-		
+
 		if(firstFitness < secondFitness){
 			return 1;
 		}
-		
+
 		return 0;
 	}
 }
