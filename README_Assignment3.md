@@ -10,6 +10,7 @@
 ### Exercise 2:
 1. Checkout to feature/exercise-2 branch on Github: https://github.com/AwkwardLiSFan/ec-assignment-3
 2. Run code in src/tracks/singlePlayer/Test.java
+3. exercise-2-results directory contains all the txt files for each level of each game 10 times
 
 ### Exercise 3:
 1. Checkout to feature/exercise-3 branch on Github
