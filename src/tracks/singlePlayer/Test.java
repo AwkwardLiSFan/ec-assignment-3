@@ -42,6 +42,7 @@ public class Test {
 				advancesRan = 0;
 				// Creating a copy of the game state\
 				ForwardModel gameState = init(gameIndex[game], gameLevel);
+				// Setting the seed to make the game deterministic
 				gameState.setNewSeed(-131244659);
 				ForwardModel gameStateCopy = gameState.copy();
 				gameStateCopy.setNewSeed(-131244659);
