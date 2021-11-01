@@ -284,7 +284,7 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 
 		// TODO: make this for-loop more efficient
 		for (ArrayList<Double> c : points) {
-			if (dominate(c, points)==(0))
+			if (dominate(c, points)==0)
 				nondominatedPoints.add(c);
 		}
 
@@ -297,13 +297,16 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 			}
 		}
 
-		ArrayList<Double> current = nondominatedPoints.get(0);
-		double indicatorSum = current.get(0) * current.get(1);
-		for (int i = 1; i < nondominatedPoints.size(); i++) {
-			ArrayList<Double> previous = current;
-			current = nondominatedPoints.get(i);
-			indicatorSum += current.get(0) * current.get(1)
-				- previous.get(0) * previous.get(1);
+		double indicatorSum =0; 
+		if (nondominatedPoints.size()>0){}
+			ArrayList<Double> current = nondominatedPoints.get(0);
+			indicatorSum = current.get(0) * current.get(1);
+			for (int i = 1; i < nondominatedPoints.size(); i++) {
+				ArrayList<Double> previous = current;
+				current = nondominatedPoints.get(i);
+				indicatorSum += current.get(0) * current.get(1)
+					- previous.get(0) * previous.get(1);
+			}
 		}
 
 		return indicatorSum;
