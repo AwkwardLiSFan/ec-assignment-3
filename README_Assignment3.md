@@ -20,4 +20,4 @@
 ### Exercise 4:
 1. Checkout to master and run code in src/tracks/levelGeneration/TestLevelGeneration.java
 2. Note that the code may take a long time to run before the final level is generated. 
-3. The LevelGenerator and Chromosome files we created/edited for this exercise can be found at src/tracks/levelGeneration/geneticLevelGenerator/
+3. The LevelGenerator and Chromosome files we created/edited for this exercise can be found at src/tracks/levelGeneration/geneticLevelGenerator/ and are LevelGeneratorAssignment3.java and Chromosome.java respectively. 
