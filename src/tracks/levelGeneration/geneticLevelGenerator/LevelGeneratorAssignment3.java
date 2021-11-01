@@ -280,12 +280,12 @@ public class LevelGeneratorAssignment3 extends AbstractLevelGenerator{
 	 */
 	private double getHypervolumeIndicator(ArrayList<ArrayList<Double>> points) {
 		ArrayList<ArrayList<Double>> nondominatedPoints = new ArrayList<ArrayList<Double>>();
-		nondominatedPoints.addAll(points);
+		//nondominatedPoints.addAll(points);
 
 		// TODO: make this for-loop more efficient
 		for (ArrayList<Double> c : points) {
-			if (dominate(c, points) != 0)
-				nondominatedPoints.remove(c);
+			if (dominate(c, points)==(0))
+				nondominatedPoints.add(c);
 		}
 
 		// (insertion) sort in terms of one of the fitnesses
